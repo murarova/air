@@ -63,6 +63,21 @@ const headerLinksStyle = (theme) => ({
       },
     },
   },
+  email: {
+    marginLeft: "10px",
+    textTransform: "lowercase",
+  },
+  phone: {
+    marginLeft: "12px",
+    textTransform: "lowercase",
+  },
+  contacts: {
+    display: "flex",
+    flexDirection: "column",
+    "& > a": {
+      padding: "0",
+    },
+  },
   notificationNavLink: {
     [theme.breakpoints.down("md")]: {
       top: "0",

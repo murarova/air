@@ -118,7 +118,9 @@ small {
   font-weight: 400;
 }
 img {
-  vertical-align: middle;
+  display: block;
+  width: 100%;
+  height: auto;
   border-style: none;
 }
 form {
