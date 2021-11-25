@@ -14,7 +14,7 @@ export default function TrailInstallation() {
     <Section
       title="Закладка трасс."
       image="/img/trail.jpeg"
-      position="Right"
+      position="right"
       id="trail"
       link="/trail"
     >

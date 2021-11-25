@@ -29,7 +29,7 @@ Router.events.on("routeChangeStart", (url) => {
   console.log(`Loading: ${ url }`);
   document.body.classList.add("body-page-transition");
   ReactDOM.render(
-    <PageChange path={ url } />,
+    <PageChange />,
     document.getElementById("page-transition")
   );
 });
@@ -82,7 +82,7 @@ export default class MyApp extends App {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <title>AirMaster</title>
+          <title>Air Master</title>
         </Head>
         <Component { ...pageProps } />
       </React.Fragment>

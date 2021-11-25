@@ -11,8 +11,8 @@ import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Table from "components/Table/Table.js";
-import { nanoid } from 'nanoid'
 
+import { maintenanceRows, maintenanceHeader } from "assets/tables-data.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/pages.js";
 
@@ -21,25 +21,6 @@ import styles from "styles/jss/nextjs-material-kit/pages/pages.js";
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
-
-function createData(name, square, power, price) {
-  const id = nanoid();
-  return { id, name, data: [ square, power, price ] };
-}
-
-const rows = [
-  createData('Чистка внутреннего блока, ТО', "20-25 м2", "07-09", "500 грн"),
-  createData('Чистка внутреннего блока, ТО', "35 м2", "12", "600 грн"),
-  createData('Чистка внутреннего блока, ТО', "50 м2", "18", "800 грн"),
-  createData('Чистка внутреннего блока, ТО', "от 70 м2", "24 - 30", "1000 грн"),
-  createData('Чистка наружного блока парогенератором', null, null, "200 грн"),
-  createData('Мойка наружного блока керхером', null, null, "200 грн"),
-  createData('Запрака фреоном R - 22, R - 410, R- 32', null, null, "100 гр/ 100 грн"),
-  createData('Вакуумирование системы', null, null, "150 грн"),
-  createData('Вальцовка соединения (при выявлении утечки фреона)', null, null, "1 шт/ 100 грн")
-];
-
-const header = [ 'Вид работ', 'Условная площадь помещения', 'Мощность  кондиционера,  btu', 'Стоимость, грн' ]
 
 
 export default function MaintenancePage(props) {
@@ -50,7 +31,7 @@ export default function MaintenancePage(props) {
       <Header
         color="white"
         routes={ dashboardRoutes }
-        brand="Vital Air"
+        brand="Air Master"
         rightLinks={ <HeaderLinks /> }
         fixed
         { ...rest }
@@ -73,12 +54,11 @@ export default function MaintenancePage(props) {
               <li className={ classes.listItem }>Чистка испарителя с помощью парогенератора.</li>
               <li className={ classes.listItem }>Сборка кондиционера.</li>
               <li className={ classes.listItem }>Проверка работоспособности.</li>
-
             </ol>
           </div>
           <div className={ classes.tableContainer }>
             <h4 className={ classes.sectionTitle }>Прайс-лист</h4>
-            <Table className={ classes.table } rows={ rows } header={ header } />
+            <Table className={ classes.table } rows={ maintenanceRows } header={ maintenanceHeader } />
           </div>
         </div>
       </div>

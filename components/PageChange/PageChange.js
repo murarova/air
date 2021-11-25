@@ -5,16 +5,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 // core components
-import { infoColor, title } from "styles/jss/nextjs-material-kit.js";
+import { tealColor, title } from "styles/jss/nextjs-material-kit.js";
 
 const useStyles = makeStyles({
   progress: {
-    color: infoColor,
+    color: tealColor,
     width: "6rem !important",
     height: "6rem !important",
   },
   wrapperDiv: {
-    margin: "100px auto",
+    margin: "150px auto",
     padding: "0px",
     maxWidth: "360px",
     textAlign: "center",
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function PageChange(props) {
+export default function PageChange() {
   const classes = useStyles();
   return (
     <div>
@@ -39,9 +39,6 @@ export default function PageChange(props) {
         <div className={classes.iconWrapper}>
           <CircularProgress className={classes.progress} />
         </div>
-        <h4 className={classes.title}>
-          Loading page contents for: {props.path}
-        </h4>
       </div>
     </div>
   );

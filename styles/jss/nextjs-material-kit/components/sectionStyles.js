@@ -3,11 +3,11 @@ import { title } from "styles/jss/nextjs-material-kit.js";
 const sectionStyles = {
   section: {
     padding: "20px 0",
-    textAlign: "center",
   },
   title: {
     ...title,
-    marginBottom: "1rem",
+    textAlign: "center",
+    marginBottom: "2rem",
     marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none",
@@ -15,20 +15,22 @@ const sectionStyles = {
   description: {
     color: "#3c4858",
   },
-  wrapRight: {
-    width: "40%",
-    float: "left",
-    margin: "10px"
-  },
-  wrapLeft: {
-    width: "40%",
-    float: "right",
-    margin: "10px"
-  },
+  container: ({ position }) => ({
+    display: "flex",
+    flexDirection: position === "left" ? "row" : "row-reverse",
+  }),
+  image: ({ image }) => ({
+    flex: "1",
+    background: `linear-gradient(92deg,rgba(255,255,255,.0001) 0%\,rgba(255,255,255,.3) 100%)\,url(${ image })`,
+    backgroundSize: "cover"
+  }),
   sectionText: {
-    textAlign: "justify",
-    textIndent: "2em"
+    flex: "1",
   },
+  btnWrapper: {
+    display: "flex",
+    justifyContent: "start"
+  }
 };
 
 export default sectionStyles;

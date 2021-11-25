@@ -1,10 +1,12 @@
-import { BlockRounded } from "@material-ui/icons";
 import { container, title } from "styles/jss/nextjs-material-kit.js";
 
 const landingPageStyle = {
   container: {
     zIndex: "12",
     color: "",
+    padding: "10px 0 30px",
+    minHeight: "calc(100vh - 50px - 50px - 80px)",
+    height: "100%",
     ...container,
   },
   title: {
@@ -13,7 +15,7 @@ const landingPageStyle = {
     position: "relative",
     marginTop: "30px",
     minHeight: "32px",
-    color: "#FFFFFF",
+    color: "#55555",
     textDecoration: "none",
   },
   subtitle: {
@@ -34,13 +36,111 @@ const landingPageStyle = {
   },
   sectionTitle: {
     fontWeight: "bold",
+    marginTop: "30px"
   },
-  tableContainer: {
-    padding: "20px 0"
+  listItem: {
+    listStyle: "none",
+    paddingLeft: "50px",
+    position: "relative",
+    "&:before": {
+      content: '"\\276F"',
+      position: "absolute",
+      left: "1em",
+      color: "teal"
+    }
   },
-  table: {
-    padding: "20px 0",
-  }
+  trailTitle: {
+    fontWeight: "bold"
+  },
+  trailSube: {
+    fontWeight: "bold",
+    paddingLeft: "50px",
+    position: "relative",
+    "&:before": {
+      content: '"\\276F"',
+      position: "absolute",
+      left: "1em",
+      color: "teal"
+    }
+  },
+  accent: {
+    fontWeight: "bold",
+  }, 
+  deliveryCard: {
+    width: "80%",
+    height: "400px",
+    padding: "20px",
+    background: "rgba(32,32,32,.7)",
+    borderRadius: "5px",
+    color: "#FFFFFF",
+    "@media (max-width: 992px)": {
+      width: "100%",
+    },
+    "& > h2": {
+      marginBottom: "20px"
+    },
+    "& > p": {
+      fontSize: "18px"
+    }
+  },
+  contactsCard: {
+    borderRadius: "5px",
+    width: "50%",
+    height: "300px",
+    padding: "20px",
+    background: "rgba(32,32,32,.7)",
+    color: "#FFFFFF",
+    fontWeight: "500",
+    "@media (max-width: 992px)": {
+      width: "100%",
+    },
+  },
+  contactsItem:{
+    color: "#FFFFFF",
+    fontSize: "18px",
+    padding: '10px 0',
+    margin: "0",
+    fontWeight: "500",
+    "&:hover,&:focus": {
+      color: "teal",
+    },
+  },
+  contactsItemCity: {
+    color: "#FFFFFF",
+    fontSize: "18px",
+    padding: '10px 0',
+    margin: "0",
+    fontWeight: "500",
+  },
+  icons: {
+    width: "20px",
+    height: "20px",
+    marginRight: "3px",
+    color: "inherit"
+  },
+  socialIcons: {
+    position: "relative",
+    fontSize: "20px !important",
+    marginRight: "4px",
+    color: "inherit"
+  },
+  email: {
+    marginLeft: "10px",
+    textTransform: "lowercase",
+    color: "inherit"
+  },
+  phone: {
+    marginLeft: "12px",
+    textTransform: "lowercase",
+    color: "inherit"
+  },
+  pageWithBackground: {
+    minHeight: "calc(100vh - 50px - 50px - 80px)",
+    height: "100%",
+    padding: "30px",
+    background: `linear-gradient(92deg,rgba(255,255,255,.0001) 0%\,rgba(255,255,255,.3) 100%)\,url(img/contacts-bg.jpeg)`,
+    backgroundSize: "cover"
+  },
 };
 
 export default landingPageStyle;

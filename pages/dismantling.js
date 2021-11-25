@@ -11,8 +11,8 @@ import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Table from "components/Table/Table.js";
-import { nanoid } from 'nanoid'
 
+import {dismantlingRows, dismantlingHeader } from "assets/tables-data.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/pages.js";
 
@@ -22,28 +22,7 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-function createData(name, square, power, price) {
-  const id = nanoid();
-  return { id, name, data: [ square, power, price ] };
-}
-
-const rows = [
-  createData('Демонтаж бытовых кондиционеров 7 -12 tbtu', "600 грн"),
-  createData('Демонтаж настенных кондиционеров 18 - 36 tbtu', "700 грн"),
-  createData('Демонтаж напольно-потолочных кондиционеров 18 - 24 btu', "900 грн"),
-  createData('Демонтаж кассетных, канальных,  кондиционеров 18 -24 btu', "900 грн"),
-  createData('Демонтаж полупромышленной серии кондиционеров 30 - 60 btu', "1200 грн"),
-  createData('Демонтаж бытовых кондиционеров   7 -12 tbtu, более 2 шт', "600 грн"),
-  createData('Демонтаж настенных кондиционеров 18 - 36 tbtu,  более 2 шт', "700 грн"),
-  createData('Демонтаж напольно-потолочных кондиционеров 18 - 24 btu,  более 2 шт', "900 грн"),
-  createData('Демонтаж кассетных, канальных,  кондиционеров 18 -24 btu,  более 2 шт', "900 грн"),
-  createData('Демонтаж полупромышленной серии кондиционеров 30 - 60 btu,  более 2 шт', "1200 грн")
-];
-
-const header = [ 'Услуга', 'Стоимость, грн' ]
-
-
-export default function MaintenancePage(props) {
+export default function DismantlingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
@@ -51,7 +30,7 @@ export default function MaintenancePage(props) {
       <Header
         color="white"
         routes={ dashboardRoutes }
-        brand="Vital Air"
+        brand="Air Master"
         rightLinks={ <HeaderLinks /> }
         fixed
         { ...rest }
@@ -67,7 +46,7 @@ export default function MaintenancePage(props) {
           </div>
           <div className={ classes.tableContainer }>
             <h4 className={ classes.sectionTitle }>Прайс-лист</h4>
-            <Table className={ classes.table } rows={ rows } header={ header } />
+            <Table className={ classes.table } rows={ dismantlingRows } header={ dismantlingHeader } />
           </div>
         </div>
       </div>

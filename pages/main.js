@@ -31,21 +31,22 @@ const useStyles = makeStyles(styles);
 export default function LandingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+
   return (
     <div>
       <Header
-        color="transparent"
+        color="halfTransparent"
         routes={ dashboardRoutes }
-        brand="AirMaster"
+        brand="Air Master"
         rightLinks={ <HeaderLinks /> }
         fixed
         changeColorOnScroll={ {
-          height: 400,
+          height: 500,
           color: "white",
         } }
         { ...rest }
       />
-      <Parallax filter responsive image="/img/landing-bg.jpg">
+      <Parallax responsive image="/img/bg.jpeg">
         <div className={ classes.container }>
           <GridContainer>
             <GridItem xs={ 12 } sm={ 12 } md={ 6 }>
@@ -55,7 +56,7 @@ export default function LandingPage(props) {
               </h4>
               <br />
               <Button
-                color="danger"
+                color="teal"
                 size="lg"
                 href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
                 target="_blank"

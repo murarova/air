@@ -6,6 +6,7 @@ import Link from "next/link";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 
 
 import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
@@ -17,9 +18,32 @@ export default function HeaderLinks(props) {
   return (
     <List className={ classes.list }>
       <ListItem className={ classes.listItem }>
-        <Link href="/services">
+        <CustomDropdown
+          noLiPadding
+          navDropdown
+          buttonText="Услуги"
+          buttonProps={ {
+            className: classes.navLink,
+            color: "transparent",
+          } }
+          dropdownList={ [
+            <Link href="/mounting">
+              <a className={ classes.dropdownLink }>Монтаж кондиционеров</a>
+            </Link>,
+            <Link href="/maintenance">
+              <a className={ classes.dropdownLink }>ТО кондиционеров</a>
+            </Link>,
+            <Link href="/trail">
+              <a className={ classes.dropdownLink }>Закладка трасс</a>
+            </Link>,
+            <Link href="/dismantling">
+              <a className={ classes.dropdownLink }>Демонтаж кондиционеров</a>
+            </Link>,
+          ] }
+        />
+        {/* <Link href="/services">
           <a className={ classes.navLink }>Услуги</a>
-        </Link>
+        </Link> */}
       </ListItem>
       <ListItem className={ classes.listItem }>
         <Link href="/prices">

@@ -11,6 +11,7 @@ import {
   transition,
   boxShadow,
   drawerWidth,
+  halfTransparentColor
 } from "styles/jss/nextjs-material-kit.js";
 
 const headerStyle = {
@@ -51,9 +52,10 @@ const headerStyle = {
     flex: 1,
   },
   title: {
-    ...defaultFont,
-    lineHeight: "30px",
-    fontSize: "18px",
+    fontFamily: "'Lobster', cursive",
+    fontSize: "30px",
+    fontWeight: "500",
+    lineHeight: "1.1",
     borderRadius: "3px",
     textTransform: "none",
     color: "inherit",
@@ -133,6 +135,15 @@ const headerStyle = {
     marginBottom: "20px",
     color: "#555",
     backgroundColor: "#fff !important",
+    boxShadow:
+      "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
+  },
+  halfTransparent: {
+    border: "0",
+    padding: "0.625rem 0",
+    marginBottom: "20px",
+    color: "#555",
+    backgroundColor: "rgba(255, 255, 255, 0.8)!important",
     boxShadow:
       "0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15)",
   },

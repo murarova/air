@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,14 +7,25 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { nanoid } from 'nanoid'
 
 
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
-    backgroundColor: "rgba(200, 200, 200, 0.2)"
-  },
+  }
 });
+
+const StyledTableCell = withStyles(() => ({
+  head: {
+    backgroundColor: "rgba(32,32,32,.7)",
+    color: "#FFFFFF",
+  },
+  body: {
+    backgroundColor: "rgba(32,32,32,.6)",
+    color: "#FFFFFF",
+  },
+}))(TableCell);
 
 export default function BasicTable({ rows = [], header = [] }) {
   const classes = useStyles();
@@ -24,17 +35,19 @@ export default function BasicTable({ rows = [], header = [] }) {
       <Table className={ classes.table } aria-label="simple table">
         <TableHead>
           <TableRow>
-            { header.map((name) => <TableCell key={ name } align="left">{ name }</TableCell>) }
+            { header.map((name) => <StyledTableCell key={ name } align="left">{ name }</StyledTableCell>) }
           </TableRow>
         </TableHead>
         <TableBody>
           { rows.map(({ id, name, data }) => (
             <TableRow key={ id }>
-              <TableCell component="th" scope="row">
+              <StyledTableCell component="th" scope="row">
                 { name }
-              </TableCell>
-              { data.map((el) =>
-                <TableCell align="left">{ el }</TableCell>)
+              </StyledTableCell>
+              { data.map((el) => {
+                const id = nanoid();
+                return <StyledTableCell key={ id } align="left">{ el }</StyledTableCell>
+                })
               }
             </TableRow>
           )

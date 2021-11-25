@@ -14,7 +14,7 @@ export default function Mounting() {
     <Section
       title="Монтаж кондиционеров."
       image="/img/mounting.jpeg"
-      position="Right"
+      position="right"
       id="mounting"
       link="/mounting"
     >

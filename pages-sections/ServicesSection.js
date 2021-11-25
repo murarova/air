@@ -23,7 +23,7 @@ export default function ServicesSection() {
   const classes = useStyles();
   return (
     <div className={ classes.section }>
-      <GridContainer justify="center">
+      <GridContainer justifyContent="center">
         <GridItem xs={ 12 } sm={ 6 } md={ 8 }>
           <h2 className={ classes.title }>Наши услуги.</h2>
         </GridItem>
@@ -31,7 +31,7 @@ export default function ServicesSection() {
       <div>
         <GridContainer>
           <GridItem xs={ 12 } sm={ 6 } md={ 6 } lg={ 3 }>
-            <Card>
+            <Card className={ classes.card }>
               <Link href="/mounting">
                 <a>
                   <InfoArea
@@ -46,7 +46,7 @@ export default function ServicesSection() {
             </Card>
           </GridItem>
           <GridItem xs={ 12 } sm={ 6 } md={ 6 } lg={ 3 }>
-            <Card>
+            <Card className={ classes.card }>
               <Link href="/maintenance">
                 <a>
                   <InfoArea
@@ -61,8 +61,8 @@ export default function ServicesSection() {
             </Card>
           </GridItem>
           <GridItem xs={ 12 } sm={ 6 } md={ 6 } lg={ 3 }>
-            <Card>
-              <Link href="/trail">
+            <Card className={ classes.card }>
+              <Link href="/ISSUE_TEMPLATE.mdtrail">
                 <a>
                   <InfoArea
                     title="Закладка трасс"
@@ -76,7 +76,7 @@ export default function ServicesSection() {
             </Card>
           </GridItem>
           <GridItem xs={ 12 } sm={ 6 } md={ 6 } lg={ 3 }>
-            <Card>
+            <Card className={ classes.card }>
               <Link href="/dismantling">
                 <a>
                   <InfoArea

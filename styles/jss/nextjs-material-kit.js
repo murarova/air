@@ -97,6 +97,7 @@ const successColor = "#4caf50";
 const infoColor = "#00acc1";
 const roseColor = "#e91e63";
 const grayColor = "#999999";
+const tealColor = '#008080';
 
 const primaryBoxShadow = {
   boxShadow: `0 12px 20px -10px ${hexToRGBAlpha(
@@ -205,7 +206,7 @@ const defaultBoxShadow = {
 
 const title = {
   color: "#3C4858",
-  margin: "1.75rem 0 0.875rem",
+  margin: "1.75rem 0",
   textDecoration: "none",
   fontWeight: "700",
   fontFamily: `"Roboto Slab", "Times New Roman", serif`,
@@ -244,6 +245,7 @@ export {
   infoColor,
   roseColor,
   grayColor,
+  tealColor,
   primaryBoxShadow,
   infoBoxShadow,
   successBoxShadow,

@@ -3,7 +3,7 @@ import { container, title } from "styles/jss/nextjs-material-kit.js";
 const landingPageStyle = {
   container: {
     zIndex: "12",
-    color: "#FFFFFF",
+    color: "#3C4858",
     ...container,
   },
   title: {
@@ -12,7 +12,7 @@ const landingPageStyle = {
     position: "relative",
     marginTop: "30px",
     minHeight: "32px",
-    color: "#FFFFFF",
+    color: "#3C4858",
     textDecoration: "none",
   },
   subtitle: {
