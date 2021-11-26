@@ -62,7 +62,7 @@ export default function ServicesSection() {
           </GridItem>
           <GridItem xs={ 12 } sm={ 6 } md={ 6 } lg={ 3 }>
             <Card className={ classes.card }>
-              <Link href="/ISSUE_TEMPLATE.mdtrail">
+              <Link href="/trail">
                 <a>
                   <InfoArea
                     title="Закладка трасс"

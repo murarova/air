@@ -5,6 +5,10 @@ const landingPageStyle = {
     zIndex: "12",
     color: "#3C4858",
     ...container,
+    "@media (max-width: 960px)": {
+      fontSize: "2em",
+      overflowWrap: "break-word",
+    }
   },
   title: {
     ...title,
@@ -14,11 +18,16 @@ const landingPageStyle = {
     minHeight: "32px",
     color: "#3C4858",
     textDecoration: "none",
+    "@media (max-width: 960px)": {
+      color: "#FFFFFF",
+      overflowWrap: "break-word",
+      maxWidth: "90%",
+    }
   },
   subtitle: {
-    fontSize: "1.313rem",
-    maxWidth: "500px",
-    margin: "10px auto 0",
+    "@media (max-width: 960px)": {
+      color: "#FFFFFF"
+    }
   },
   main: {
     background: "#FFFFFF",
@@ -30,6 +39,12 @@ const landingPageStyle = {
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
+    "@media (max-width: 960px)": {
+      margin: "-50px 30px 0px",
+    },
+    "@media (max-width: 576px)": {
+      margin: "-20px 10px 0px"
+    },
   },
 };
 

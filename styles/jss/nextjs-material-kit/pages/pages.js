@@ -33,10 +33,16 @@ const landingPageStyle = {
     borderRadius: "6px",
     boxShadow:
       "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
+    "@media (max-width: 960px)": {
+      margin: "90px 10px 0px",
+    },
   },
   sectionTitle: {
     fontWeight: "bold",
     marginTop: "30px"
+  },
+  list: {
+    padding: "0"
   },
   listItem: {
     listStyle: "none",
@@ -65,10 +71,9 @@ const landingPageStyle = {
   },
   accent: {
     fontWeight: "bold",
-  }, 
+  },
   deliveryCard: {
     width: "80%",
-    height: "400px",
     padding: "20px",
     background: "rgba(32,32,32,.7)",
     borderRadius: "5px",
@@ -86,7 +91,6 @@ const landingPageStyle = {
   contactsCard: {
     borderRadius: "5px",
     width: "50%",
-    height: "300px",
     padding: "20px",
     background: "rgba(32,32,32,.7)",
     color: "#FFFFFF",
@@ -95,7 +99,7 @@ const landingPageStyle = {
       width: "100%",
     },
   },
-  contactsItem:{
+  contactsItem: {
     color: "#FFFFFF",
     fontSize: "18px",
     padding: '10px 0',

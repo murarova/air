@@ -18,14 +18,35 @@ const sectionStyles = {
   container: ({ position }) => ({
     display: "flex",
     flexDirection: position === "left" ? "row" : "row-reverse",
+    paddingBottom: "65px"
   }),
   image: ({ image }) => ({
     flex: "1",
-    background: `linear-gradient(92deg,rgba(255,255,255,.0001) 0%\,rgba(255,255,255,.3) 100%)\,url(${ image })`,
-    backgroundSize: "cover"
+    "&:before": {
+      display: "block",
+      height: "100%",
+      width: "100%",
+      background: `linear-gradient(92deg,rgba(255,255,255,.0001) 0%\,rgba(255,255,255,.3) 100%)\,url(${ image })`,
+      backgroundSize: "cover",
+      content: "' '",
+      willChange: "transform",
+      "-webkit-backface-visibility": "hidden"
+    },
   }),
   sectionText: {
     flex: "1",
+    "@media (max-width: 960px)": {
+      height: "100%",
+      maxHeight: "150px",
+
+      "& > p": {
+        overflow: "hidden",
+        display: "-webkit-box",
+        "-webkit-line-clamp": "3",
+        "-webkit-box-orient": "vertical"
+      }
+    }
+
   },
   btnWrapper: {
     display: "flex",

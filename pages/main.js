@@ -46,12 +46,12 @@ export default function LandingPage(props) {
         } }
         { ...rest }
       />
-      <Parallax responsive image="/img/bg.jpeg">
+      <Parallax filter responsive image="/img/bg.jpeg">
         <div className={ classes.container }>
           <GridContainer>
             <GridItem xs={ 12 } sm={ 12 } md={ 6 }>
-              <h1 className={ classes.title }>Самые лучшие кондиционеры.</h1>
-              <h4>
+              <h1 className={ classes.title }>Комфорт в любых условиях.</h1>
+              <h4 className={ classes.subtitle }>
                 Разнообразный и богатый опыт постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения направлений прогрессивного развития.
               </h4>
               <br />
