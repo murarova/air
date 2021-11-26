@@ -26,3 +26,6 @@ yarn-error.log*
 # package
 /dist
 /.next
+
+# Local Netlify folder
+.netlify
