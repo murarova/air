@@ -1,1 +1,0 @@
-module.exports = require("./pages/404.js")
