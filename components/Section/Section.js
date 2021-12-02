@@ -13,7 +13,7 @@ import styles from "styles/jss/nextjs-material-kit/components/sectionStyles.js";
 const useStyles = makeStyles(styles);
 
 export default function Section({ id, position, children, title, image, link }) {
-  const classes = useStyles({image, position});
+  const classes = useStyles({ image, position });
   const handleBtnClick = () => Router.push(link);
 
   return (
@@ -26,7 +26,7 @@ export default function Section({ id, position, children, title, image, link }) 
       <div>
         <GridItem xs={ 12 } sm={ 12 } md={ 12 }>
           <div className={ classes.container }>
-            <div className={ classes.image }/>
+            <div className={ classes.image } />
             <GridItem xs={ 12 } sm={ 12 } md={ 6 }>
               <div className={ classes.sectionText }>
                 { children }

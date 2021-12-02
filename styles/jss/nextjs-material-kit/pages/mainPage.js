@@ -8,6 +8,7 @@ const landingPageStyle = {
     "@media (max-width: 960px)": {
       fontSize: "2em",
       overflowWrap: "break-word",
+      paddingBottom: "20px"
     }
   },
   title: {

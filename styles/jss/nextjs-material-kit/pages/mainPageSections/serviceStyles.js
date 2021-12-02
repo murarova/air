@@ -18,8 +18,11 @@ const serviceStyle = {
   card: {
     "&:hover": {
       background: "rgba(200, 200, 200, 0.2)"
+    },
+    "@media (max-width: 960px)": {
+      height: "100%",
+      maxHeight: "210px",
     }
-    
   }
 };
 
