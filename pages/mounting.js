@@ -21,7 +21,7 @@ export default function MountingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
-    <div style={ { color: "dark" } }>
+    <div className={ classes.wrapper }>
       <Header
         color="white"
         routes={ [] }

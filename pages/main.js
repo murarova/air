@@ -33,7 +33,7 @@ export default function LandingPage(props) {
   const { ...rest } = props;
 
   return (
-    <div>
+    <div className={ classes.wrapper }>
       <Header
         color="halfTransparent"
         routes={ dashboardRoutes }
@@ -56,13 +56,11 @@ export default function LandingPage(props) {
               </h4>
               <br />
               <Button
-                color="teal"
+                color="accentColor"
                 size="lg"
-                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="./prices"
               >
-                Наши работы
+                Прайс-лист
               </Button>
             </GridItem>
           </GridContainer>

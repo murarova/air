@@ -7,7 +7,8 @@ import {
   successColor,
   warningColor,
   dangerColor,
-  tealColor
+  accentColor,
+  secondAccentColor
 } from "styles/jss/nextjs-material-kit.js";
 
 const buttonStyle = {
@@ -176,22 +177,42 @@ const buttonStyle = {
       )}`,
     },
   },
-  teal: {
-    backgroundColor: tealColor,
+  accentColor: {
+    backgroundColor: accentColor,
     boxShadow: `0 2px 2px 0 ${hexToRGBAlpha(
-      tealColor,
+      accentColor,
       0.14
     )}, 0 3px 1px -2px ${hexToRGBAlpha(
-      tealColor,
+      accentColor,
       0.2
-    )}, 0 1px 5px 0 ${hexToRGBAlpha(dangerColor, 0.12)}`,
+    )}, 0 1px 5px 0 ${hexToRGBAlpha(accentColor, 0.12)}`,
     "&:hover,&:focus": {
-      backgroundColor: tealColor,
+      backgroundColor: accentColor,
       boxShadow: `0 14px 26px -12px ${hexToRGBAlpha(
-        tealColor,
+        accentColor,
         0.42
       )}, 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px ${hexToRGBAlpha(
-        tealColor,
+        accentColor,
+        0.2
+      )}`,
+    },
+  },
+  secondAccentColor: {
+    backgroundColor: secondAccentColor,
+    boxShadow: `0 2px 2px 0 ${hexToRGBAlpha(
+      secondAccentColor,
+      0.14
+    )}, 0 3px 1px -2px ${hexToRGBAlpha(
+      secondAccentColor,
+      0.2
+    )}, 0 1px 5px 0 ${hexToRGBAlpha(secondAccentColor, 0.12)}`,
+    "&:hover,&:focus": {
+      backgroundColor: secondAccentColor,
+      boxShadow: `0 14px 26px -12px ${hexToRGBAlpha(
+        secondAccentColor,
+        0.42
+      )}, 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px ${hexToRGBAlpha(
+        secondAccentColor,
         0.2
       )}`,
     },

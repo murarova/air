@@ -18,6 +18,7 @@ export default function Section({ id, position, children, title, image, link }) 
 
   return (
     <div id={ id } className={ classes.section } style={ { color: "black" } }>
+      <div className={ classes.mobileImage } />
       <GridContainer justifyContent="center">
         <GridItem xs={ 12 } sm={ 12 } md={ 8 }>
           <h2 className={ classes.title }>{ title }</h2>
@@ -26,12 +27,12 @@ export default function Section({ id, position, children, title, image, link }) 
       <div>
         <GridItem xs={ 12 } sm={ 12 } md={ 12 }>
           <div className={ classes.container }>
-            <div className={ classes.image } />
+          <div className={ classes.image } />
             <GridItem xs={ 12 } sm={ 12 } md={ 6 }>
               <div className={ classes.sectionText }>
                 { children }
                 <div className={ classes.btnWrapper }>
-                  <Button onClick={ handleBtnClick } color="teal">Стоимость</Button>
+                  <Button onClick={ handleBtnClick } color="accentColor">Стоимость</Button>
                 </div>
               </div>
             </GridItem>

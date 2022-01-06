@@ -5,15 +5,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 // core components
-import { tealColor, title } from "styles/jss/nextjs-material-kit.js";
+import { accentColor, title } from "styles/jss/nextjs-material-kit.js";
 
 const useStyles = makeStyles({
   progress: {
-    color: tealColor,
+    color: accentColor,
     width: "6rem !important",
     height: "6rem !important",
   },
-  wrapperDiv: {
+  iconWrapper: {
     margin: "150px auto",
     padding: "0px",
     maxWidth: "360px",
@@ -21,9 +21,6 @@ const useStyles = makeStyles({
     position: "relative",
     zIndex: "9999",
     top: "0",
-  },
-  iconWrapper: {
-    display: "block",
   },
   title: {
     ...title,

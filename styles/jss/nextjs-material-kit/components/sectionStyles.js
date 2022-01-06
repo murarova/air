@@ -34,6 +34,27 @@ const sectionStyles = {
       }
     }
   }),
+  mobileImage: ({ image }) => ({
+    flex: "1",
+    position: "absolute",
+    top: "0",
+    bottom: "0",
+    left: "0",
+    right: "0",
+    "&:before": {
+      display: "block",
+      height: "100%",
+      width: "100%",
+      background: `linear-gradient(92deg,rgba(255,255,255,.8) 0%\,rgba(255,255,255,.8) 100%)\,url(${ image })`,
+      backgroundSize: "cover",
+      content: "' '",
+      willChange: "transform",
+      "-webkit-backface-visibility": "hidden",
+    },
+    "@media (min-width: 960px)": {
+      display: "none"
+    },
+  }),
   image: ({ image }) => ({
     flex: "1",
     "&:before": {
@@ -45,18 +66,10 @@ const sectionStyles = {
       content: "' '",
       willChange: "transform",
       "-webkit-backface-visibility": "hidden",
-      "@media (max-width: 960px)": {
-        background: `linear-gradient(92deg,rgba(255,255,255,.8) 0%\,rgba(255,255,255,.8) 100%)\,url(${ image })`,
-      }
     },
     "@media (max-width: 960px)": {
-      position: "absolute",
-      top: "0",
-      bottom: "0",
-      left: "0",
-      right: "0"
+      display: "none",
     }
-
   }),
   sectionText: {
     flex: "1",

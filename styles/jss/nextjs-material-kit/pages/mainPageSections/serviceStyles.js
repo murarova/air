@@ -16,6 +16,7 @@ const serviceStyle = {
     color: "#999",
   },
   card: {
+    boxShadow: "none",
     "&:hover": {
       background: "rgba(200, 200, 200, 0.2)"
     },

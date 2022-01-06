@@ -30,7 +30,7 @@ export default function ServicesSection() {
       </GridContainer>
       <div>
         <GridContainer>
-          <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 3 }>
+          <GridItem xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/mounting">
                 <a>
@@ -45,7 +45,7 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 3 }>
+          <GridItem xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/dismantling">
                 <a>
@@ -53,14 +53,14 @@ export default function ServicesSection() {
                     title="Демонтаж кондиционеров"
                     description=""
                     icon={ PermDataSettingIcon }
-                    iconColor="danger"
+                    iconColor="info"
                     vertical
                   />
                 </a>
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 3 }>
+          <GridItem xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/maintenance">
                 <a>
@@ -68,14 +68,14 @@ export default function ServicesSection() {
                     title="ТO кондиционеров"
                     description=""
                     icon={ BuildIcon }
-                    iconColor="warning"
+                    iconColor="info"
                     vertical
                   />
                 </a>
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 3 }>
+          <GridItem xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/trail">
                 <a>
@@ -83,7 +83,7 @@ export default function ServicesSection() {
                     title="Закладка трасс"
                     description=""
                     icon={ GavelIcon }
-                    iconColor="success"
+                    iconColor="info"
                     vertical
                   />
                 </a>

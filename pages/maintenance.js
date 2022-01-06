@@ -27,7 +27,7 @@ export default function MaintenancePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
-    <div style={ { color: "dark" } }>
+    <div className={ classes.wrapper }>
       <Header
         color="white"
         routes={ dashboardRoutes }

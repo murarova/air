@@ -6,19 +6,22 @@ import {
   infoColor,
   roseColor,
   grayColor,
+  secondAccentColor,
   title,
 } from "styles/jss/nextjs-material-kit.js";
 
 const infoStyle = {
   infoArea: {
     maxWidth: "360px",
-    margin: "0 auto",
+    margin: "20px auto 0",
     padding: "0px",
   },
   iconWrapper: {
-    float: "left",
-    marginTop: "24px",
-    marginRight: "10px",
+    backgroundColor: secondAccentColor,
+    margin: "0 auto",
+    padding: "10px",
+    width: "fit-content",
+    borderRadius: "50%",
   },
   primary: {
     color: primaryColor,
@@ -41,9 +44,14 @@ const infoStyle = {
   gray: {
     color: grayColor,
   },
+  accent: {
+    color: secondAccentColor,
+  },
   icon: {
     width: "36px",
     height: "36px",
+    display: "block",
+    color: "white"
   },
   descriptionWrapper: {
     color: grayColor,

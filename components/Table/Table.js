@@ -11,19 +11,18 @@ import { nanoid } from 'nanoid'
 
 
 const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  }
 });
 
 const StyledTableCell = withStyles(() => ({
   head: {
     backgroundColor: "rgba(32,32,32,.7)",
     color: "#FFFFFF",
+    padding: "8px"
   },
   body: {
     backgroundColor: "rgba(32,32,32,.6)",
     color: "#FFFFFF",
+    padding: "8px",
   },
 }))(TableCell);
 

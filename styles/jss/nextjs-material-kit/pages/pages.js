@@ -1,6 +1,10 @@
-import { container, title } from "styles/jss/nextjs-material-kit.js";
+import { container, title, accentColor } from "styles/jss/nextjs-material-kit.js";
 
 const landingPageStyle = {
+  wrapper: {
+    position: "relative",
+    paddingBottom: "80px"
+  },
   container: {
     zIndex: "12",
     color: "",
@@ -52,7 +56,7 @@ const landingPageStyle = {
       content: '"\\276F"',
       position: "absolute",
       left: "1em",
-      color: "teal"
+      color: accentColor
     }
   },
   trailTitle: {
@@ -66,21 +70,18 @@ const landingPageStyle = {
       content: '"\\276F"',
       position: "absolute",
       left: "1em",
-      color: "teal"
+      color: accentColor
     }
   },
   accent: {
     fontWeight: "bold",
   },
   deliveryCard: {
-    width: "80%",
+    width: "100%",
     padding: "20px",
     background: "rgba(32,32,32,.7)",
     borderRadius: "5px",
     color: "#FFFFFF",
-    "@media (max-width: 992px)": {
-      width: "100%",
-    },
     "& > h2": {
       marginBottom: "20px"
     },
@@ -90,14 +91,11 @@ const landingPageStyle = {
   },
   contactsCard: {
     borderRadius: "5px",
-    width: "50%",
+    width: "100%",
     padding: "20px",
     background: "rgba(32,32,32,.7)",
     color: "#FFFFFF",
     fontWeight: "500",
-    "@media (max-width: 992px)": {
-      width: "100%",
-    },
   },
   contactsItem: {
     color: "#FFFFFF",
@@ -106,7 +104,7 @@ const landingPageStyle = {
     margin: "0",
     fontWeight: "500",
     "&:hover,&:focus": {
-      color: "teal",
+      color: accentColor,
     },
   },
   contactsItemCity: {
@@ -142,8 +140,12 @@ const landingPageStyle = {
     minHeight: "calc(100vh - 50px - 50px - 80px)",
     height: "100%",
     padding: "30px",
-    background: `linear-gradient(92deg,rgba(255,255,255,.0001) 0%\,rgba(255,255,255,.3) 100%)\,url(img/contacts-bg.jpeg)`,
-    backgroundSize: "cover"
+    backgroundSize: "cover",
+    "@media (max-width: 540px)": {
+      padding: "0",
+      minHeight: "0",
+    }
+
   },
 };
 

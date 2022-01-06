@@ -22,7 +22,7 @@ export default function PricesPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
-    <div style={ { color: "dark" } }>
+    <div className={ classes.wrapper }>
       <Header
         color="white"
         routes={ [] }
@@ -41,11 +41,11 @@ export default function PricesPage(props) {
             <Table className={ classes.table } rows={ mountingRowsWithoutTrails } header={ mountingHeader } />
             <h4 className={ classes.sectionTitle }>ТО кондиционеров</h4>
             <Table className={ classes.table } rows={ maintenanceRows } header={ maintenanceHeader } />
-            <h4 className={ classes.sectionTitle }>Закладка трасс</h4>
+            <h4 className={ classes.sectionTitle }>Закладка трасс, длиной до 3 м.п.</h4>
             <Table className={ classes.table } rows={ trailRows } header={ trailHeader } />
-            <h4 className={ classes.sectionTitle }>Дополнительные работы</h4>
+            <h4 className={ classes.sectionTitle }>Дополнительные работы, cтоимость за 1 м.п.</h4>
             <Table className={ classes.table } rows={ trailRowsAdditionalWorks } header={ trailHeaderAdditionalWorks } />
-            <h4 className={ classes.sectionTitle }>Стоимость материалов, не входящих в стандартный монтаж (фреономагистраль более 3 м)</h4>
+            <h4 className={ classes.sectionTitle }>Стоимость материалов, не входящих в стандартный монтаж (фреономагистраль более 3 м, за 1 м.п.)</h4>
             <Table className={ classes.table } rows={ trailRowsAdditionalMaterial } header={ trailHeaderAdditionalMaterial } />
             <h4 className={ classes.sectionTitle }>Демонтаж кондиционеров</h4>
             <Table className={ classes.table } rows={ dismantlingRows } header={ dismantlingHeader } />
