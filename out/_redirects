@@ -1,0 +1,13 @@
+# Next-on-Netlify Redirects
+/  /.netlify/functions/next_index  200
+/404  /.netlify/functions/next_404  200
+/contacts  /.netlify/functions/next_contacts  200
+/delivery  /.netlify/functions/next_delivery  200
+/dismantling  /.netlify/functions/next_dismantling  200
+/main  /.netlify/functions/next_main  200
+/maintenance  /.netlify/functions/next_maintenance  200
+/mounting  /.netlify/functions/next_mounting  200
+/prices  /.netlify/functions/next_prices  200
+/trail  /.netlify/functions/next_trail  200
+/_next/image*  url=:url w=:width q=:quality  /nextimg/:url/:width/:quality  301!
+/nextimg/*  /.netlify/functions/next_image  200
