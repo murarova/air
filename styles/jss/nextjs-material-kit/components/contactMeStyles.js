@@ -23,6 +23,7 @@ const contactMeStyles = {
     width: "25px",
     backgroundColor: "rgba(0, 128, 128, .8)",
     borderRadius: "5px 0px 0px 5px",
+    cursor: "pointer",
 
     "&:before": {
       content: open ? "'Свернуть'" : "'Связаться с нами'",
@@ -59,6 +60,7 @@ const contactMeStyles = {
     width: "50px",
     height: "50px",
     borderRadius: "50%",
+    cursor: "pointer",
   },
   '@keyframes phone': {
     from: { boxShadow: "0 0 0 0px rgba(116, 228, 116, 0.5)" },
