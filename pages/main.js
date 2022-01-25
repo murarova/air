@@ -14,6 +14,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
+import ContactMe from "components/ContactMe/ContactMe.js";
 
 import styles from "styles/jss/nextjs-material-kit/pages/mainPage.js";
 
@@ -76,6 +77,7 @@ export default function LandingPage(props) {
         </div>
       </div>
       <Footer />
+      <ContactMe />
     </div>
   );
 }

@@ -12,6 +12,7 @@ import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Table from "components/Table/Table.js";
+import ContactMe from "components/ContactMe/ContactMe.js";
 
 import { mountingRows, mountingRowsWithoutTrails, mountingHeader, maintenanceRows, maintenanceHeader,trailRows, trailRowsAdditionalWorks, trailRowsAdditionalMaterial, trailHeader, trailHeaderAdditionalWorks, trailHeaderAdditionalMaterial, dismantlingRows, dismantlingHeader } from "assets/tables-data.js";
 
@@ -53,6 +54,7 @@ export default function PricesPage(props) {
         </div>
       </div>
       <Footer />
+      <ContactMe />
     </div>
   );
 }

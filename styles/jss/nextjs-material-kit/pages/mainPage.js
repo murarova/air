@@ -3,7 +3,7 @@ import { container, title } from "styles/jss/nextjs-material-kit.js";
 const landingPageStyle = {
   wrapper: {
     position: "relative",
-    paddingBottom: "80px"
+    paddingBottom: "60px"
   },
   container: {
     zIndex: "12",

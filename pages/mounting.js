@@ -11,6 +11,7 @@ import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Table from "components/Table/Table.js";
+import ContactMe from "components/ContactMe/ContactMe.js";
 
 import { mountingRows, mountingRowsWithoutTrails, mountingHeader } from "assets/tables-data.js";
 
@@ -61,6 +62,7 @@ export default function MountingPage(props) {
         </div>
       </div>
       <Footer />
+      <ContactMe />
     </div>
   );
 }

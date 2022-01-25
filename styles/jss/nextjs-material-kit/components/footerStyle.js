@@ -17,8 +17,8 @@ const footerStyle = {
     display: "block",
   },
   right: {
-    padding: "15px 0",
-    margin: "0",
+    padding: "0",
+    margin: "0 10px 0 0",
     float: "right!important",
   },
   footer: {
@@ -34,6 +34,7 @@ const footerStyle = {
     color: primaryColor,
     textDecoration: "none",
     backgroundColor: "transparent",
+    padding: "5px"
   },
   footerWhiteFont: {
     "&,&:hover,&:focus": {
