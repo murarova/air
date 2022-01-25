@@ -9,7 +9,6 @@
 # production
 /build
 /out
-/netlify
 
 # misc
 .DS_Store
