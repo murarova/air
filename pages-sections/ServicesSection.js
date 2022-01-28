@@ -30,7 +30,7 @@ export default function ServicesSection() {
       </GridContainer>
       <div>
         <GridContainer>
-          <GridItem xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
+          <GridItem xs={ 6 } sm={ 3 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/mounting">
                 <a>
@@ -45,7 +45,7 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
+          <GridItem xs={ 6 } sm={ 3 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/dismantling">
                 <a>
@@ -60,12 +60,12 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
+          <GridItem xs={ 6 } sm={ 3 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/maintenance">
                 <a>
                   <InfoArea
-                    title="ТO кондиционеров"
+                    title="Техническое обслуживание"
                     description=""
                     icon={ BuildIcon }
                     iconColor="info"
@@ -75,12 +75,12 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 12 } sm={ 3 } md={ 3 } lg={ 3 }>
+          <GridItem xs={ 6 } sm={ 3 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/trail">
                 <a>
                   <InfoArea
-                    title="Закладка трасс"
+                    title="Закладка трасс на этапе ремонта"
                     description=""
                     icon={ GavelIcon }
                     iconColor="info"

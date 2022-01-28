@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -22,6 +23,11 @@ export default function MountingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
+    <>
+    <Head>
+      <title>Монтаж кондиционеров в Киеве | Air Master</title>
+      <meta name="description" content="Монтаж кондиционеров в Киеве. Лучшее соотношение цена - качество. Мы используем только профессиональное, современное оборудование и качественные сертифицированные материалы.Даем гарантию на выполненные монтажные работы." />
+    </Head>
     <div className={ classes.wrapper }>
       <Header
         color="white"
@@ -64,5 +70,6 @@ export default function MountingPage(props) {
       <Footer />
       <ContactMe />
     </div>
+    </>
   );
 }

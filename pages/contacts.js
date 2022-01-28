@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -21,42 +22,48 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function TrailPage(props) {
+export default function ContactsPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
-    <div style={ { color: "dark" } }>
-      <Header
-        color="white"
-        routes={ dashboardRoutes }
-        brand="Air Master"
-        rightLinks={ <HeaderLinks /> }
-        fixed
-        { ...rest }
-      />
-      <div className={ classNames(classes.main, classes.mainRaised) }>
-        <div className={ classes.pageWithBackground }>
-          <Card className={ classes.contactsCard }>
-            <h2>Контакты</h2>
-            <p className={ classes.contactsItemCity }>г.Киев</p>
-            <Link href="mailto:murarovvitalij@gmail.com">
-              <a className={ classes.contactsItem } target="_blank" >
-                <i className={ classes.socialIcons + " fab fa fa-envelope" } aria-hidden="true" />
-                <span className={ classes.email } >e-mail: murarovvitalij@gmail.com</span>
-              </a>
-            </Link>
-            <Link href="tel:380665388579">
-              <a className={ classes.contactsItem }>
-                <i className={ classes.socialIcons + " fab fa fa-phone-square" } aria-hidden="true" />
-                <span className={ classes.phone } >Тел: +38 (066)-538-85-79</span>
-              </a>
-            </Link>
-          </Card>
+    <>
+      <Head>
+        <title>Контакты | Air Master</title>
+        <meta name="description" content="Монтаж кондиционеров, техническое обслуживание кондиционеров, прокладка трасс для кондиционеров, демонтаж кондиционеров, продажа кондиционеров" />
+      </Head>
+      <div style={ { color: "dark" } }>
+        <Header
+          color="white"
+          routes={ dashboardRoutes }
+          brand="Air Master"
+          rightLinks={ <HeaderLinks /> }
+          fixed
+          { ...rest }
+        />
+        <div className={ classNames(classes.main, classes.mainRaised) }>
+          <div className={ classes.pageWithBackground }>
+            <Card className={ classes.contactsCard }>
+              <h2>Контакты</h2>
+              <p className={ classes.contactsItemCity }>г.Киев</p>
+              <Link href="mailto:murarovvitalij@gmail.com">
+                <a className={ classes.contactsItem } target="_blank" >
+                  <i className={ classes.socialIcons + " fab fa fa-envelope" } aria-hidden="true" />
+                  <span className={ classes.email } >e-mail: murarovvitalij@gmail.com</span>
+                </a>
+              </Link>
+              <Link href="tel:380665388579">
+                <a className={ classes.contactsItem }>
+                  <i className={ classes.socialIcons + " fab fa fa-phone-square" } aria-hidden="true" />
+                  <span className={ classes.phone } >Тел: +38 (066)-538-85-79</span>
+                </a>
+              </Link>
+            </Card>
 
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
 

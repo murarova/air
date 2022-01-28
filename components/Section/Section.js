@@ -28,7 +28,7 @@ export default function Section({ id, position, children, title, image, link }) 
         <GridItem xs={ 12 } sm={ 12 } md={ 12 }>
           <div className={ classes.container }>
           <div className={ classes.image } />
-            <GridItem xs={ 12 } sm={ 12 } md={ 6 }>
+            <GridItem xs={ 12 } sm={ 12 } md={ 12 } lg={ 6 }>
               <div className={ classes.sectionText }>
                 { children }
                 <div className={ classes.btnWrapper }>

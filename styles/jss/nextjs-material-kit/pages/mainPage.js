@@ -1,4 +1,4 @@
-import { container, title } from "styles/jss/nextjs-material-kit.js";
+import { container, title, secondAccentColor, accentColor } from "styles/jss/nextjs-material-kit.js";
 
 const landingPageStyle = {
   wrapper: {
@@ -10,7 +10,6 @@ const landingPageStyle = {
     color: "#3C4858",
     ...container,
     "@media (max-width: 960px)": {
-      fontSize: "2em",
       overflowWrap: "break-word",
       paddingBottom: "20px"
     }
@@ -23,15 +22,52 @@ const landingPageStyle = {
     minHeight: "32px",
     color: "#3C4858",
     textDecoration: "none",
+    "@media (max-width: 480px)": {
+      fontSize: "2.2rem",
+    },
     "@media (max-width: 960px)": {
       color: "#FFFFFF",
       overflowWrap: "break-word",
       maxWidth: "90%",
     }
   },
-  subtitle: {
+  list: {
+    padding: "0"
+  },
+  listItem: {
+    listStyle: "none",
+    paddingLeft: "50px",
+    position: "relative",
+    "&:before": {
+      content: '"\\276F"',
+      position: "absolute",
+      left: "1em",
+      color: accentColor
+    }
+  },
+  accent: {
+    color: accentColor,
+    whiteSpace: "nowrap"
+  },
+  advertisingBlock: {
+    padding: "20px",
+    backgroundColor: "rgba(255, 255, 255, 0.3)",
+    borderRadius: "5px",
+    width: "fit-content",
+    fontWeight: "700",
     "@media (max-width: 960px)": {
-      color: "#FFFFFF"
+      color: "#FFFFFF",
+      margin: "0",
+      backgroundColor: "rgba(0, 0, 0, 0.2)",
+
+    }
+  },
+  subtitle: {
+    margin: "0",
+    fontWeight: "700",
+    "@media (max-width: 960px)": {
+      color: "#FFFFFF",
+      margin: "0"
     }
   },
   main: {

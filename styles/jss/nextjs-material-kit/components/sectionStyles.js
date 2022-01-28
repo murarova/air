@@ -4,7 +4,7 @@ const sectionStyles = {
   section: ({ color }) => ({
     padding: "20px 0",
     position: "relative",
-    "@media (max-width: 960px)": {
+    "@media (max-width: 1280px)": {
       background: color,
       marginBottom: "20px",
     }
@@ -16,7 +16,7 @@ const sectionStyles = {
     marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none",
-    "@media (max-width: 960px)": {
+    "@media (max-width: 1280px)": {
       fontSize: "1.75rem",
       margin: "0.75rem"
     }
@@ -28,7 +28,7 @@ const sectionStyles = {
     display: "flex",
     flexDirection: position === "left" ? "row" : "row-reverse",
     paddingBottom: "65px",
-    "@media (max-width: 960px)": {
+    "@media (max-width: 1280px)": {
       "& > div": {
         padding: "0"
       }
@@ -51,7 +51,7 @@ const sectionStyles = {
       willChange: "transform",
       "-webkit-backface-visibility": "hidden",
     },
-    "@media (min-width: 960px)": {
+    "@media (min-width: 1280px)": {
       display: "none"
     },
   }),
@@ -67,24 +67,12 @@ const sectionStyles = {
       willChange: "transform",
       "-webkit-backface-visibility": "hidden",
     },
-    "@media (max-width: 960px)": {
+    "@media (max-width: 1280px)": {
       display: "none",
     }
   }),
   sectionText: {
     flex: "1",
-    "@media (max-width: 960px)": {
-      height: "100%",
-      maxHeight: "150px",
-
-      "& > p": {
-        overflow: "hidden",
-        display: "-webkit-box",
-        "-webkit-line-clamp": "3",
-        "-webkit-box-orient": "vertical"
-      }
-    }
-
   },
   btnWrapper: {
     display: "flex",

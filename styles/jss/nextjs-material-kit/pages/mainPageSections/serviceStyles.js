@@ -7,9 +7,7 @@ const serviceStyle = {
   },
   title: {
     ...title,
-    marginBottom: "1rem",
-    marginTop: "30px",
-    minHeight: "32px",
+    margin: "10px 0",
     textDecoration: "none",
   },
   description: {
