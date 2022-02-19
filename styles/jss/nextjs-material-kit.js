@@ -207,6 +207,7 @@ const defaultBoxShadow = {
 
 const title = {
   color: "#3C4858",
+  padding: "0 10px",
   margin: "1rem 0",
   textDecoration: "none",
   fontWeight: "700",

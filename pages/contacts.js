@@ -42,7 +42,6 @@ export default function ContactsPage(props) {
         />
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.pageWithBackground }>
-            <Card className={ classes.contactsCard }>
               <h2>Контакты</h2>
               <p className={ classes.contactsItemCity }>г.Киев</p>
               <Link href="mailto:murarovvitalij@gmail.com">
@@ -57,8 +56,6 @@ export default function ContactsPage(props) {
                   <span className={ classes.phone } >Тел: +38 (066)-538-85-79</span>
                 </a>
               </Link>
-            </Card>
-
           </div>
         </div>
         <Footer />

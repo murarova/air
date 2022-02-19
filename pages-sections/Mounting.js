@@ -23,18 +23,18 @@ export default function Mounting() {
         <h3  className={ classes.mainTitle }>Cтандартный монтаж кондиционеров включает  в себя: </h3>
         <h4 className={ classes.sectionTitle }>Работы: </h4>
         <ul className={ classes.list }>
-          <li className={ classes.listItem }>Рекомендации по оптимальному расположению кондиционера</li>
+          <li className={ classes.listItem }>Рекомендации по оптимальному расположению кондиционера.</li>
           <li className={ classes.listItem }>Бурение одного отверстия под фреономагистраль.</li>
           <li className={ classes.listItem }>Монтаж  наружного и внутреннего блока кондиционера.</li>
-          <li className={ classes.listItem }>Вакуумация и проверка системы на герметичность</li>
+          <li className={ classes.listItem }>Вакуумация и проверка системы на герметичность.</li>
           <li className={ classes.listItem }>Запуск и пусконаладочные работы.</li>
         </ul>
         <h4 className={ classes.sectionTitle }>Материалы: </h4>
         <ul className={ classes.list }>
-          <li className={ classes.listItem }>Фреономагистраль до 3 м.(стоимость каждого дополнительного метра указан в таблице)</li>
+          <li className={ classes.listItem }>Фреономагистраль до 3 м.(стоимость каждого дополнительного метра указан в таблице).</li>
           <li className={ classes.listItem }>Дренажная труба до 3 м.</li>
           <li className={ classes.listItem }>Комплект кронштейнов К1 (порошковая покраска).</li>
-          <li className={ classes.listItem }>Метизы (анкера, дюбеля, гайки, шайбы)</li>
+          <li className={ classes.listItem }>Метизы (анкеры, дюбели, гайки, шайбы).</li>
         </ul>
         <span>Используем только профессиональное, современное оборудование и качественные сертифицированные материалы.</span><br />
 

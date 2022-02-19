@@ -45,6 +45,7 @@ export default class MyApp extends App {
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
           <meta charset="utf-8" />
+          <meta name="google-site-verification" content="FSGY0Gti00z1yOACCJdIHrNEHX9UQ1b0kEh6tJvVWV8"/>
           <title>Установка кондиционеров в Киеве | Техническое обслуживание кондиционеров в Киеве | Air Master</title>
 
           <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
@@ -54,8 +55,8 @@ export default class MyApp extends App {
 
           <meta property="og:title" content="Установка кондиционеров в Киеве ❄️ Техническое обслуживание кондиционеров" />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://air-master.herokuapp.com/prices" />
-          <meta property="og:image" content="http://air-master.com.ua/img/air-conditioner.png" />
+          <meta property="og:url" content="https://air-master.com.ua/prices" />
+          <meta property="og:image" content="https://air-master.com.ua/img/air-conditioner.png" />
           <meta property="og:site_name" content="AirMaster" />
 
           <script

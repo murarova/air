@@ -1,4 +1,4 @@
-import { container, title, accentColor } from "styles/jss/nextjs-material-kit.js";
+import { container, title, accentColor, infoColor } from "styles/jss/nextjs-material-kit.js";
 
 const landingPageStyle = {
   wrapper: {
@@ -56,7 +56,7 @@ const landingPageStyle = {
       content: '"\\276F"',
       position: "absolute",
       left: "1em",
-      color: accentColor
+      color: infoColor
     }
   },
   trailTitle: {
@@ -81,7 +81,7 @@ const landingPageStyle = {
     padding: "20px",
     background: "rgba(32,32,32,.7)",
     borderRadius: "5px",
-    color: "#FFFFFF",
+    color: "#3C4858",
     "& > h2": {
       marginBottom: "20px"
     },
@@ -89,16 +89,8 @@ const landingPageStyle = {
       fontSize: "18px"
     }
   },
-  contactsCard: {
-    borderRadius: "5px",
-    width: "100%",
-    padding: "20px",
-    background: "rgba(32,32,32,.7)",
-    color: "#FFFFFF",
-    fontWeight: "500",
-  },
   contactsItem: {
-    color: "#FFFFFF",
+    color: "#3C4858",
     fontSize: "18px",
     padding: '10px 0',
     margin: "0",
@@ -108,7 +100,7 @@ const landingPageStyle = {
     },
   },
   contactsItemCity: {
-    color: "#FFFFFF",
+    color: "#3C4858",
     fontSize: "18px",
     padding: '10px 0',
     margin: "0",
@@ -139,13 +131,12 @@ const landingPageStyle = {
   pageWithBackground: {
     minHeight: "calc(100vh - 50px - 50px - 80px)",
     height: "100%",
+    display: "flex",
+    flexDirection: "column",
     padding: "30px",
-    backgroundSize: "cover",
     "@media (max-width: 540px)": {
-      padding: "0",
-      minHeight: "0",
+      padding: "10px",
     }
-
   },
 };
 

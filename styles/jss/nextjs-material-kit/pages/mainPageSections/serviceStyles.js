@@ -2,11 +2,12 @@ import { title } from "styles/jss/nextjs-material-kit.js";
 
 const serviceStyle = {
   section: {
-    padding: "20px 0",
+    padding: "40px 0",
     textAlign: "center",
   },
   title: {
     ...title,
+    padding: "0 10px",
     margin: "10px 0",
     textDecoration: "none",
   },
@@ -20,7 +21,6 @@ const serviceStyle = {
     },
     "@media (max-width: 960px)": {
       height: "100%",
-      maxHeight: "210px",
     }
   }
 };

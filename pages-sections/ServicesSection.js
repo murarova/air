@@ -29,8 +29,8 @@ export default function ServicesSection() {
         </GridItem>
       </GridContainer>
       <div>
-        <GridContainer>
-          <GridItem xs={ 6 } sm={ 3 } md={ 3 } lg={ 3 }>
+        <GridContainer spacing={3}>
+          <GridItem xs={ 6 } sm={ 6 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/mounting">
                 <a>
@@ -45,7 +45,7 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 3 } md={ 3 } lg={ 3 }>
+          <GridItem xs={ 6 } sm={ 6 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/dismantling">
                 <a>
@@ -60,7 +60,7 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 3 } md={ 3 } lg={ 3 }>
+          <GridItem xs={ 6 } sm={ 6 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/maintenance">
                 <a>
@@ -75,7 +75,7 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 3 } md={ 3 } lg={ 3 }>
+          <GridItem xs={ 6 } sm={ 6 } md={ 3 } lg={ 3 }>
             <Card className={ classes.card }>
               <Link href="/trail">
                 <a>

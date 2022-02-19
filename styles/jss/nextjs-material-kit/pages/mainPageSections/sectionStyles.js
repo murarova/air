@@ -1,4 +1,4 @@
-import { accentColor } from "styles/jss/nextjs-material-kit.js";
+import { infoColor } from "styles/jss/nextjs-material-kit.js";
 
 const sectionStyles = {
   btnWrapper: {
@@ -8,11 +8,13 @@ const sectionStyles = {
   mainTitle: {
     marginBottom: "20px",
     fontSize: "1.3rem",
-    fontWeight: "700"
+    fontWeight: "700",
+    color: "#3C4858"
   },
   trailSubTitle: {
     margin: "0",
-    fontSize: "1.2rem",
+    fontWeight: "600",
+    fontSize: "1.1rem",
   },
   list: {
     padding: "0"
@@ -25,11 +27,12 @@ const sectionStyles = {
       content: '"\\276F"',
       position: "absolute",
       left: "1em",
-      color: accentColor
+      color: infoColor
     }
   },
   final: {
     marginTop: "20px",
+    color: "#3C4858"
   }
 };
 

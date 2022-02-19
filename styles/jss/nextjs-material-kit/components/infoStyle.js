@@ -17,7 +17,7 @@ const infoStyle = {
     padding: "0px",
   },
   iconWrapper: {
-    backgroundColor: secondAccentColor,
+    backgroundColor: grayColor,
     margin: "0 auto",
     padding: "10px",
     width: "fit-content",
@@ -57,12 +57,18 @@ const infoStyle = {
     color: grayColor,
     overflow: "hidden",
   },
-  title,
+  title: {
+    ...title,
+    "@media (max-width: 960px)": {
+      fontSize: "14px",
+    }
+  },
   description: {
     color: grayColor,
     overflow: "hidden",
     marginTop: "0px",
     fontSize: "14px",
+    
   },
   iconWrapperVertical: {
     float: "none",

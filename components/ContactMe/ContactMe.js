@@ -19,7 +19,7 @@ export default function ContactMe() {
           <i className="fa fa-phone" aria-hidden="true"></i>
         </a>
       </Link>
-      <Link title="Viber" href="viber://chat?number=+380505654859">
+      <Link title="Viber" href="viber://chat?number=+380665388579">
         <img className={ classes.viber } src="img/viber.svg" alt="Написать в Viber" />
       </Link>
     </div>

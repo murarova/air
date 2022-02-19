@@ -40,7 +40,7 @@ export default function PricesPage(props) {
         />
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
-            <h2 className={ classes.title }>Прайс-лист</h2>
+            <h1 className={ classes.title }>Стоимость установки кондиционеров.</h1>
             <div className={ classes.tableContainer }>
               <h4 className={ classes.sectionTitle }>Монтаж кондиционеров</h4>
               <Table className={ classes.table } rows={ mountingRows } header={ mountingHeader } />

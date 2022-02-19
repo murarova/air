@@ -45,13 +45,13 @@ export default function MaintenancePage(props) {
         />
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
-            <h2>Техническое обслуживание кондиционеров.</h2>
+            <h1>Техническое обслуживание кондиционеров.</h1>
             <div className={ classes.sectionText }>
               <h4>Техническое обслуживание кондиционеров, включает следующий перечень работ: </h4>
               <ol className={ classes.list }>
-                <li className={ classes.listItem }>Проверка работоспособности кондиционера в разных режимах</li>
+                <li className={ classes.listItem }>Проверка работоспособности кондиционера в разных режимах.</li>
                 <li className={ classes.listItem }>Замер температуры воздуха на выходе внутреннего блока.</li>
-                <li className={ classes.listItem }>Осмотр кондиционера  на наличие утечек</li>
+                <li className={ classes.listItem }>Осмотр кондиционера  на наличие утечек.</li>
                 <li className={ classes.listItem }>Замер давления в системе.</li>
                 <li className={ classes.listItem }>Разборка корпуса внутреннего блока.</li>
                 <li className={ classes.listItem }>Чистка корпуса, пластиковых элементов кондиционера.</li>

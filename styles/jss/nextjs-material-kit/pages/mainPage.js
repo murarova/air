@@ -1,4 +1,4 @@
-import { container, title, secondAccentColor, accentColor } from "styles/jss/nextjs-material-kit.js";
+import { container, title, infoColor, accentColor } from "styles/jss/nextjs-material-kit.js";
 
 const landingPageStyle = {
   wrapper: {
@@ -42,7 +42,7 @@ const landingPageStyle = {
       content: '"\\276F"',
       position: "absolute",
       left: "1em",
-      color: accentColor
+      color: infoColor
     }
   },
   accent: {
