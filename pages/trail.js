@@ -15,7 +15,7 @@ import ContactMe from "components/ContactMe/ContactMe.js";
 
 import { trailRows, trailRowsAdditionalWorks, trailRowsAdditionalMaterial, trailHeader, trailHeaderAdditionalWorks, trailHeaderAdditionalMaterial } from "assets/tables-data.js";
 
-import styles from "styles/jss/nextjs-material-kit/pages/pages.js";
+import styles from "styles/pages/pages.js";
 
 // Sections for this page
 

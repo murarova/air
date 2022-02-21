@@ -17,15 +17,15 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 import ContactMe from "components/ContactMe/ContactMe.js";
 
-import styles from "styles/jss/nextjs-material-kit/pages/mainPage.js";
+import styles from "styles/pages/mainPage.js";
 
 // Sections for this page
-import ServicesSection from "pages-sections/ServicesSection.js";
-import Mounting from "pages-sections/Mounting.js";
-import Maintenance from "pages-sections/Maintenance.js";
-import TrailInstallation from "pages-sections/TrailInstallation.js";
-import Dismantling from "pages-sections/Dismantling.js";
-import WhyUs from "pages-sections/WhyUs.js";
+import ServicesSection from "main-page-sections/ServicesSection.js";
+import Mounting from "main-page-sections/Mounting.js";
+import Maintenance from "main-page-sections/Maintenance.js";
+import TrailInstallation from "main-page-sections/TrailInstallation.js";
+import Dismantling from "main-page-sections/Dismantling.js";
+import WhyUs from "main-page-sections/WhyUs.js";
 
 const dashboardRoutes = [];
 

@@ -17,7 +17,7 @@ import ContactMe from "components/ContactMe/ContactMe.js";
 
 import { mountingRows, mountingRowsWithoutTrails, mountingHeader, maintenanceRows, maintenanceHeader, trailRows, trailRowsAdditionalWorks, trailRowsAdditionalMaterial, trailHeader, trailHeaderAdditionalWorks, trailHeaderAdditionalMaterial, dismantlingRows, dismantlingHeader } from "assets/tables-data.js";
 
-import styles from "styles/jss/nextjs-material-kit/pages/pages.js";
+import styles from "styles/pages/pages.js";
 const useStyles = makeStyles(styles);
 
 export default function PricesPage(props) {

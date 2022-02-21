@@ -6,7 +6,7 @@ import Router from "next/router";
 
 import PageChange from "components/PageChange/PageChange.js";
 
-import "styles/scss/nextjs-material-kit.scss?v=1.2.0";
+import "styles/_misc.scss";
 
 Router.events.on("routeChangeStart", (url) => {
   document.body.classList.add("body-page-transition");

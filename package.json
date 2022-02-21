@@ -1,7 +1,7 @@
 {
-  "name": "next-material-kit",
-  "version": "1.2.0",
-  "description": "NextJS Version of Material Kit React by Creative Tim (https://creative-tim.com)",
+  "name": "air-master",
+  "version": "1.0.0",
+  "description": "Air master website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,10 +11,6 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev",
     "deploy": "next build && next export"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/creativetimofficial/nextjs-material-kit.git"
-  },
   "keywords": [
     "next",
     "nextjs",
@@ -22,17 +18,8 @@
     "reactjs",
     "npx",
     "material",
-    "material-design",
-    "material-kit",
-    "material-kit-react",
-    "next-material-kit"
+    "material-design"
   ],
-  "author": "Creative Tim",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/creativetimofficial/nextjs-material-kit/issues"
-  },
-  "homepage": "https://demos.creative-tim.com/nextjs-material-kit",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",

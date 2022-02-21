@@ -14,7 +14,7 @@ import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Card from "components/Card/Card.js";
 
-import styles from "styles/jss/nextjs-material-kit/pages/pages.js";
+import styles from "styles/pages/pages.js";
 
 // Sections for this page
 

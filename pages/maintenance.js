@@ -16,7 +16,7 @@ import ContactMe from "components/ContactMe/ContactMe.js";
 
 import { maintenanceRows, maintenanceHeader } from "assets/tables-data.js";
 
-import styles from "styles/jss/nextjs-material-kit/pages/pages.js";
+import styles from "styles/pages/pages.js";
 
 // Sections for this page
 

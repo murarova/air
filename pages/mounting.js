@@ -16,7 +16,7 @@ import ContactMe from "components/ContactMe/ContactMe.js";
 
 import { mountingRows, mountingRowsWithoutTrails, mountingHeader } from "assets/tables-data.js";
 
-import styles from "styles/jss/nextjs-material-kit/pages/pages.js";
+import styles from "styles/pages/pages.js";
 const useStyles = makeStyles(styles);
 
 export default function MountingPage(props) {

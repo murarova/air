@@ -9,7 +9,7 @@ import ListItem from "@material-ui/core/ListItem";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 
 
-import styles from "styles/jss/nextjs-material-kit/components/headerLinksStyle.js";
+import styles from "styles/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
 

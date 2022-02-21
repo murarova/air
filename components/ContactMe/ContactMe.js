@@ -4,7 +4,7 @@ import Link from "next/link";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-import styles from "styles/jss/nextjs-material-kit/components/contactMeStyles.js";
+import styles from "styles/components/contactMeStyles.js";
 
 const useStyles = makeStyles(styles);
 
