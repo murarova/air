@@ -5,6 +5,7 @@ import Link from "next/link"
 
 // @material-ui/icons
 import AcUnitIcon from '@material-ui/icons/AcUnit';
+import CallToActionIcon from '@material-ui/icons/CallToAction';
 import BuildIcon from '@material-ui/icons/Build';
 import PermDataSettingIcon from '@material-ui/icons/PermDataSetting';
 import GavelIcon from '@material-ui/icons/Gavel';
@@ -28,42 +29,42 @@ export default function ServicesSection() {
           <h2 className={ classes.title }>Наши услуги.</h2>
         </GridItem>
       </GridContainer>
-      <div>
-        <GridContainer spacing={3}>
-          <GridItem xs={ 6 } sm={ 6 } md={ 3 } lg={ 3 }>
+      <div className={ classes.sectionContent }>
+        <GridContainer spacing={ 4 }>
+          <GridItem xs={ 12 } sm={ 4 } md={ 4 } lg={ 4 }>
+            <Card className={ classes.card }>
+              <Link href="/products">
+                <a className={ classes.serviceLink }>
+                  <InfoArea
+                    title="Продажа кондиционеров"
+                    description=""
+                    icon={ CallToActionIcon }
+                    iconColor="info"
+                    vertical
+                  />
+                </a>
+              </Link>
+            </Card>
+          </GridItem>
+          <GridItem xs={ 6 } sm={ 4 } md={ 4 } lg={ 4 }>
             <Card className={ classes.card }>
               <Link href="/mounting">
-                <a>
+                <a className={ classes.serviceLink }>
                   <InfoArea
                     title="Монтаж кондиционеров"
                     description=""
                     icon={ AcUnitIcon }
-                    iconColor="info"
+                    iconColor="infoColor"
                     vertical
                   />
                 </a>
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 6 } md={ 3 } lg={ 3 }>
-            <Card className={ classes.card }>
-              <Link href="/dismantling">
-                <a>
-                  <InfoArea
-                    title="Демонтаж кондиционеров"
-                    description=""
-                    icon={ PermDataSettingIcon }
-                    iconColor="info"
-                    vertical
-                  />
-                </a>
-              </Link>
-            </Card>
-          </GridItem>
-          <GridItem xs={ 6 } sm={ 6 } md={ 3 } lg={ 3 }>
+          <GridItem xs={ 6 } sm={ 4 } md={ 4 } lg={ 4 }>
             <Card className={ classes.card }>
               <Link href="/maintenance">
-                <a>
+                <a className={ classes.serviceLink }>
                   <InfoArea
                     title="Техническое обслуживание"
                     description=""
@@ -75,10 +76,25 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 6 } md={ 3 } lg={ 3 }>
+          <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 6 }>
+            <Card className={ classes.card }>
+              <Link href="/dismantling">
+                <a className={ classes.serviceLink }>
+                  <InfoArea
+                    title="Демонтаж кондиционеров"
+                    description=""
+                    icon={ PermDataSettingIcon }
+                    iconColor="info"
+                    vertical
+                  />
+                </a>
+              </Link>
+            </Card>
+          </GridItem>
+          <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 6 }>
             <Card className={ classes.card }>
               <Link href="/trail">
-                <a>
+                <a className={ classes.serviceLink }>
                   <InfoArea
                     title="Закладка трасс на этапе ремонта"
                     description=""

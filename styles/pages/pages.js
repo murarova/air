@@ -76,6 +76,18 @@ const landingPageStyle = {
   accent: {
     fontWeight: "bold",
   },
+  payment: {
+    padding: "5px",
+    borderRadius: "5px",
+    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+    "@media (min-width: 576px)": {
+      width: "fit-content",
+      padding: "10px",
+    },
+  },
+  paymentPropName: {
+    marginRight: "1rem",
+  },
   deliveryCard: {
     width: "100%",
     padding: "20px",
@@ -133,7 +145,7 @@ const landingPageStyle = {
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    padding: "30px",
+    padding: "10px",
     "@media (max-width: 540px)": {
       padding: "10px",
     }

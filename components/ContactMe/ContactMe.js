@@ -13,7 +13,6 @@ export default function ContactMe() {
 
   return (
     <div className={ classes.wrapper }>
-      {/* <div className={ classes.contactBtn} onClick={ () => toggleContacts(!isContactsOpen) } /> */}
       <Link href="tel:380665388579">
         <a className={ classes.phone }>
           <i className="fa fa-phone" aria-hidden="true"></i>

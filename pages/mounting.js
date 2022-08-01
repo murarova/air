@@ -13,6 +13,9 @@ import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Table from "components/Table/Table.js";
 import ContactMe from "components/ContactMe/ContactMe.js";
+import { useWindowSize } from "hooks/use-window-size.js";
+
+import { WINDOW_WIDTH } from "constants/constants.js";
 
 import { mountingRows, mountingRowsWithoutTrails, mountingHeader } from "assets/tables-data.js";
 
@@ -22,6 +25,10 @@ const useStyles = makeStyles(styles);
 export default function MountingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+  const windowSize = useWindowSize();
+
+  const windowWidth = windowSize?.width < WINDOW_WIDTH.SM ? "SM" : "LG";
+
   return (
     <>
     <Head>
@@ -60,10 +67,10 @@ export default function MountingPage(props) {
             <span>Даем гарантию на выполненные монтажные работы.</span>
           </div>
           <div className={ classes.tableContainer }>
-            <h4 className={ classes.sectionTitle }>Прайс-лист</h4>
-            <Table className={ classes.table } rows={ mountingRows } header={ mountingHeader } />
+            <h4 className={ classes.sectionTitle }>Монтаж кондиционеров.</h4>
+            <Table className={ classes.table } rows={ mountingRows[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
             <h4 className={ classes.sectionTitle }>Навеска блоков (если фреономагистраль уже заложена на этапе ремонта)</h4>
-            <Table className={ classes.table } rows={ mountingRowsWithoutTrails } header={ mountingHeader } />
+            <Table className={ classes.table } rows={ mountingRowsWithoutTrails[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
           </div>
         </div>
       </div>

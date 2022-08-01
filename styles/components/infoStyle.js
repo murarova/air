@@ -12,16 +12,11 @@ import {
 
 const infoStyle = {
   infoArea: {
-    maxWidth: "360px",
-    margin: "20px auto 0",
     padding: "0px",
-  },
-  iconWrapper: {
-    backgroundColor: grayColor,
-    margin: "0 auto",
-    padding: "10px",
-    width: "fit-content",
-    borderRadius: "50%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center"
   },
   primary: {
     color: primaryColor,
@@ -51,31 +46,29 @@ const infoStyle = {
     width: "36px",
     height: "36px",
     display: "block",
-    color: "white"
+    color: "white",
+    margin: "0 auto",
   },
   descriptionWrapper: {
-    color: grayColor,
     overflow: "hidden",
   },
   title: {
     ...title,
+    margin: "1rem 0 0",
+    color: "#3C4858",
+
     "@media (max-width: 960px)": {
       fontSize: "14px",
     }
-  },
-  description: {
-    color: grayColor,
-    overflow: "hidden",
-    marginTop: "0px",
-    fontSize: "14px",
-    
   },
   iconWrapperVertical: {
     float: "none",
   },
   iconVertical: {
-    width: "61px",
-    height: "61px",
+    color: infoColor,
+    opacity: "0.85",
+    width: "122px",
+    height: "122px",
   },
 };
 

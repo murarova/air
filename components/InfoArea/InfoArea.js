@@ -14,22 +14,19 @@ export default function InfoArea(props) {
   const classes = useStyles();
   const { title, description, iconColor, vertical } = props;
   const iconWrapper = classNames({
-    [classes.iconWrapper]: true,
-    [classes[iconColor]]: true,
-    [classes.iconWrapperVertical]: vertical,
+    [ classes.iconWrapper ]: true,
+    [ classes[ iconColor ] ]: true,
+    [ classes.iconWrapperVertical ]: vertical,
   });
   const iconClasses = classNames({
-    [classes.icon]: true,
-    [classes.iconVertical]: vertical,
+    [ classes.icon ]: true,
+    [ classes.iconVertical ]: vertical,
   });
   return (
-    <div className={classes.infoArea}>
-      <div className={iconWrapper}>
-        <props.icon className={iconClasses} />
-      </div>
-      <div className={classes.descriptionWrapper}>
-        <h4 className={classes.title}>{title}</h4>
-        <p className={classes.description}>{description}</p>
+    <div className={ classes.infoArea }>
+      <props.icon className={ iconClasses } />
+      <div className={ classes.descriptionWrapper }>
+        <h4 className={ classes.title }>{ title }</h4>
       </div>
     </div>
   );
@@ -41,7 +38,7 @@ InfoArea.defaultProps = {
 
 InfoArea.propTypes = {
   icon: PropTypes.object.isRequired,
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  title: PropTypes.oneOfType([ PropTypes.string, PropTypes.node ]).isRequired,
   description: PropTypes.string.isRequired,
   iconColor: PropTypes.oneOf([
     "primary",

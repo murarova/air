@@ -14,15 +14,23 @@ import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Table from "components/Table/Table.js";
 import ContactMe from "components/ContactMe/ContactMe.js";
+import { useWindowSize } from "hooks/use-window-size.js";
 
-import { mountingRows, mountingRowsWithoutTrails, mountingHeader, maintenanceRows, maintenanceHeader, trailRows, trailRowsAdditionalWorks, trailRowsAdditionalMaterial, trailHeader, trailHeaderAdditionalWorks, trailHeaderAdditionalMaterial, dismantlingRows, dismantlingHeader } from "assets/tables-data.js";
+import { WINDOW_WIDTH } from "constants/constants.js";
+
+import { mountingRows, mountingHeader, mountingRowsWithoutTrails, maintenanceRows, maintenanceHeader, trailRows, trailRowsAdditionalWorks, trailRowsAdditionalMaterial, trailHeader, trailHeaderAdditionalWorks, trailHeaderAdditionalMaterial, dismantlingRows, dismantlingHeader } from "assets/tables-data.js";
 
 import styles from "styles/pages/pages.js";
 const useStyles = makeStyles(styles);
 
+
 export default function PricesPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+  const windowSize = useWindowSize();
+
+  const windowWidth = windowSize?.width < WINDOW_WIDTH.SM ? "SM" : "LG";
+
   return (
     <>
       <Head>
@@ -42,10 +50,10 @@ export default function PricesPage(props) {
           <div className={ classes.container }>
             <h1 className={ classes.title }>Стоимость установки кондиционеров.</h1>
             <div className={ classes.tableContainer }>
-              <h4 className={ classes.sectionTitle }>Монтаж кондиционеров</h4>
-              <Table className={ classes.table } rows={ mountingRows } header={ mountingHeader } />
+              <h4 className={ classes.sectionTitle }>Стандартный монтаж кондиционеров</h4>
+              <Table className={ classes.table } rows={ mountingRows[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
               <h4 className={ classes.sectionTitle }>Навеска блоков (если фреономагистраль уже заложена на этапе ремонта)</h4>
-              <Table className={ classes.table } rows={ mountingRowsWithoutTrails } header={ mountingHeader } />
+              <Table className={ classes.table } rows={ mountingRowsWithoutTrails[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
               <h4 className={ classes.sectionTitle }>ТО кондиционеров</h4>
               <Table className={ classes.table } rows={ maintenanceRows } header={ maintenanceHeader } />
               <h4 className={ classes.sectionTitle }>Закладка трасс, длиной до 3 м.п.</h4>

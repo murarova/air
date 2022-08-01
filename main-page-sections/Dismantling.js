@@ -29,7 +29,6 @@ export default function Dismantling() {
           <li className={ classes.listItem }>Демонтаж кронштейнов и монтажной пластины</li>
         </ul>
         <p>В стоимость не входит услуги промальпинизма и автовышки.</p>
-        <p style={ { fontWeight: "700" } } className={ classes.final }>При заказе демонтажа более 2-х кондиционеров, предоставляются скидки.</p>
       </div>
 
     </Section >

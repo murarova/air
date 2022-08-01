@@ -11,7 +11,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import Card from "components/Card/Card.js";
 import ContactMe from "components/ContactMe/ContactMe.js";
 
 import styles from "styles/pages/pages.js";
@@ -42,12 +41,21 @@ export default function DeliveryPage(props) {
         />
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.pageWithBackground }>
-              <h2>Доставка и оплата</h2>
-              <p>Оплата за работу, материалы и оборудование производится <span className={ classes.accent }>по наличному</span> и <span className={ classes.accent }>безналичному расчету.</span></p>
-              <p>Оплата наличными за все услуги производятся по окончанию работ.</p>
-              <p>Работы по безналичному расчету, выполняются после 100 % предоплаты.</p>
-              <p className={ classes.accent }>Доставка оборудования по г.Киев – бесплатная.</p>
-              <p>Доставка оборудования по Киевской области – 10 грн / км от КП.</p>
+            <h2>Oплата</h2>
+            <p>Оплата за работу, материалы и оборудование производится <span className={ classes.accent }>по наличному</span> и <span className={ classes.accent }>безналичному расчету.</span></p>
+            <p>Оплата наличными за все услуги производятся по окончанию работ. Работы по безналичному расчету, выполняются после 100 % предоплаты.</p>
+
+            <div className={ classes.payment }>
+              <h4 className={ classes.accent }>Реквизиты для оплаты</h4>
+              <p><span className={ classes.paymentPropName }>Получатель:</span><span>ФОП Мураров В.В.</span></p>
+              <p><span className={ classes.paymentPropName }>ЄДРПОУ/РНОКПП:</span><span>3122010972</span></p>
+              <p><span className={ classes.paymentPropName }>IBAN:</span><span>UA043003460000026005097719901</span></p>
+              <p><span className={ classes.paymentPropName }>Банк:</span><span>АТ "Альфа - Банк"</span></p>
+            </div>
+
+            <h2>Доставка</h2>
+            <p className={ classes.accent }>Доставка оборудования по г.Киев – бесплатная.</p>
+            <p>Доставка оборудования по Киевской области – 10 грн / км от КП.</p>
           </div>
         </div>
         <Footer />

@@ -31,7 +31,7 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+export default function MainPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
@@ -61,9 +61,10 @@ export default function LandingPage(props) {
                 <h1 className={ classes.title }>Установка и обслуживание кондиционеров.</h1>
                 <div className={ classes.advertisingBlock }>
                   <ol className={ classes.list }>
-                    <li className={ classes.listItem }>Монтаж кондиционера - <strong className={ classes.accent }>3 000 грн.</strong></li>
-                    <li className={ classes.listItem }>Техническое обслуживание - <strong className={ classes.accent }>500 грн.</strong></li>
-                    <li className={ classes.listItem }>Гарантия на монтаж - <strong className={ classes.accent }>2 года.</strong></li>
+                  <li className={ classes.listItem }>Продажа кондиционеров - <strong className={ classes.accent }>от 16 500 грн.</strong></li>
+                    <li className={ classes.listItem }>Монтаж - <strong className={ classes.accent }>3 500 грн.</strong></li>
+                    <li className={ classes.listItem }>Техническое обслуживание - <strong className={ classes.accent }>1 000 грн.</strong></li>
+                    <li className={ classes.listItem }>Гарантия на монтаж - <strong className={ classes.accent }>1 год.</strong></li>
                   </ol>
                 </div>
                 <br />

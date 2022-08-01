@@ -1,37 +1,33 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import { nanoid } from 'nanoid'
-
-
-const useStyles = makeStyles({
-});
 
 const StyledTableCell = withStyles(() => ({
   head: {
-    backgroundColor: "rgba(32,32,32,.7)",
-    color: "#FFFFFF",
-    padding: "8px"
+    backgroundColor: "#138086",
+    color: "#ffffff",
+    padding: "8px",
+    borderColor: "#d1cfcf"
   },
   body: {
-    backgroundColor: "rgba(32,32,32,.6)",
-    color: "#FFFFFF",
+    backgroundColor: "#f9f9f9",
+    color: "#55555",
     padding: "8px",
+    borderColor: "#d1cfcf"
   },
+
 }))(TableCell);
 
 export default function BasicTable({ rows = [], header = [] }) {
-  const classes = useStyles();
-
   return (
-    <TableContainer component={ Paper }>
-      <Table className={ classes.table } aria-label="simple table">
+    <TableContainer>
+      <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             { header.map((name) => <StyledTableCell key={ name } align="left">{ name }</StyledTableCell>) }

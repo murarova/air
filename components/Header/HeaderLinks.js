@@ -41,9 +41,6 @@ export default function HeaderLinks(props) {
             </Link>,
           ] }
         />
-        {/* <Link href="/services">
-          <a className={ classes.navLink }>Услуги</a>
-        </Link> */}
       </ListItem>
       <ListItem className={ classes.listItem }>
         <Link href="/prices">
@@ -56,26 +53,30 @@ export default function HeaderLinks(props) {
         </Link>
       </ListItem>
       <ListItem className={ classes.listItem }>
-        <Link href="/contacts">
-          <a className={ classes.navLink }>Контакты</a>
-        </Link>
+        <CustomDropdown
+          noLiPadding
+          navDropdown
+          buttonText="Контакты"
+          buttonProps={ {
+            className: classes.navLink,
+            color: "transparent",
+          } }
+          dropdownList={ [
+            <Link href="mailto:murarovvitalij@gmail.com">
+              <a target="_blank" className={ classes.socialLink } >
+                <i className={ classes.socialIcons + " fab fa fa-envelope" } aria-hidden="true" />
+                <span className={ classes.email } >murarovvitalij@gmail.com</span>
+              </a>
+            </Link>,
+            <Link href="tel:380665388579">
+              <a className={ classes.socialLink }>
+                <i className={ classes.socialIcons + " fab fa fa-phone-square" } aria-hidden="true" />
+                <span className={ classes.phone } >+380665388579</span>
+              </a>
+            </Link>,
+          ] }
+        />
       </ListItem>
-      {/* <ListItem className={ classes.listItem }>
-          <Link href="mailto:murarovvitalij@gmail.com">
-            <a target="_blank" className={ classes.navLink } >
-              <i className={classes.socialIcons + " fab fa fa-envelope"}  aria-hidden="true"/>
-              <span className={ classes.email } >e-mail: murarovvitalij@gmail.com</span>
-            </a>
-          </Link>
-        </ListItem>
-        <ListItem className={ classes.listItem }>
-          <Link href="tel:380665388579">
-            <a className={ classes.navLink }>
-              <i className={classes.socialIcons + " fab fa fa-phone-square"}aria-hidden="true"/>
-              <span className={ classes.phone } >Тел: +38 (066)-538-85-79</span>
-            </a>
-          </Link>
-        </ListItem> */}
     </List>
   );
 }

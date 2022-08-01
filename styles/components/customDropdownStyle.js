@@ -27,8 +27,8 @@ const customDropdownStyle = (theme) => ({
       willChange: "none !important",
       "& > div": {
         boxShadow: "none !important",
-        marginLeft: "1.5rem",
-        marginRight: "1.5rem",
+        marginLeft: "1rem",
+        marginRight: "1rem",
         transition: "none !important",
         marginTop: "0px !important",
         marginBottom: "5px !important",
