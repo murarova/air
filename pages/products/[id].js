@@ -1,34 +1,56 @@
 import React from "react";
 import Head from "next/head";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import { convertPriceToUAH } from "utils/utils.js";
-
-// @material-ui/icons
-
-// core components
-import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
-import ContactMe from "components/ContactMe/ContactMe.js";
+import PageChange from "components/PageChange/PageChange.js";
 import SpecificationTable from "components/SpecificationTable/SpecificationTable.js";
 import Typography from '@material-ui/core/Typography';
-
 import styles from "styles/pages/pages.js";
-import catalog from "../../assets/catalog.json";
-
-const dashboardRoutes = [];
+import { useFirebaseConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import { useSelector } from "react-redux";
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(styles);
 
 export default function ProductPage() {
+  const router = useRouter()
+  const { id } = router.query
   const classes = useStyles();
+  useFirebaseConnect([ { path: "products" } ])
 
-  const { articleNumber, brand, title, description, specification, price } = catalog[ 1 ];
+  const product = useSelector((state) => state.ordered.products);
+
+  if (!isLoaded(product)) {
+    return <div className={ classes.wrapper }>
+      <div className={ classNames(classes.main, classes.mainRaised) }>
+        <div className={ classes.container }>
+          <PageChange />
+        </div>
+      </div>
+    </div>
+
+  }
+
+  if (isEmpty(product)) {
+    return <div className={ classes.wrapper }>
+      <div className={ classNames(classes.main, classes.mainRaised) }>
+        <div className={ classes.container }>
+          <Typography variant="body1"
+            color="textSecondary">
+            Нічого не знайдено
+          </Typography>
+        </div>
+      </div>
+    </div>
+  }
+
+  console.log('product', product[ id ]);
+
+  const { value: { articleNumber, brand, title, description, specification, price } } = product[ id ];
+
 
   return (
     <>
@@ -37,17 +59,6 @@ export default function ProductPage() {
         <meta name="description" content="Продажа кондиционеров в Киеве ✅ Гарантия ❗  Лучшие цены 💰" />
       </Head>
       <div className={ classes.wrapper }>
-        <Header
-          color="halfTransparent"
-          routes={ dashboardRoutes }
-          brand="Air Master"
-          rightLinks={ <HeaderLinks /> }
-          fixed
-          changeColorOnScroll={ {
-            height: 500,
-            color: "white",
-          } }
-        />
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
             <GridContainer justifyContent="center">
@@ -62,13 +73,13 @@ export default function ProductPage() {
                   Кондиционер { brand } { title }
                 </Typography>
                 <Typography
-                  variant="body2"
+                  variant="body1"
                   color="textSecondary"
                   gutterBottom
                   component="p">
                   { description }
                 </Typography>
-                <Typography variant="h6">
+                <Typography style={ { color: "#ef7215" } } variant="h6">
                   Цена: { convertPriceToUAH(price, 38) } грн
                 </Typography>
               </GridItem>
@@ -80,8 +91,6 @@ export default function ProductPage() {
             </GridContainer>
           </div>
         </div>
-        <Footer />
-        <ContactMe />
       </div>
     </>
   );

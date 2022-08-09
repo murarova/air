@@ -24,7 +24,6 @@ const StyledTableCell = withStyles(() => ({
 }))(TableCell);
 
 export default function SpecificationTable({ data }) {
-
   function createTableContent(data) {
     let rows = [];
     forEach(data, function (value, key) {

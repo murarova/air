@@ -1,19 +1,8 @@
 import React from "react";
 import Head from "next/head";
-
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
-// @material-ui/icons
-
-// core components
-import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
 import Table from "components/Table/Table.js";
-import ContactMe from "components/ContactMe/ContactMe.js";
 import { useWindowSize } from "hooks/use-window-size.js";
 
 import { WINDOW_WIDTH } from "constants/constants.js";
@@ -24,9 +13,8 @@ import styles from "styles/pages/pages.js";
 const useStyles = makeStyles(styles);
 
 
-export default function PricesPage(props) {
+export default function PricesPage() {
   const classes = useStyles();
-  const { ...rest } = props;
   const windowSize = useWindowSize();
 
   const windowWidth = windowSize?.width < WINDOW_WIDTH.SM ? "SM" : "LG";
@@ -38,14 +26,6 @@ export default function PricesPage(props) {
         <meta name="description" content="Прайс-лист на работы по установке и техническому обслуживанию кондиционеров в Киеве и Киевской области" />
       </Head>
       <div className={ classes.wrapper }>
-        <Header
-          color="white"
-          routes={ [] }
-          brand="Air Master"
-          rightLinks={ <HeaderLinks /> }
-          fixed
-          { ...rest }
-        />
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
             <h1 className={ classes.title }>Стоимость установки кондиционеров.</h1>
@@ -67,8 +47,6 @@ export default function PricesPage(props) {
             </div>
           </div>
         </div>
-        <Footer />
-        <ContactMe />
       </div>
     </>
   );

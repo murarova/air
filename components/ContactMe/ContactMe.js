@@ -3,12 +3,11 @@ import Link from "next/link";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
 import styles from "styles/components/contactMeStyles.js";
 
 const useStyles = makeStyles(styles);
 
-export default function ContactMe() {
+export default function ContactMe({ viberImg }) {
   const classes = useStyles();
 
   return (
@@ -19,7 +18,7 @@ export default function ContactMe() {
         </a>
       </Link>
       <Link title="Viber" href="viber://chat?number=+380665388579">
-        <img className={ classes.viber } src="img/viber.svg" alt="Написать в Viber" />
+        <img className={ classes.viber } src={ viberImg } alt="Написать в Viber" />
       </Link>
     </div>
   );

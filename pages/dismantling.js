@@ -1,32 +1,16 @@
-import React from "react";
+import { dismantlingHeader, dismantlingRows } from "assets/tables-data.js";
+
 import Head from "next/head";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-
-// @material-ui/icons
-
-// core components
-import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
+import React from "react";
 import Table from "components/Table/Table.js";
-import ContactMe from "components/ContactMe/ContactMe.js";
-
-import { dismantlingRows, dismantlingHeader } from "assets/tables-data.js";
-
+import classNames from "classnames";
+import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/pages.js";
-
-// Sections for this page
-
-const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function DismantlingPage(props) {
+export default function DismantlingPage() {
   const classes = useStyles();
-  const { ...rest } = props;
   return (
     <>
       <Head>
@@ -34,14 +18,6 @@ export default function DismantlingPage(props) {
         <meta name="description" content="Демонтаж кондиционеров в Киеве. В стоимость демонтажа входит отключение коммуникаций, демонтаж внутреннего и наружного блока, демонтаж кронштейнов и монтажной пластины" />
       </Head>
       <div className={ classes.wrapper }>
-        <Header
-          color="white"
-          routes={ dashboardRoutes }
-          brand="Air Master"
-          rightLinks={ <HeaderLinks /> }
-          fixed
-          { ...rest }
-        />
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
             <h2>Демонтаж кондиционеров.</h2>
@@ -57,8 +33,6 @@ export default function DismantlingPage(props) {
             </div>
           </div>
         </div>
-        <Footer />
-        <ContactMe />
       </div>
     </>
   );

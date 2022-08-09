@@ -32,7 +32,8 @@ export default function Footer(props) {
         <div className={ classes.left }>
         </div>
         <div className={ classes.right }>
-          &copy; { 1900 + new Date().getYear() } , 
+          &copy; { 1900 + new Date().getYear() }
+          <span>, made by</span>
           <a
             href="https://www.facebook.com/l.murarova"
             className={ aClasses }

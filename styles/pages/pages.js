@@ -150,6 +150,25 @@ const landingPageStyle = {
       padding: "10px",
     }
   },
+  login: {
+    position: "absolute",
+    left: "50%",
+    top: "20%",
+    transform: "translate(-50%, -30%)",
+    padding: "2rem 2rem 4rem",
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+
+    "@media screen and (min-width: 641px)": {
+      width: "70%",
+    },
+
+    "@media screen and (min-width: 1008px)": {
+      width: "50%",
+    }
+  }
+
 };
 
 export default landingPageStyle;

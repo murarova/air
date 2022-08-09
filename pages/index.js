@@ -1,23 +1,16 @@
 import React from "react";
 import Head from "next/head";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-// @material-ui/icons
-
 // core components
-import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
-import ContactMe from "components/ContactMe/ContactMe.js";
 
 import styles from "styles/pages/mainPage.js";
+import { useFirebaseConnect } from 'react-redux-firebase'
 
 // Sections for this page
 import ServicesSection from "main-page-sections/ServicesSection.js";
@@ -25,16 +18,13 @@ import Mounting from "main-page-sections/Mounting.js";
 import Maintenance from "main-page-sections/Maintenance.js";
 import TrailInstallation from "main-page-sections/TrailInstallation.js";
 import Dismantling from "main-page-sections/Dismantling.js";
-import WhyUs from "main-page-sections/WhyUs.js";
-
-const dashboardRoutes = [];
+import Products from "main-page-sections/Products.js";
 
 const useStyles = makeStyles(styles);
 
-export default function MainPage(props) {
+export default function MainPage() {
   const classes = useStyles();
-  const { ...rest } = props;
-
+  useFirebaseConnect([ { path: 'products' } ])
   return (
     <>
       <Head>
@@ -42,18 +32,6 @@ export default function MainPage(props) {
         <meta name="description" content="Установка кондиционеров в Киеве ❄️ Техническое обслуживание кондиционеров ⭐ Закладка трасс на этапе ремонта ✅ Гарантия ❗  Лучшие цены 💰" />
       </Head>
       <div className={ classes.wrapper }>
-        <Header
-          color="halfTransparent"
-          routes={ dashboardRoutes }
-          brand="Air Master"
-          rightLinks={ <HeaderLinks /> }
-          fixed
-          changeColorOnScroll={ {
-            height: 500,
-            color: "white",
-          } }
-          { ...rest }
-        />
         <Parallax filter responsive image="/img/bg.jpeg">
           <div className={ classes.container }>
             <GridContainer>
@@ -61,7 +39,7 @@ export default function MainPage(props) {
                 <h1 className={ classes.title }>Установка и обслуживание кондиционеров.</h1>
                 <div className={ classes.advertisingBlock }>
                   <ol className={ classes.list }>
-                  <li className={ classes.listItem }>Продажа кондиционеров - <strong className={ classes.accent }>от 16 500 грн.</strong></li>
+                    <li className={ classes.listItem }>Продажа кондиционеров - <strong className={ classes.accent }>от 16 500 грн.</strong></li>
                     <li className={ classes.listItem }>Монтаж - <strong className={ classes.accent }>3 500 грн.</strong></li>
                     <li className={ classes.listItem }>Техническое обслуживание - <strong className={ classes.accent }>1 000 грн.</strong></li>
                     <li className={ classes.listItem }>Гарантия на монтаж - <strong className={ classes.accent }>1 год.</strong></li>
@@ -82,15 +60,13 @@ export default function MainPage(props) {
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
             <ServicesSection />
-            <WhyUs />
+            <Products />
             <Mounting />
             <Maintenance />
             <TrailInstallation />
             <Dismantling />
           </div>
         </div>
-        <Footer />
-        <ContactMe />
       </div>
     </>
   );

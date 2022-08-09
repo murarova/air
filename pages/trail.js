@@ -1,41 +1,16 @@
 import React from "react";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
-// @material-ui/icons
-
-// core components
-import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
 import Table from "components/Table/Table.js";
-import ContactMe from "components/ContactMe/ContactMe.js";
-
 import { trailRows, trailRowsAdditionalWorks, trailRowsAdditionalMaterial, trailHeader, trailHeaderAdditionalWorks, trailHeaderAdditionalMaterial } from "assets/tables-data.js";
-
 import styles from "styles/pages/pages.js";
-
-// Sections for this page
-
-const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function TrailPage(props) {
+export default function TrailPage() {
   const classes = useStyles();
-  const { ...rest } = props;
   return (
     <div className={ classes.wrapper }>
-      <Header
-        color="white"
-        routes={ dashboardRoutes }
-        brand="Air Master"
-        rightLinks={ <HeaderLinks /> }
-        fixed
-        { ...rest }
-      />
       <div className={ classNames(classes.main, classes.mainRaised) }>
         <div className={ classes.container }>
           <h1>Закладка трасс для кондиционеров.</h1>
@@ -63,8 +38,6 @@ export default function TrailPage(props) {
           </div>
         </div>
       </div>
-      <Footer />
-      <ContactMe />
     </div>
   );
 }

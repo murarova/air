@@ -6,7 +6,8 @@ export const useStyles = makeStyles({
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    margin: "0 auto"
   },
   content: {
     padding: 8

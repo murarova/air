@@ -1,4 +1,4 @@
-import { container, primaryColor } from "styles/default-styles.js";
+import { container, infoColor } from "styles/default-styles.js";
 
 const footerStyle = {
   block: {
@@ -31,7 +31,7 @@ const footerStyle = {
     right: "0"
   },
   a: {
-    color: primaryColor,
+    color: infoColor,
     textDecoration: "none",
     backgroundColor: "transparent",
     padding: "5px"

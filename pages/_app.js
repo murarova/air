@@ -3,12 +3,21 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
-
+import { Provider } from 'react-redux'
+import {
+  ReactReduxFirebaseProvider,
+} from 'react-redux-firebase'
 import PageChange from "components/PageChange/PageChange.js";
+import { store, rrfProps } from "config/firebase-config.js";
+import Header from "components/Header/Header.js";
+import HeaderLinks from "components/Header/HeaderLinks.js";
+import Footer from "components/Footer/Footer.js";
+import ContactMe from "components/ContactMe/ContactMe.js";
+import viberImg from "assets/viber.svg";
 
 import "styles/_misc.scss";
 
-Router.events.on("routeChangeStart", (url) => {
+Router.events.on("routeChangeStart", () => {
   document.body.classList.add("body-page-transition");
   ReactDOM.render(
     <PageChange />,
@@ -24,6 +33,8 @@ Router.events.on("routeChangeError", () => {
   document.body.classList.remove("body-page-transition");
 });
 
+const dashboardRoutes = [];
+
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
@@ -34,6 +45,8 @@ export default class MyApp extends App {
 
     return { pageProps };
   }
+
+
   render() {
     const { Component, pageProps } = this.props;
 
@@ -73,7 +86,27 @@ export default class MyApp extends App {
           `}
           </script>
         </Head>
-        <Component { ...pageProps } />
+        <Provider store={ store }>
+          <ReactReduxFirebaseProvider { ...rrfProps }>
+            <div style={ { position: "relative" } }>
+              <Header
+                color="halfTransparent"
+                routes={ dashboardRoutes }
+                brand="Air Master"
+                rightLinks={ <HeaderLinks /> }
+                fixed
+                changeColorOnScroll={ {
+                  height: 500,
+                  color: "white",
+                } }
+              />
+              <Component { ...pageProps } />
+              <Footer />
+              <ContactMe viberImg={ viberImg } />
+            </div>
+
+          </ReactReduxFirebaseProvider>
+        </Provider>
       </React.Fragment>
     );
   }

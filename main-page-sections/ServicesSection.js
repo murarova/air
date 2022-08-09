@@ -54,7 +54,6 @@ export default function ServicesSection() {
                     title="Монтаж кондиционеров"
                     description=""
                     icon={ AcUnitIcon }
-                    iconColor="infoColor"
                     vertical
                   />
                 </a>
