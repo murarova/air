@@ -24,8 +24,8 @@ export default function MainPage() {
   useFirebaseConnect([ { path: "products" }, { path: "rate" } ]);
   const products = useSelector((state) => state.firebase.ordered.products);
   const rate = useSelector((state) => state.firebase.data.rate);
-  const minPrice = Math.min(...products.map(({ value }) => Number(value.price)))
-  
+  const prices = products?.map(({ value }) => Number(value.price)) ?? [];
+  const minPrice = Math.min(...prices);
   
   return (
     <>
@@ -41,7 +41,7 @@ export default function MainPage() {
                 <h1 className={ classes.title }>Установка и обслуживание кондиционеров.</h1>
                 <div className={ classes.advertisingBlock }>
                   <ol className={ classes.list }>
-                    <li className={ classes.listItem }>Продажа кондиционеров - <strong className={ classes.accent }>от {convertPriceToUAH(minPrice, Number(rate))} грн.</strong></li>
+                    <li className={ classes.listItem }>Продажа кондиционеров - <strong className={ classes.accent }>от { convertPriceToUAH(minPrice, Number(rate)) } грн.</strong></li>
                     <li className={ classes.listItem }>Монтаж - <strong className={ classes.accent }>3 500 грн.</strong></li>
                     <li className={ classes.listItem }>Техническое обслуживание - <strong className={ classes.accent }>1 000 грн.</strong></li>
                     <li className={ classes.listItem }>Гарантия на монтаж - <strong className={ classes.accent }>1 год.</strong></li>

@@ -28,8 +28,6 @@ export default function Product({ product, id }) {
   const auth = useSelector((state) => state.firebase.auth)
   const isLoggedIn = isLoaded(auth) && !isEmpty(auth)
 
-  console.log('isLoggedIn', isLoggedIn);
-
   const {
     title,
     brand,

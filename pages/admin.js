@@ -89,7 +89,7 @@ const Admin = () => {
             <div className={ classes.rateContainer }>
               <p className={ classes.rateName }>Курс USD/UAH: </p>
               <div className={ classes.progressWrapper }>
-                <TextField name="rate" defaultValue={ currentRate } value={ rate } onChange={ handleChange } size="small" variant="outlined" />
+                <TextField name="rate" defaultValue={ currentRate } value={ rate } onChange={ handleChange } size="small" type="number" variant="outlined" />
                 { isLoading && <CircularProgress className={ classes.progress } /> }
               </div>
               <Button
@@ -100,7 +100,7 @@ const Admin = () => {
               </Button>
               { error && <p className={ classes.inputError }>{ error }</p> }
             </div>
-            <Button onClick={ () => setIsAddProductOpen(true) } color="accentColor">добавить продукт</Button>
+            <Button className={ classes.saveNewProductBtn } onClick={ () => setIsAddProductOpen(true) } color="accentColor">добавить продукт</Button>
           </div>
           { isAddProductOpen &&
             <AddProductForm onSubmit={ handleSubmit }

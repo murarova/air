@@ -1,6 +1,5 @@
 import { isEmpty, isLoaded, useFirebase } from "react-redux-firebase"
 
-import Button from "components/CustomButtons/Button.js";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,6 +7,7 @@ import Link from "next/link";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import React from "react";
+import Router from 'next/router'
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/headerLinksStyle.js";
 import { useSelector } from 'react-redux'
@@ -19,6 +19,11 @@ export default function HeaderLinks() {
   const firebase = useFirebase()
   const auth = useSelector((state) => state.firebase.auth)
   const isLoggedIn = isLoaded(auth) && !isEmpty(auth)
+
+  async function handleLogout() {
+    await firebase.logout();
+    Router.push("/");
+  }
 
   return (
     <div className={ classes.listContainer }>
@@ -101,7 +106,7 @@ export default function HeaderLinks() {
       { isLoggedIn && <IconButton
         color="info"
         className={ classes.logoutBtn }
-        onClick={ firebase.logout }>
+        onClick={ handleLogout }>
         <ExitToAppIcon />
       </IconButton> }
     </div>

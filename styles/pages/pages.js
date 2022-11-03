@@ -214,7 +214,16 @@ const landingPageStyle = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-  }
+
+    "@media screen and (max-width: 768px)": {
+      flexDirection: "column",
+    },
+  },
+  saveNewProductBtn: {
+    "@media screen and (max-width: 768px)": {
+      marginTop: "50px",
+    },
+}
 
 };
 

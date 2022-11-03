@@ -16,7 +16,7 @@ import { useState } from "react";
 const useStyles = makeStyles(styles);
 
 function EditProductComponent({ onClose, initialValues }) {
-  const [ images, setImages ] = useState([]);
+  const [ images, setImages ] = useState(initialValues?.images);
   const firebase = useFirebase()
 
   async function handleFormSubmit(values) {

@@ -3,6 +3,9 @@ export function truncate(source, size) {
 }
 
 export function convertPriceToUAH(price, rate) {
+  if(!price || !rate) {
+    return null
+  }
   return (Number(price) * Number(rate)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
 }
 
