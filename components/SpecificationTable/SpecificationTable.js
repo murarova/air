@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,6 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { forEach } from "lodash";
+import { withStyles } from '@material-ui/core/styles';
 
 const StyledTableCell = withStyles(() => ({
   head: {
@@ -31,7 +32,7 @@ export default function SpecificationTable({ data }) {
         <Fragment key={ key }>
           <TableHead>
             <TableRow>
-              <StyledTableCell colSpan={ 2 } key={ key } align="left">{ key }</StyledTableCell>
+              <StyledTableCell colSpan={ 2 } key={ key } align="left">{ key === "inner" ? "Внутренний блок" : "Внешний блок" }</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

@@ -1,17 +1,17 @@
 import {
-  container,
-  hexToRGBAlpha,
-  defaultFont,
-  primaryColor,
-  infoColor,
-  successColor,
-  warningColor,
-  dangerColor,
-  roseColor,
-  transition,
   boxShadow,
+  container,
+  dangerColor,
+  defaultFont,
   drawerWidth,
-  halfTransparentColor
+  halfTransparentColor,
+  hexToRGBAlpha,
+  infoColor,
+  primaryColor,
+  roseColor,
+  successColor,
+  transition,
+  warningColor
 } from "styles/default-styles.js";
 
 const headerStyle = {
@@ -47,6 +47,10 @@ const headerStyle = {
     justifyContent: "space-between",
     display: "flex",
     flexWrap: "nowrap",
+
+    "@media (min-width: 768px)": {
+      maxWidth: "900px",
+    },
   },
   flex: {
     flex: 1,
@@ -58,6 +62,7 @@ const headerStyle = {
     lineHeight: "1.1",
     borderRadius: "3px",
     textTransform: "none",
+    whiteSpace: "nowrap",
     color: "inherit",
     padding: "8px 16px",
     letterSpacing: "unset",

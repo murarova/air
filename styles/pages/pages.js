@@ -1,4 +1,6 @@
-import { container, title, accentColor, infoColor } from "styles/default-styles.js";
+import { accentColor, container, infoColor, title } from "styles/default-styles.js";
+
+import { relative } from "path";
 
 const landingPageStyle = {
   wrapper: {
@@ -167,6 +169,51 @@ const landingPageStyle = {
     "@media screen and (min-width: 1008px)": {
       width: "50%",
     }
+  },
+  rateContainer: {
+    display: "flex",
+    alignItems: "center",
+    position: "relative",
+  },
+  rateName: {
+    margin: "0",
+    marginRight: "20px"
+  },
+  saveBtn: {
+    marginLeft: "20px"
+  },
+  inputError: {
+    position: "absolute",
+    bottom: "-1.5rem",
+    left: "0rem",
+    color: "red",
+    fontSize: "0.7rem",
+  },
+  progressWrapper: {
+    position: "relative"
+  },
+  progress: {
+    color: accentColor,
+    width: "1rem !important",
+    height: "1rem !important",
+    position: "absolute",
+    right: "10px",
+    top: "12px"
+  },
+  imageContainer: {
+    height: "350px",
+    display: "flex",
+    alignItems: "center"
+  },
+  propuctImage: {
+    height: "100%",
+    width: "100%",
+    objectFit: "contain"
+  },
+  adminWrapper: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
   }
 
 };

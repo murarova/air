@@ -126,6 +126,11 @@ img {
 form {
   margin-bottom: 1.125rem;
 }
+input, textarea, label {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 300;
+  line-height: 1.2em;
+}
 
 .body-page-transition{
   overflow: hidden;

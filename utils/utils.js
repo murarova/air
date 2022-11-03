@@ -5,3 +5,6 @@ export function truncate(source, size) {
 export function convertPriceToUAH(price, rate) {
   return (Number(price) * Number(rate)).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
 }
+
+export const pluralize = (count, noun) =>
+  `${count} ${noun}${count !== 1 ? 'и' : 'а'}`;

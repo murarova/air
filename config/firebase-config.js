@@ -1,9 +1,13 @@
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/database'
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
+
+import { combineReducers } from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
+import firebase from 'firebase/compat/app';
 import { firebaseReducer } from 'react-redux-firebase'
+import { reducer as formReducer } from 'redux-form'
 
 const rrfConfig = {
   userProfile: 'users',
@@ -20,8 +24,14 @@ const firebaseConfig = {
   measurementId: "G-PM13VXQYWL"
 };
 
+const rootReducer = combineReducers({
+  firebase: firebaseReducer,
+  form: formReducer
+})
+
+
 export const store = configureStore({
-  reducer: firebaseReducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
@@ -31,6 +41,7 @@ export const store = configureStore({
 
 firebase.initializeApp(firebaseConfig)
 firebase.database()
+firebase.storage(); 
 
 export const rrfProps = {
   firebase,

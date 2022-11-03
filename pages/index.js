@@ -1,30 +1,26 @@
-import React from "react";
-import Head from "next/head";
-import classNames from "classnames";
-import { makeStyles } from "@material-ui/core/styles";
-
-// core components
+import Button from "components/CustomButtons/Button.js";
+import Dismantling from "main-page-sections/Dismantling.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
+import Head from "next/head";
+import Maintenance from "main-page-sections/Maintenance.js";
+import Mounting from "main-page-sections/Mounting.js";
 import Parallax from "components/Parallax/Parallax.js";
-
+import Products from "main-page-sections/Products.js";
+import React from "react";
+import ServicesSection from "main-page-sections/ServicesSection.js";
+import TrailInstallation from "main-page-sections/TrailInstallation.js";
+import classNames from "classnames";
+import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/mainPage.js";
 import { useFirebaseConnect } from 'react-redux-firebase'
-
-// Sections for this page
-import ServicesSection from "main-page-sections/ServicesSection.js";
-import Mounting from "main-page-sections/Mounting.js";
-import Maintenance from "main-page-sections/Maintenance.js";
-import TrailInstallation from "main-page-sections/TrailInstallation.js";
-import Dismantling from "main-page-sections/Dismantling.js";
-import Products from "main-page-sections/Products.js";
 
 const useStyles = makeStyles(styles);
 
 export default function MainPage() {
   const classes = useStyles();
-  useFirebaseConnect([ { path: 'products' } ])
+  useFirebaseConnect([ { path: "products" }, { path: "rate" } ]);
+  
   return (
     <>
       <Head>

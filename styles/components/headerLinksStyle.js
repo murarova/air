@@ -1,5 +1,4 @@
 import { defaultFont } from "styles/default-styles.js";
-
 import tooltip from "styles/components/tooltipsStyle.js";
 
 const headerLinksStyle = (theme) => ({
@@ -12,6 +11,10 @@ const headerLinksStyle = (theme) => ({
     paddingTop: "0",
     paddingBottom: "0",
     color: "inherit",
+    display: "flex",
+    [ theme.breakpoints.down("sm") ]: {
+      display: "block",
+    },
   },
   listItem: {
     float: "left",
@@ -21,7 +24,7 @@ const headerLinksStyle = (theme) => ({
     width: "auto",
     margin: "0",
     padding: "0",
-    [theme.breakpoints.down("sm")]: {
+    [ theme.breakpoints.down("sm") ]: {
       width: "100%",
       "&:after": {
         width: "calc(100% - 30px)",
@@ -42,6 +45,7 @@ const headerLinksStyle = (theme) => ({
     padding: "0.9375rem",
     fontWeight: "400",
     fontSize: "12px",
+    whiteSpace: "nowrap",
     textTransform: "uppercase",
     borderRadius: "3px",
     lineHeight: "20px",
@@ -52,7 +56,7 @@ const headerLinksStyle = (theme) => ({
       color: "inherit",
       background: "rgba(200, 200, 200, 0.2)",
     },
-    [theme.breakpoints.down("sm")]: {
+    [ theme.breakpoints.down("sm") ]: {
       width: "calc(100% - 30px)",
       marginLeft: "15px",
       marginBottom: "8px",
@@ -78,7 +82,7 @@ const headerLinksStyle = (theme) => ({
       color: "inherit",
       background: "rgba(200, 200, 200, 0.2)",
     },
-    [theme.breakpoints.down("sm")]: {
+    [ theme.breakpoints.down("sm") ]: {
       width: "calc(100% - 30px)",
       textAlign: "left",
       "& > span:first-child": {
@@ -102,7 +106,7 @@ const headerLinksStyle = (theme) => ({
     },
   },
   notificationNavLink: {
-    [theme.breakpoints.down("md")]: {
+    [ theme.breakpoints.down("md") ]: {
       top: "0",
       margin: "5px 15px",
     },
@@ -118,7 +122,7 @@ const headerLinksStyle = (theme) => ({
     top: "4px",
   },
   registerNavLink: {
-    [theme.breakpoints.down("md")]: {
+    [ theme.breakpoints.down("md") ]: {
       top: "0",
       margin: "5px 15px",
     },
@@ -158,6 +162,14 @@ const headerLinksStyle = (theme) => ({
   marginRight5: {
     marginRight: "5px",
   },
+  listContainer: {
+    paddingRight: "50px"
+  },
+  logoutBtn: {
+    position: "absolute",
+    bottom: "0",
+    right: "5px"
+  }
 });
 
 export default headerLinksStyle;

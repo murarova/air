@@ -1,21 +1,24 @@
+import "styles/_misc.scss";
+import 'react-notifications/lib/notifications.css';
+
+import { rrfProps, store } from "config/firebase-config.js";
+
+import App from "next/app";
+import ContactMe from "components/ContactMe/ContactMe.js";
+import Footer from "components/Footer/Footer.js";
+import Head from "next/head";
+import Header from "components/Header/Header.js";
+import HeaderLinks from "components/Header/HeaderLinks.js";
+import { NotificationContainer } from 'react-notifications';
+import PageChange from "components/PageChange/PageChange.js";
+import { Provider } from 'react-redux'
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "next/app";
-import Head from "next/head";
-import Router from "next/router";
-import { Provider } from 'react-redux'
 import {
   ReactReduxFirebaseProvider,
 } from 'react-redux-firebase'
-import PageChange from "components/PageChange/PageChange.js";
-import { store, rrfProps } from "config/firebase-config.js";
-import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
-import Footer from "components/Footer/Footer.js";
-import ContactMe from "components/ContactMe/ContactMe.js";
+import Router from "next/router";
 import viberImg from "assets/viber.svg";
-
-import "styles/_misc.scss";
 
 Router.events.on("routeChangeStart", () => {
   document.body.classList.add("body-page-transition");
@@ -103,6 +106,7 @@ export default class MyApp extends App {
               <Component { ...pageProps } />
               <Footer />
               <ContactMe viberImg={ viberImg } />
+              <NotificationContainer/>
             </div>
 
           </ReactReduxFirebaseProvider>

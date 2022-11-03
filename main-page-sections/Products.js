@@ -1,14 +1,14 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Carousel from 'react-material-ui-carousel'
-import chunk from "lodash/chunk";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Product from "components/Product/Product";
-import { useWindowSize } from "hooks/use-window-size.js";
+import React from 'react';
 import { WINDOW_WIDTH } from "constants/constants.js";
+import chunk from "lodash/chunk";
+import { makeStyles } from '@material-ui/core/styles';
 import styles from "styles/main-page-sections/whyUsStyles.js";
 import { useSelector } from "react-redux";
+import { useWindowSize } from "hooks/use-window-size.js";
 
 const useStyles = makeStyles(styles);
 
@@ -16,7 +16,7 @@ export default function Products() {
   const classes = useStyles();
   const windowSize = useWindowSize();
 
-  const products = useSelector((state) => state.ordered.products);
+  const products = useSelector((state) => state.firebase.ordered.products);
 
   const numberOfParts = () => {
     if (!windowSize?.width) {
@@ -42,13 +42,13 @@ export default function Products() {
         </GridItem>
       </GridContainer>
       <Carousel swipe
-        autoPlay
+        autoPlay={false}
         cycleNavigation>
         { data?.map((items, i) =>
           <GridContainer key={ i } spacing={ 4 }>
             { items.map(({ key, value }) =>
               <GridItem key={ key } xs={ Number(12 / numberOfParts()) }>
-                <Product { ...value } />
+                <Product product={ value } id={key} />
               </GridItem>) }
           </GridContainer>
         )

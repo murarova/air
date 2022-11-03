@@ -1,14 +1,16 @@
-import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useFirebase, isLoaded, isEmpty } from 'react-redux-firebase'
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
+import { isEmpty, isLoaded, useFirebase } from 'react-redux-firebase'
+import { useEffect, useState } from 'react'
+
 import Button from "components/CustomButtons/Button.js";
+import Container from '@material-ui/core/Container';
+import PageChange from "components/PageChange/PageChange.js";
+import Router from 'next/router'
+import TextField from '@material-ui/core/TextField';
+import classNames from "classnames";
+import { makeStyles } from "@material-ui/core/styles";
 import { styled } from '@material-ui/styles';
 import styles from "styles/pages/pages.js";
-import { makeStyles } from "@material-ui/core/styles";
-import classNames from "classnames";
-import Router from 'next/router'
+import { useSelector } from 'react-redux'
 
 const Input = styled(TextField)(() => ({
   fontFamily: '"PT Mono", monospace',
@@ -19,7 +21,7 @@ export default function LoginPage() {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
   const firebase = useFirebase()
-  const auth = useSelector((state) => state.auth)
+  const auth = useSelector((state) => state.firebase.auth)
   const isLoggedIn = isLoaded(auth) && !isEmpty(auth)
 
   const [ credentials, setCredentials ] = useState({
@@ -73,15 +75,13 @@ export default function LoginPage() {
   }
 
   return <Container maxWidth="md">
-    { !isLoaded(auth)
-      ? <p>Loading...</p>
-      : <div className={ classes.wrapper }>
-        <div className={ classNames(classes.main, classes.mainRaised) }>
-          <div className={ classes.container }>
-            { renderLoginPage() }
-          </div>
+    { isLoaded(auth) && <div className={ classes.wrapper }>
+      <div className={ classNames(classes.main, classes.mainRaised) }>
+        <div className={ classes.container }>
+          { renderLoginPage() }
         </div>
       </div>
+    </div>
     }
   </Container>
 }
