@@ -11,15 +11,21 @@ import React from "react";
 import ServicesSection from "main-page-sections/ServicesSection.js";
 import TrailInstallation from "main-page-sections/TrailInstallation.js";
 import classNames from "classnames";
+import { convertPriceToUAH } from "utils/utils.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/mainPage.js";
 import { useFirebaseConnect } from 'react-redux-firebase'
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles(styles);
 
 export default function MainPage() {
   const classes = useStyles();
   useFirebaseConnect([ { path: "products" }, { path: "rate" } ]);
+  const products = useSelector((state) => state.firebase.ordered.products);
+  const rate = useSelector((state) => state.firebase.data.rate);
+  const minPrice = Math.min(...products.map(({ value }) => Number(value.price)))
+  
   
   return (
     <>
@@ -35,7 +41,7 @@ export default function MainPage() {
                 <h1 className={ classes.title }>Установка и обслуживание кондиционеров.</h1>
                 <div className={ classes.advertisingBlock }>
                   <ol className={ classes.list }>
-                    <li className={ classes.listItem }>Продажа кондиционеров - <strong className={ classes.accent }>от 16 500 грн.</strong></li>
+                    <li className={ classes.listItem }>Продажа кондиционеров - <strong className={ classes.accent }>от {convertPriceToUAH(minPrice, Number(rate))} грн.</strong></li>
                     <li className={ classes.listItem }>Монтаж - <strong className={ classes.accent }>3 500 грн.</strong></li>
                     <li className={ classes.listItem }>Техническое обслуживание - <strong className={ classes.accent }>1 000 грн.</strong></li>
                     <li className={ classes.listItem }>Гарантия на монтаж - <strong className={ classes.accent }>1 год.</strong></li>
