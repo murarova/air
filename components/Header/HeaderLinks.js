@@ -1,5 +1,3 @@
-import { isEmpty, isLoaded, useFirebase } from "react-redux-firebase"
-
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import IconButton from '@material-ui/core/IconButton';
@@ -7,28 +5,27 @@ import Link from "next/link";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import React from "react";
-import Router from 'next/router'
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/headerLinksStyle.js";
-import { useSelector } from 'react-redux'
+import { useAuth } from "../../context/auth";
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinks() {
   const classes = useStyles();
-  const firebase = useFirebase()
-  const auth = useSelector((state) => state.firebase.auth)
-  const isLoggedIn = isLoaded(auth) && !isEmpty(auth)
+  const { user, logout } = useAuth()
+  const router = useRouter()
 
   async function handleLogout() {
-    await firebase.logout();
-    Router.push("/");
+    logout();
+    router.push("/");
   }
 
   return (
     <div className={ classes.listContainer }>
       <List className={ classes.list }>
-      { isLoggedIn && <ListItem className={ classes.listItem }>
+        { user && <ListItem className={ classes.listItem }>
           <Link href="/admin">
             <a className={ classes.navLink }>Админ</a>
           </Link>
@@ -102,9 +99,8 @@ export default function HeaderLinks() {
           />
         </ListItem>
       </List>
-      
-      { isLoggedIn && <IconButton
-        color="info"
+
+      { user && <IconButton
         className={ classes.logoutBtn }
         onClick={ handleLogout }>
         <ExitToAppIcon />

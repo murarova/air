@@ -12,6 +12,7 @@ function ImageUploader({ setImages }) {
   const firebase = useFirebase()
 
   async function onImageDrop(image) {
+    //TODO: remove react-redux-firebase
     const images = await firebase.uploadFiles("images", image, "images")
     const mappedFiles = images.map(({ downloadURL, key, File }) => ({
       fullPath: File.fullPath,

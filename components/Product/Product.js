@@ -1,5 +1,4 @@
 import { convertPriceToUAH, truncate } from "utils/utils.js";
-import { isEmpty, isLoaded } from "react-redux-firebase"
 
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -14,19 +13,16 @@ import IconButton from '@material-ui/core/IconButton';
 import React from 'react';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
-import { useFirebase } from 'react-redux-firebase'
+import { deleteProduct } from "../../services/services";
+import { useAuth } from "../../context/auth";
 import { useRouter } from 'next/router'
-import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useStyles } from "styles/components/productStyle.js";
 
-export default function Product({ product, id }) {
+export default function Product({ product, rate, id, handleDeleteProduct }) {
   const classes = useStyles();
   const router = useRouter();
-  const rate = useSelector((state) => state.firebase.data.rate);
-  const firebase = useFirebase()
-  const auth = useSelector((state) => state.firebase.auth)
-  const isLoggedIn = isLoaded(auth) && !isEmpty(auth)
+  const { user } = useAuth()
 
   const {
     title,
@@ -40,22 +36,27 @@ export default function Product({ product, id }) {
   const [ isEdit, setIsEdit ] = useState(false);
 
   function handleCardClick() {
-    router.push(`/products/${ articleNumber }`)
+    router.push(`/products/${ id }`)
   }
 
-  function handleDeleteProduct() {
-    firebase.remove(`products/${ id }/`)
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
+
+  async function handleDeleteProduct() {
+    await deleteProduct(id)
+    refreshData();
   }
 
   return (
     <>
       <Card className={ classes.root }>
         <CardActionArea style={ { pointerEvents: "none" } }>
-          { isLoggedIn && <div className={ classes.btnWrapper }>
+          { user && <div className={ classes.btnWrapper }>
             <IconButton onClick={ () => setIsEdit(true) }>
               <EditIcon />
             </IconButton>
-            <IconButton onClick={ () => handleDeleteProduct(id) }>
+            <IconButton onClick={ handleDeleteProduct }>
               <DeleteIcon />
             </IconButton>
           </div> }

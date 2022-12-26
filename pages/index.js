@@ -1,3 +1,5 @@
+import { getProducts, getRate } from "../services/services";
+
 import Button from "components/CustomButtons/Button.js";
 import Dismantling from "main-page-sections/Dismantling.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -14,17 +16,12 @@ import classNames from "classnames";
 import { convertPriceToUAH } from "utils/utils.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/mainPage.js";
-import { useFirebaseConnect } from 'react-redux-firebase'
-import { useSelector } from "react-redux";
 
 const useStyles = makeStyles(styles);
 
-export default function MainPage() {
+export default function MainPage({ products, rate }) {
   const classes = useStyles();
-  useFirebaseConnect([ { path: "products" }, { path: "rate" } ]);
-  const products = useSelector((state) => state.firebase.ordered.products);
-  const rate = useSelector((state) => state.firebase.data.rate);
-  const prices = products?.map(({ value }) => Number(value.price)) ?? [];
+  const prices = products.map(({ price }) => Number(price)) ?? [];
   const minPrice = Math.min(...prices);
   
   return (
@@ -62,7 +59,7 @@ export default function MainPage() {
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
             <ServicesSection />
-            <Products />
+            <Products products={products} rate={rate} />
             <Mounting />
             <Maintenance />
             <TrailInstallation />
@@ -73,3 +70,10 @@ export default function MainPage() {
     </>
   );
 }
+
+export async function getStaticProps() {
+  const products = await getProducts();
+  const rate = await getRate();
+  return { props: { products, rate }}
+}
+

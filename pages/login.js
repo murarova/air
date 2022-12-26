@@ -1,16 +1,13 @@
-import { isEmpty, isLoaded, useFirebase } from 'react-redux-firebase'
-import { useEffect, useState } from 'react'
-
 import Button from "components/CustomButtons/Button.js";
 import Container from '@material-ui/core/Container';
-import PageChange from "components/PageChange/PageChange.js";
-import Router from 'next/router'
 import TextField from '@material-ui/core/TextField';
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 import { styled } from '@material-ui/styles';
 import styles from "styles/pages/pages.js";
-import { useSelector } from 'react-redux'
+import { useAuth } from '../context/auth';
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 const Input = styled(TextField)(() => ({
   fontFamily: '"PT Mono", monospace',
@@ -20,18 +17,13 @@ const Input = styled(TextField)(() => ({
 export default function LoginPage() {
   const useStyles = makeStyles(styles);
   const classes = useStyles();
-  const firebase = useFirebase()
-  const auth = useSelector((state) => state.firebase.auth)
-  const isLoggedIn = isLoaded(auth) && !isEmpty(auth)
+  const { login } = useAuth()
+  const router = useRouter()
 
   const [ credentials, setCredentials ] = useState({
     email: '',
     password: '',
   })
-
-  useEffect(() => {
-    isLoggedIn && Router.push("/admin")
-  }, [ isLoggedIn ])
 
   const [ error, setError ] = useState(null)
 
@@ -42,7 +34,8 @@ export default function LoginPage() {
 
   async function loginWithEmail() {
     try {
-      await firebase.login(credentials)
+      await login(credentials)
+      router.push('/admin')
     } catch (error) {
       setError(error.message)
     }
@@ -75,7 +68,7 @@ export default function LoginPage() {
   }
 
   return <Container maxWidth="md">
-    { isLoaded(auth) && <div className={ classes.wrapper }>
+    { <div className={ classes.wrapper }>
       <div className={ classNames(classes.main, classes.mainRaised) }>
         <div className={ classes.container }>
           { renderLoginPage() }

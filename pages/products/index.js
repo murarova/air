@@ -1,4 +1,5 @@
-import AddProductForm from "../../components/AddProduct/AddProdact";
+import { getProducts, getRate } from "../../services/services";
+
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Head from "next/head";
@@ -7,16 +8,11 @@ import React from "react";
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/pages.js";
-import { useFirebaseConnect } from 'react-redux-firebase'
-import { useSelector } from "react-redux";
 
 const useStyles = makeStyles(styles);
 
-export default function ProductsPage() {
+export default function ProductsPage({ products, rate }) {
   const classes = useStyles();
-  useFirebaseConnect([ { path: "products" }, { path: "rate" } ])
-  const products = useSelector((state) => state.firebase.ordered.products)
-
   return (
     <>
       <Head>
@@ -33,9 +29,9 @@ export default function ProductsPage() {
             </GridContainer>
             <div className={ classes.sectionContent }>
               <GridContainer spacing={ 4 }>
-                { products?.map(({ key, value }) =>
-                  <GridItem key={ key } xs={ 12 } sm={ 6 } md={ 6 } lg={ 4 }>
-                    <Product product={ value } id={key} />
+                { products.map((product) =>
+                  <GridItem key={ product.id } xs={ 12 } sm={ 6 } md={ 6 } lg={ 4 }>
+                    <Product product={ product } rate={ rate } id={ product.id } />
                   </GridItem>) }
               </GridContainer>
             </div>
@@ -44,4 +40,10 @@ export default function ProductsPage() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const products = await getProducts();
+  const rate = await getRate();
+  return { props: { products, rate } }
 }

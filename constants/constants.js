@@ -3,3 +3,16 @@ export const WINDOW_WIDTH = {
   MD: "576",
   LG: "960"
 };
+
+export const INITIAL_PRODUCT = {
+  "articleNumber": "",
+  "brand": "",
+  "description": "",
+  "images": [],
+  "price": "",
+  "specification": {
+    "inner": [],
+    "outer": [],
+  },
+  "title": ""
+}

@@ -10,24 +10,30 @@ import SaveIcon from '@material-ui/icons/Save';
 import createNotification from "components/Notify/Notify";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/addProductStyles.js";
-import { useFirebase } from 'react-redux-firebase'
+import { updateProduct } from '../../services/services';
+import { useRouter } from 'next/router'
 import { useState } from "react";
 
 const useStyles = makeStyles(styles);
 
 function EditProductComponent({ onClose, initialValues }) {
-  const [ images, setImages ] = useState(initialValues?.images);
-  const firebase = useFirebase()
+  const [ images, setImages ] = useState(initialValues?.images || []);
+  const router = useRouter();
+
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
 
   async function handleFormSubmit(values) {
     const newProduct = {
       ...values,
       images
     }
-    
-    await firebase.update(`products/${ initialValues.id }`, newProduct)
+
+    await updateProduct(initialValues?.id, newProduct)
     createNotification("success", "Товар изменен")
     setImages([])
+    refreshData()
   }
 
   return <EditProductForm onSubmit={ handleFormSubmit }

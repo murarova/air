@@ -7,16 +7,13 @@ import { WINDOW_WIDTH } from "constants/constants.js";
 import chunk from "lodash/chunk";
 import { makeStyles } from '@material-ui/core/styles';
 import styles from "styles/main-page-sections/whyUsStyles.js";
-import { useSelector } from "react-redux";
 import { useWindowSize } from "hooks/use-window-size.js";
 
 const useStyles = makeStyles(styles);
 
-export default function Products() {
+export default function Products({ products, rate }) {
   const classes = useStyles();
   const windowSize = useWindowSize();
-
-  const products = useSelector((state) => state.firebase.ordered.products);
 
   const numberOfParts = () => {
     if (!windowSize?.width) {
@@ -44,11 +41,11 @@ export default function Products() {
       <Carousel swipe
         autoPlay={false}
         cycleNavigation>
-        { data?.map((items, i) =>
+        { data.map((items, i) =>
           <GridContainer key={ i } spacing={ 4 }>
-            { items.map(({ key, value }) =>
-              <GridItem key={ key } xs={ Number(12 / numberOfParts()) }>
-                <Product product={ value } id={key} />
+            { items.map((product) =>
+              <GridItem key={ product.id } xs={ Number(12 / numberOfParts()) }>
+                <Product product={ product } rate={rate} id={product.id} />
               </GridItem>) }
           </GridContainer>
         )

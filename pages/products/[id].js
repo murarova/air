@@ -1,3 +1,4 @@
+import { getProduct, getProducts, getProductsPaths, getRate } from '../../services/services';
 import { isLoaded, useFirebaseConnect } from 'react-redux-firebase'
 
 import Carousel from 'react-material-ui-carousel'
@@ -14,57 +15,11 @@ import { convertPriceToUAH } from "utils/utils.js";
 import isEmpty from "lodash/isEmpty";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/pages.js";
-import { useEffect } from "react";
-import { useRouter } from 'next/router'
-import { useSelector } from "react-redux";
-import { useState } from "react";
 
 const useStyles = makeStyles(styles);
 
-export default function ProductPage() {
-  const router = useRouter()
-  const { id } = router.query
+export default function ProductPage({ product, rate }) {
   const classes = useStyles();
-  const [ product, setProduct ] = useState({});
-
-  useFirebaseConnect([ { path: "products" }, { path: "rate" } ])
-
-  const products = useSelector((state) => state.firebase.ordered.products);
-  const rate = useSelector((state) => state.firebase.data.rate);
-
-  useEffect(() => {
-    if (!products) {
-      return;
-    }
-    const product = products.find(({ value }) => value.articleNumber === id);
-    if (product) {
-      setProduct(product.value);
-    }
-  }, [ products ])
-
-  if (!isLoaded(products) || !isLoaded(rate)) {
-    return <div className={ classes.wrapper }>
-      <div className={ classNames(classes.main, classes.mainRaised) }>
-        <div className={ classes.container }>
-          <PageChange />
-        </div>
-      </div>
-    </div>
-  }
-
-  if (isEmpty(products)) {
-    return <div className={ classes.wrapper }>
-      <div className={ classNames(classes.main, classes.mainRaised) }>
-        <div className={ classes.container }>
-          <Typography variant="body1"
-            color="textSecondary">
-            Нічого не знайдено
-          </Typography>
-        </div>
-      </div>
-    </div>
-  }
-
   return (
     <>
       <Head>
@@ -116,4 +71,15 @@ export default function ProductPage() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const product = await getProduct(params.id);
+  const rate = await getRate();
+  return { props: { product, rate }}
+}
+
+export async function getStaticPaths() {
+  const paths = await getProductsPaths()
+  return { paths, fallback: false }
 }

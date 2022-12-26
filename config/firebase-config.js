@@ -6,7 +6,6 @@ import 'firebase/compat/storage';
 import { combineReducers } from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
 import firebase from 'firebase/compat/app';
-import { firebaseReducer } from 'react-redux-firebase'
 import { reducer as formReducer } from 'redux-form'
 
 const rrfConfig = {
@@ -25,7 +24,6 @@ const firebaseConfig = {
 };
 
 const rootReducer = combineReducers({
-  firebase: firebaseReducer,
   form: formReducer
 })
 
