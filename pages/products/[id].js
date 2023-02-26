@@ -1,11 +1,9 @@
-import { getProduct, getProducts, getProductsPaths, getRate } from '../../services/services';
-import { isLoaded, useFirebaseConnect } from 'react-redux-firebase'
+import { getProduct, getProductsPaths, getRate } from '../../services/services';
 
 import Carousel from 'react-material-ui-carousel'
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Head from "next/head";
-import PageChange from "components/PageChange/PageChange.js";
 import React from "react";
 import Skeleton from '@material-ui/lab/Skeleton';
 import SpecificationTable from "components/SpecificationTable/SpecificationTable.js";

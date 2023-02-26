@@ -13,6 +13,7 @@ const useStyles = makeStyles(styles);
 
 export default function ProductsPage({ products, rate }) {
   const classes = useStyles();
+  
   return (
     <>
       <Head>
@@ -31,7 +32,7 @@ export default function ProductsPage({ products, rate }) {
               <GridContainer spacing={ 4 }>
                 { products.map((product) =>
                   <GridItem key={ product.id } xs={ 12 } sm={ 6 } md={ 6 } lg={ 4 }>
-                    <Product product={ product } rate={ rate } id={ product.id } />
+                    <Product product={ product } rate={ rate } />
                   </GridItem>) }
               </GridContainer>
             </div>

@@ -8,7 +8,8 @@ export const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "space-between",
     margin: "0 auto",
-    padding: "10px"
+    padding: "10px",
+  
   },
   content: {
     padding: 8
@@ -21,13 +22,15 @@ export const useStyles = makeStyles({
     padding: 8,
     justifyContent: "space-between"
   },
-  more: {
-    color: "#ef7215"
+  buy: {
+    color: "#ef7215",
+    zIndex: 1,
   },
   btnWrapper: {
     position: "absolute",
-    top: "5px",
-    right: "5px",
-    pointerEvents: "all"
+    top: "10px",
+    right: "10px",
+    pointerEvents: "all",
+    zIndex: 1
   }
 });

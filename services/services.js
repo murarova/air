@@ -1,5 +1,7 @@
-import { child, get, getDatabase, ref, remove, set, update } from "firebase/database";
+import { child, get, getDatabase, push, ref, remove, set, update } from "firebase/database";
 import { getStorage, ref as storRef, uploadBytes } from "firebase/storage";
+
+import axios from 'axios';
 
 const db = ref(getDatabase());
 const storageRef = storRef(getStorage(), 'images');
@@ -68,4 +70,25 @@ export async function uploadFiles(file) {
 
 export async function addRate(rate) {
   return await set(child(db, "rate"), rate);
+}
+
+export async function addProduct(product) {
+  return await push(child(db, "products"), product);
+}
+
+export async function addOrder(order) {
+  return await push(child(db, "orders"), order);
+}
+
+export async function sendEmail(email) {
+  const response = await axios({
+    method: 'post',
+    url: '/api/send-email',
+    data: {
+      subject: "Нове замовлення",
+      message: email,
+    },
+  });
+
+  return response.status === 200;
 }

@@ -4,6 +4,7 @@ import 'react-notifications/lib/notifications.css';
 import { rrfProps, store } from "config/firebase-config.js";
 
 import { AuthProvider } from "../context/auth";
+import { CartProvider } from "../context/shopping-cart";
 import ContactMe from "components/ContactMe/ContactMe.js";
 import Footer from "components/Footer/Footer.js";
 import Head from "next/head";
@@ -82,28 +83,30 @@ export default function MyApp({ Component, pageProps }) {
       <Provider store={ store }>
         <ReactReduxFirebaseProvider { ...rrfProps }>
           <AuthProvider>
-            <div style={ { position: "relative" } }>
-              <Header
-                color="halfTransparent"
-                routes={ dashboardRoutes }
-                brand="Air Master"
-                rightLinks={ <HeaderLinks /> }
-                fixed
-                changeColorOnScroll={ {
-                  height: 500,
-                  color: "white",
-                } }
-              />
-              { authRequired.includes(router.pathname)
-                ? <ProtectedRoute>
-                  <Component { ...pageProps } />
-                </ProtectedRoute>
-                : <Component { ...pageProps } />
-              }
-              <Footer />
-              <ContactMe viberImg={ viberImg } />
-              <NotificationContainer />
-            </div>
+            <CartProvider>
+              <div style={ { position: "relative" } }>
+                <Header
+                  color="halfTransparent"
+                  routes={ dashboardRoutes }
+                  brand="Air Master"
+                  rightLinks={ <HeaderLinks /> }
+                  fixed
+                  changeColorOnScroll={ {
+                    height: 500,
+                    color: "white",
+                  } }
+                />
+                { authRequired.includes(router.pathname)
+                  ? <ProtectedRoute>
+                    <Component { ...pageProps } />
+                  </ProtectedRoute>
+                  : <Component { ...pageProps } />
+                }
+                <Footer />
+                <ContactMe viberImg={ viberImg } />
+                <NotificationContainer />
+              </div>
+            </CartProvider>
           </AuthProvider>
         </ReactReduxFirebaseProvider>
       </Provider>

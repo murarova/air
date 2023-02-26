@@ -15,14 +15,16 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
 import { deleteProduct } from "../../services/services";
 import { useAuth } from "../../context/auth";
+import { useCart } from "../../context/shopping-cart";
 import { useRouter } from 'next/router'
 import { useState } from "react";
 import { useStyles } from "styles/components/productStyle.js";
 
-export default function Product({ product, rate, id, handleDeleteProduct }) {
+export default function Product({ product, rate, handleDeleteProduct }) {
   const classes = useStyles();
   const router = useRouter();
   const { user } = useAuth()
+  const { addToCart } = useCart();
 
   const {
     title,
@@ -30,7 +32,8 @@ export default function Product({ product, rate, id, handleDeleteProduct }) {
     images,
     description,
     price,
-    articleNumber
+    articleNumber,
+    id
   } = product;
 
   const [ isEdit, setIsEdit ] = useState(false);
@@ -51,8 +54,7 @@ export default function Product({ product, rate, id, handleDeleteProduct }) {
   return (
     <>
       <Card className={ classes.root }>
-        <CardActionArea style={ { pointerEvents: "none" } }>
-          { user && <div className={ classes.btnWrapper }>
+      { user && <div className={ classes.btnWrapper }>
             <IconButton onClick={ () => setIsEdit(true) }>
               <EditIcon />
             </IconButton>
@@ -60,6 +62,7 @@ export default function Product({ product, rate, id, handleDeleteProduct }) {
               <DeleteIcon />
             </IconButton>
           </div> }
+        <CardActionArea onClick={ handleCardClick }>
           { !images || !images[ 0 ]?.downloadURL
             ? <Skeleton animation="wave" variant="rect" className={ classes.media } />
             : <CardMedia
@@ -91,8 +94,8 @@ export default function Product({ product, rate, id, handleDeleteProduct }) {
           <Typography>
             Цена: { convertPriceToUAH(price, Number(rate)) } грн
           </Typography>
-          <Button className={ classes.more } onClick={ handleCardClick }>
-            Подробнее
+          <Button className={ classes.buy } onClick={ () => addToCart(product) }>
+            Купить
           </Button>
         </CardActions>
       </Card >

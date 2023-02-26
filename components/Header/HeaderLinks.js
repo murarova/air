@@ -1,3 +1,4 @@
+import Badge from "../Badge/Badge";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,6 +9,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/headerLinksStyle.js";
 import { useAuth } from "../../context/auth";
+import { useCart } from "../../context/shopping-cart";
 import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(styles);
@@ -16,6 +18,7 @@ export default function HeaderLinks() {
   const classes = useStyles();
   const { user, logout } = useAuth()
   const router = useRouter()
+  const { totalQty } = useCart();
 
   async function handleLogout() {
     logout();
@@ -97,6 +100,15 @@ export default function HeaderLinks() {
               </Link>,
             ] }
           />
+        </ListItem>
+        <ListItem className={ classes.listItem }>
+          <Link href="/cart">
+            <a className={ classes.navLink }>
+              <Badge badgeContent={ totalQty } color="primary">
+                Корзина
+              </Badge>
+            </a>
+          </Link>
         </ListItem>
       </List>
 

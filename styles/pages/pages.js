@@ -223,8 +223,20 @@ const landingPageStyle = {
     "@media screen and (max-width: 768px)": {
       marginTop: "50px",
     },
-}
-
+  },
+  сheckoutSuccessWrapper: {
+    padding: "3rem 0",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  },
+  сheckoutSuccessIcon: {
+    fontSize: "70px",
+    marginBottom: "40px"
+  },
+  сheckoutSuccessTitle: {
+    marginBottom: "20px"
+  }
 };
 
 export default landingPageStyle;

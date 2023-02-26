@@ -1,4 +1,4 @@
-import { addRate, getRate } from "../services/services";
+import { addProduct, addRate, getRate } from "../services/services";
 
 import AddProductForm from "../components/AddProduct/AddProdact";
 import Button from "components/CustomButtons/Button.js";
@@ -28,14 +28,14 @@ const Admin = ({ currentRate }) => {
     setRate(event.target.value);
   };
 
-  function handleSave() {
+  async function handleSave() {
     if (!rate) {
       setError("Rate field can't be empty")
       return
     }
     setIsLoading(true)
     setError(null)
-    addRate(rate)
+    await addRate(rate)
     setTimeout(() => {
       setIsLoading(false)
     }, 500)
@@ -48,7 +48,7 @@ const Admin = ({ currentRate }) => {
         ...values,
         images
       }
-      await firebase.pushWithMeta('products', newProduct);
+      await addProduct(newProduct);
       createNotification("success", "Товар успешно добавлен")
       setIsAddProductOpen(false)
       setImages([])
