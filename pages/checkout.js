@@ -29,5 +29,5 @@ export default function CheckoutPage({ rate }) {
 
 export async function getStaticProps() {
   const rate = await getRate();
-  return { props: { rate }}
+  return { props: { rate }, revalidate: 60}
 }

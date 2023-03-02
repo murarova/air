@@ -1,6 +1,7 @@
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Drawer from "@material-ui/core/Drawer";
+import HeaderLinks from "components/Header/HeaderLinks.js";
 import Hidden from "@material-ui/core/Hidden";
 import IconButton from "@material-ui/core/IconButton";
 import Link from "next/link";
@@ -76,7 +77,7 @@ export default function Header(props) {
           )}
         </div>
         <Hidden smDown implementation="css">
-          {rightLinks}
+          <HeaderLinks />
         </Hidden>
         <Hidden mdUp>
           <IconButton
@@ -90,7 +91,7 @@ export default function Header(props) {
       </Toolbar>
       <Hidden mdUp implementation="js">
         <Drawer
-          variant="temporary"
+        variant="temporary"
           anchor={"right"}
           open={mobileOpen}
           classes={{
@@ -99,8 +100,7 @@ export default function Header(props) {
           onClose={handleDrawerToggle}
         >
           <div className={classes.appResponsive}>
-            {leftLinks}
-            {rightLinks}
+            <HeaderLinks handleDrawerToggle={handleDrawerToggle} />
           </div>
         </Drawer>
       </Hidden>

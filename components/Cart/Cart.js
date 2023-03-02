@@ -20,16 +20,20 @@ export default function Cart({ rate }) {
   }
   return (
     <>
-      <Typography variant="body1">Корзина</Typography>
-      { cartItems.length === 0 && <Typography variant="h5">Корзина пустая.</Typography> }
-      <ShopingCartTable cartItems={ cartItems }
-        rate={ rate }
-        addToCart={ addToCart }
-        removeFromCart={ removeFromCart } />
-      <div className={ classes.cartFooter }>
-        <Typography variant="body1">Разом: { convertPriceToUAH(totalSum, rate) || 0 } грн.</Typography>
-        <Button onClick={ handleCheckoutClick } color="accentColor">Оформити</Button>
-      </div>
+      { cartItems.length === 0 ? <Typography variant="h5">Корзина пустая.</Typography> :
+        <>
+          <Typography variant="h5">Корзина</Typography>
+          <ShopingCartTable cartItems={ cartItems }
+            rate={ rate }
+            addToCart={ addToCart }
+            removeFromCart={ removeFromCart } />
+          <div className={ classes.cartFooter }>
+            <Typography className={classes.total} variant="h5">Разом: { convertPriceToUAH(totalSum, rate) || 0 } грн.</Typography>
+            <Button onClick={ handleCheckoutClick } color="accentColor">Оформити</Button>
+          </div>
+        </>
+      }
+
     </>
   );
 };

@@ -81,14 +81,7 @@ const headerLinksStyle = (theme) => ({
     "&:hover,&:focus": {
       color: "inherit",
       background: "rgba(200, 200, 200, 0.2)",
-    },
-    [ theme.breakpoints.down("sm") ]: {
-      width: "calc(100% - 30px)",
-      textAlign: "left",
-      "& > span:first-child": {
-        justifyContent: "flex-start",
-      },
-    },
+    }
   },
   email: {
     marginLeft: "10px",
@@ -162,14 +155,16 @@ const headerLinksStyle = (theme) => ({
   marginRight5: {
     marginRight: "5px",
   },
-  listContainer: {
-    paddingRight: "50px"
-  },
   logoutBtn: {
     position: "absolute",
     bottom: "0",
     right: "5px"
-  }
+  },
+  listContainer: {
+    [ theme.breakpoints.up("md") ]: {
+    paddingRight: "50px"
+    }
+  },
 });
 
 export default headerLinksStyle;

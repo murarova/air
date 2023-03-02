@@ -1,7 +1,3 @@
-import {
-  infoColor
-} from "styles/default-styles.js";
-
 export default {
   wrapper: {
     display: "flex",
@@ -12,7 +8,11 @@ export default {
     position: "relative",
     height: "100%",
     overflowY: "auto",
-    margin: "1rem 0"
+    margin: "1rem 0",
+
+    "@media (max-width: 576px)": {
+      padding: "0",
+    },
   },
   inputWrapper: {
     display: "flex",
@@ -44,10 +44,20 @@ export default {
     padding: "10px 0",
     marginTop: "1rem"
   },
+  image: {
+    display: "flex",
+    "@media (max-width: 576px)": {
+      display: "none",
+    },
+  },
   imageContainer: {
     display: "flex",
     alignItems: "center",
     height: "60px",
+
+    "@media (max-width: 576px)": {
+      display: "none",
+    },
   },
   img: {
     height: "100%",

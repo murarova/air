@@ -37,7 +37,7 @@ function CheckoutTable({ cartItems, rate }) {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="left">Фото</StyledTableCell>
+            <StyledTableCell className={ classes.image } align="left">Фото</StyledTableCell>
             <StyledTableCell align="left">Найменування</StyledTableCell>
             <StyledTableCell align="left">Ціна</StyledTableCell>
             <StyledTableCell align="left">Кількість</StyledTableCell>
@@ -47,7 +47,7 @@ function CheckoutTable({ cartItems, rate }) {
         <TableBody>
           { cartItems.map(({ id, brand, title, images, price, amount }) => (
             <TableRow key={ id }>
-              <StyledTableCell component="td" scope="row">
+              <StyledTableCell className={ classes.image } component="td" scope="row">
                 { isEmpty(images)
                   ? <Skeleton animation="wave" variant="rect" className={ classes.imageContainer } />
                   : <div className={ classes.imageContainer }>

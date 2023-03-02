@@ -3,6 +3,11 @@ const cartStyle = {
     display: "flex",
     justifyContent: "space-between",
     padding: "40px 0 20px",
+    flexWrap: "wrap"
+  },
+  total : {
+    whiteSpace: "nowrap",
+    marginBottom: "2rem"
   },
   tableWrapper: {
     padding: "1rem 0",
@@ -11,14 +16,15 @@ const cartStyle = {
     display: "flex",
     alignItems: "center"
   },
-  product: {
-    marginLeft: "1rem"
-  },
   imageContainer: {
     display: "flex",
     alignItems: "center", 
     height: "100px",
-    width: "200px"
+    width: "200px",
+
+    "@media (max-width: 576px)": {
+      display: "none",
+    },
   },
   img: {
     height: "100%",

@@ -14,7 +14,7 @@ import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks() {
+export default function HeaderLinks({ handleDrawerToggle }) {
   const classes = useStyles();
   const { user, logout } = useAuth()
   const router = useRouter()
@@ -28,12 +28,12 @@ export default function HeaderLinks() {
   return (
     <div className={ classes.listContainer }>
       <List className={ classes.list }>
-        { user && <ListItem className={ classes.listItem }>
+        { user && <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
           <Link href="/admin">
             <a className={ classes.navLink }>Админ</a>
           </Link>
         </ListItem> }
-        <ListItem className={ classes.listItem }>
+        <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
           <Link href="/products">
             <a className={ classes.navLink }>Каталог</a>
           </Link>
@@ -47,6 +47,7 @@ export default function HeaderLinks() {
               className: classes.navLink,
               color: "transparent",
             } }
+            onClick={handleDrawerToggle}
             dropdownList={ [
               <Link href="/products">
                 <a className={ classes.dropdownLink }>Продажа кондиционеров</a>
@@ -66,12 +67,12 @@ export default function HeaderLinks() {
             ] }
           />
         </ListItem>
-        <ListItem className={ classes.listItem }>
+        <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
           <Link href="/prices">
             <a className={ classes.navLink }>Прайс-лист</a>
           </Link>
         </ListItem>
-        <ListItem className={ classes.listItem }>
+        <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
           <Link href="/delivery">
             <a className={ classes.navLink }>Доставка и оплата</a>
           </Link>
@@ -85,6 +86,7 @@ export default function HeaderLinks() {
               className: classes.navLink,
               color: "transparent",
             } }
+            onClick={handleDrawerToggle}
             dropdownList={ [
               <Link href="mailto:murarovvitalij@gmail.com">
                 <a target="_blank" className={ classes.socialLink } >
@@ -101,7 +103,7 @@ export default function HeaderLinks() {
             ] }
           />
         </ListItem>
-        <ListItem className={ classes.listItem }>
+        <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
           <Link href="/cart">
             <a className={ classes.navLink }>
               <Badge badgeContent={ totalQty } color="primary">

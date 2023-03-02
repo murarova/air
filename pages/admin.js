@@ -94,5 +94,5 @@ export default Admin
 
 export async function getStaticProps() {
   const rate = await getRate();
-  return { props: { currentRate: rate }}
+  return { props: { currentRate: rate }, revalidate: 60}
 }
