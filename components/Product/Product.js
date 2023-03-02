@@ -20,7 +20,7 @@ import { useRouter } from 'next/router'
 import { useState } from "react";
 import { useStyles } from "styles/components/productStyle.js";
 
-export default function Product({ product, rate, handleDeleteProduct }) {
+export default function Product({ product, rate }) {
   const classes = useStyles();
   const router = useRouter();
   const { user } = useAuth()

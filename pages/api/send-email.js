@@ -3,7 +3,8 @@ export default function (req, res) {
 
   let nodemailer = require('nodemailer')
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'mx1.cityhost.com.ua',
+    port: 587,
     auth: {
       user: process.env.email,
       pass: process.env.password,
@@ -11,7 +12,7 @@ export default function (req, res) {
   });
 
   const mailData = {
-    from: 'mrs.mursur@gmail.com',
+    from: process.env.email,
     to: 'murarovalv@gmail.com',
     subject: req.body.subject,
     html: req.body.message
