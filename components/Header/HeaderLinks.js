@@ -29,13 +29,13 @@ export default function HeaderLinks({ handleDrawerToggle }) {
     <div className={ classes.listContainer }>
       <List className={ classes.list }>
         { user && <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
-          <Link href="/admin">
-            <a className={ classes.navLink }>Админ</a>
+          <Link href="/admin" className={ classes.navLink }>
+            Админ
           </Link>
         </ListItem> }
         <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
-          <Link href="/products">
-            <a className={ classes.navLink }>Каталог</a>
+          <Link href="/products" className={ classes.navLink }>
+            Каталог
           </Link>
         </ListItem>
         <ListItem className={ classes.listItem }>
@@ -49,32 +49,32 @@ export default function HeaderLinks({ handleDrawerToggle }) {
             } }
             onClick={handleDrawerToggle}
             dropdownList={ [
-              <Link href="/products">
-                <a className={ classes.dropdownLink }>Продажа кондиционеров</a>
+              <Link href="/products" className={ classes.dropdownLink }>
+                Продажа кондиционеров
               </Link>,
-              <Link href="/mounting">
-                <a className={ classes.dropdownLink }>Монтаж кондиционеров</a>
+              <Link href="/mounting" className={ classes.dropdownLink }>
+                Монтаж кондиционеров
               </Link>,
-              <Link href="/maintenance">
-                <a className={ classes.dropdownLink }>ТО кондиционеров</a>
+              <Link href="/maintenance" className={ classes.dropdownLink }>
+                ТО кондиционеров
               </Link>,
-              <Link href="/trail">
-                <a className={ classes.dropdownLink }>Закладка трасс</a>
+              <Link href="/trail" className={ classes.dropdownLink }>
+                Закладка трасс
               </Link>,
-              <Link href="/dismantling">
-                <a className={ classes.dropdownLink }>Демонтаж кондиционеров</a>
+              <Link href="/dismantling" className={ classes.dropdownLink }>
+                Демонтаж кондиционеров
               </Link>,
             ] }
           />
         </ListItem>
         <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
-          <Link href="/prices">
-            <a className={ classes.navLink }>Прайс-лист</a>
+          <Link href="/prices" className={ classes.navLink }>
+            Прайс-лист
           </Link>
         </ListItem>
         <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
-          <Link href="/delivery">
-            <a className={ classes.navLink }>Доставка и оплата</a>
+          <Link href="/delivery" className={ classes.navLink }>
+            Доставка и оплата
           </Link>
         </ListItem>
         <ListItem className={ classes.listItem }>
@@ -88,28 +88,31 @@ export default function HeaderLinks({ handleDrawerToggle }) {
             } }
             onClick={handleDrawerToggle}
             dropdownList={ [
-              <Link href="mailto:murarovvitalij@gmail.com">
-                <a target="_blank" className={ classes.socialLink } >
-                  <i className={ classes.socialIcons + " fab fa fa-envelope" } aria-hidden="true" />
-                  <span className={ classes.email } >murarovvitalij@gmail.com</span>
-                </a>
+              <Link
+                href="mailto:murarovvitalij@gmail.com"
+                target="_blank"
+                className={ classes.socialLink }>
+
+                <i className={ classes.socialIcons + " fab fa fa-envelope" } aria-hidden="true" />
+                <span className={ classes.email } >murarovvitalij@gmail.com</span>
+
               </Link>,
-              <Link href="tel:380665388579">
-                <a className={ classes.socialLink }>
-                  <i className={ classes.socialIcons + " fab fa fa-phone-square" } aria-hidden="true" />
-                  <span className={ classes.phone } >+380665388579</span>
-                </a>
+              <Link href="tel:380665388579" className={ classes.socialLink }>
+
+                <i className={ classes.socialIcons + " fab fa fa-phone-square" } aria-hidden="true" />
+                <span className={ classes.phone } >+380665388579</span>
+
               </Link>,
             ] }
           />
         </ListItem>
         <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
-          <Link href="/cart">
-            <a className={ classes.navLink }>
-              <Badge badgeContent={ totalQty } color="primary">
-                Корзина
-              </Badge>
-            </a>
+          <Link href="/cart" className={ classes.navLink }>
+
+            <Badge overlap="rectangular" badgeContent={ totalQty } color="primary">
+              Корзина
+            </Badge>
+
           </Link>
         </ListItem>
       </List>
@@ -120,6 +123,5 @@ export default function HeaderLinks({ handleDrawerToggle }) {
         <ExitToAppIcon />
       </IconButton> }
     </div>
-
   );
 }

@@ -38,6 +38,8 @@ function ShopingCartTable({ cartItems, rate, removeFromCart, addToCart }) {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
+            <StyledTableCell className={ classes.image } align="left">Фото</StyledTableCell>
+            <StyledTableCell align="left">Артикул</StyledTableCell>
             <StyledTableCell align="left">Товар</StyledTableCell>
             <StyledTableCell align="left">Ціна</StyledTableCell>
             <StyledTableCell align="left">Кількість</StyledTableCell>
@@ -47,7 +49,7 @@ function ShopingCartTable({ cartItems, rate, removeFromCart, addToCart }) {
         <TableBody>
           { cartItems.map((item) => (
             <TableRow key={ item.id }>
-              <StyledTableCell component="td" scope="row">
+              <StyledTableCell className={ classes.image } component="td" scope="row">
                 <div className={ classes.productWrapper }>
                   { isEmpty(item.images)
                     ? <Skeleton animation="wave" variant="rect" className={ classes.imageContainer } />
@@ -55,32 +57,33 @@ function ShopingCartTable({ cartItems, rate, removeFromCart, addToCart }) {
                       <img className={ classes.img } src={ item.images[ 0 ].downloadURL } alt={ item.title } />
                     </div>
                   }
-                  <Typography className={ classes.product } variant="p">Кондиционер { item.brand } { item.title }</Typography>
                 </div>
+              </StyledTableCell>
+              <StyledTableCell  component="td" scope="row">{item.articleNumber}</StyledTableCell>
+              <StyledTableCell component="td" scope="row">
+                <Typography className={ classes.product } variant="body2">Кондиционер { item.brand } { item.title }</Typography>
               </StyledTableCell>
               <StyledTableCell component="td" scope="row">
                 { convertPriceToUAH(item.price, rate) }
               </StyledTableCell>
               <StyledTableCell component="td" scope="row">
-              <div className={ classes.buttons }>
-                <IconButton
-                  size="small"
-                  disableElevation
-                  variant="contained"
-                  onClick={ () => removeFromCart(item.id) }
-                >
-                  <RemoveIcon />
-                </IconButton>
-                <p className={ classes.amount }>{ item.amount }</p>
-                <IconButton
-                  size="small"
-                  disableElevation
-                  variant="contained"
-                  onClick={ () => addToCart(item) }
-                >
-                  <AddIcon />
-                </IconButton>
-              </div>
+                <div className={ classes.buttons }>
+                  <IconButton
+                    size="small"
+                    variant="contained"
+                    onClick={ () => removeFromCart(item.id) }
+                  >
+                    <RemoveIcon />
+                  </IconButton>
+                  <p className={ classes.amount }>{ item.amount }</p>
+                  <IconButton
+                    size="small"
+                    variant="contained"
+                    onClick={ () => addToCart(item) }
+                  >
+                    <AddIcon />
+                  </IconButton>
+                </div>
               </StyledTableCell>
               <StyledTableCell component="td" scope="row">
                 { getTotal(item.price, rate, item.amount) }

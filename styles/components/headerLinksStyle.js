@@ -158,7 +158,7 @@ const headerLinksStyle = (theme) => ({
   logoutBtn: {
     position: "absolute",
     bottom: "0",
-    right: "5px"
+    right: "-15px"
   },
   listContainer: {
     [ theme.breakpoints.up("md") ]: {

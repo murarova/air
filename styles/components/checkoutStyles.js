@@ -17,14 +17,26 @@ export default {
   inputWrapper: {
     display: "flex",
     flexDirection: "column",
+    marginBottom: "1rem",
     flex: 1,
+  },
+  error: {
+    color: "red",
+    fontSize: ".75rem"
+  },
+  inputLabel: {
+    color: "inherit"
+  },
+  asterisk: {
+    position: "absolute",
+    fontSize: ".7rem",
+    color: "red"
   },
   groupWrapper: {
     padding: "1rem 0"
   },
   input: {
     width: "100%",
-    marginBottom: "1rem",
     padding: "0.5rem",
   },
   label: {
@@ -45,7 +57,7 @@ export default {
     marginTop: "1rem"
   },
   image: {
-    display: "flex",
+    display: "table-cell",
     "@media (max-width: 576px)": {
       display: "none",
     },
@@ -53,7 +65,7 @@ export default {
   imageContainer: {
     display: "flex",
     alignItems: "center",
-    height: "60px",
+    width: "100px",
 
     "@media (max-width: 576px)": {
       display: "none",

@@ -22,7 +22,8 @@ function CheckoutTable({ cartItems, rate }) {
       backgroundColor: "#138086",
       color: "#ffffff",
       padding: "8px",
-      borderColor: "#d1cfcf"
+      borderColor: "#d1cfcf",
+      fontSize: "1rem"
     },
     body: {
       color: "#55555",
@@ -38,6 +39,7 @@ function CheckoutTable({ cartItems, rate }) {
         <TableHead>
           <TableRow>
             <StyledTableCell className={ classes.image } align="left">Фото</StyledTableCell>
+            <StyledTableCell align="left">Артикул</StyledTableCell>
             <StyledTableCell align="left">Найменування</StyledTableCell>
             <StyledTableCell align="left">Ціна</StyledTableCell>
             <StyledTableCell align="left">Кількість</StyledTableCell>
@@ -45,7 +47,7 @@ function CheckoutTable({ cartItems, rate }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          { cartItems.map(({ id, brand, title, images, price, amount }) => (
+          { cartItems.map(({ id, brand, title, images, price, amount, articleNumber }) => (
             <TableRow key={ id }>
               <StyledTableCell className={ classes.image } component="td" scope="row">
                 { isEmpty(images)
@@ -54,6 +56,9 @@ function CheckoutTable({ cartItems, rate }) {
                     <img className={ classes.img } src={ images[ 0 ].downloadURL } alt={ title } />
                   </div>
                 }
+              </StyledTableCell>
+              <StyledTableCell component="td" scope="row">
+                { articleNumber }
               </StyledTableCell>
               <StyledTableCell component="td" scope="row">
                 Кондиционер { brand } { title }

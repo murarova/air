@@ -1,5 +1,6 @@
+import Document, { Head, Html, Main, NextScript } from "next/document";
+
 import React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/styles";
 
 class MyDocument extends Document {
@@ -28,7 +29,6 @@ class MyDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"/>
         </Head>
         <body>
-          <div id="page-transition"></div>
           <Main />
           <NextScript />
         </body>

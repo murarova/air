@@ -1,6 +1,5 @@
-import React from "react";
 import Link from "next/link";
-
+import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/contactMeStyles.js";
@@ -12,12 +11,10 @@ export default function ContactMe({ viberImg }) {
 
   return (
     <div className={ classes.wrapper }>
-      <Link href="tel:380665388579">
-        <a className={ classes.phone }>
-          <i className="fa fa-phone" aria-hidden="true"></i>
-        </a>
+      <Link href="tel:380665388579" className={ classes.phone }>
+        <i className="fa fa-phone" aria-hidden="true"></i>
       </Link>
-      <Link title="Viber" href="viber://chat?number=+380665388579">
+      <Link title="Viber" href="viber://chat?number=+380665388579" legacyBehavior>
         <img className={ classes.viber } src={ viberImg } alt="Написать в Viber" />
       </Link>
     </div>

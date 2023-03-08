@@ -1,40 +1,77 @@
-import { Field, reduxForm } from 'redux-form'
-import { addOrder, sendEmail } from '../../services/services';
+import { Field, getFormSyncErrors, reduxForm } from 'redux-form'
+import { addOrder, sendEmail, setOrderCounter } from '../../services/services';
 
 import Button from "components/CustomButtons/Button";
 import CheckoutTable from '../CheckoutTable/CheckoutTable';
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Typography from '@material-ui/core/Typography';
-import { convertPriceToUAH } from "../../utils/utils";
-import { createNewOrderEmail } from '../../emails/email';
+import { convertPriceToUAH } from "utils/utils";
+import { createNewOrderEmail } from 'emails/email';
 import createNotification from "components/Notify/Notify";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/checkoutStyles";
-import { useCart } from "../../context/shopping-cart";
+import { useCart } from "context/shopping-cart";
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles(styles);
+const required = value => value ? undefined : 'Це поле обов\'язкове';
 
-function Checkout({ rate }) {
+const renderField = ({ input, required, phone, classes, label, className, type, meta: { touched, error, warning } }) => (
+  <div>
+    <label className={ classes.inputLabel }>{ label }
+      { required && <span className={ classes.asterisk }>&#65121;</span> }
+    </label>
+    <div className={ classes.inputWrapper }>
+      { phone
+        ? <input { ...input } pattern="[\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" placeholder='+380505005050' className={ className } type={ type } />
+        : <input className={ className } { ...input } type={ type } /> }
+      { touched && ((error && <span className={ classes.error }>{ error }</span>) || (warning && <span>{ warning }</span>)) }
+    </div>
+  </div>
+)
+
+const validate = values => {
+  const errors = {}
+  if (!values.firstName) {
+    errors.firstName = 'Це поле обов\'язкове'
+  }
+  if (!values.phone) {
+    errors.phone = 'Це поле обов\'язкове'
+  }
+  return errors
+}
+
+function Checkout({ rate, orderCounter, touch }) {
   const classes = useStyles();
   const { cartItems, totalSum, cleanCart } = useCart();
   const router = useRouter();
   const user = useSelector(state => state.form?.checkout?.values);
+  const validationErrors = useSelector(state => state.form?.checkout?.syncErrors);
 
-  async function handleFormSubmit() {
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+    if (validationErrors) {
+      touch(...Object.keys(validationErrors));
+      createNotification("error", "Заповніть, будь ласка, обов'язкові поля");
+      return
+    }
+
+    const orderNumber = Number(orderCounter) + 1;
     const order = {
       order: cartItems,
       user,
       rate,
-      status: "new"
+      status: "new",
+      orderNumber
     }
     try {
       await addOrder(order);
       const email = createNewOrderEmail(order);
       await sendEmail(email);
       cleanCart();
+      setOrderCounter(orderNumber)
       router.push("/checkout-success");
     } catch (error) {
       createNotification(error)
@@ -46,25 +83,16 @@ function Checkout({ rate }) {
       <Typography variant="h5">Оформлення замовлення.</Typography>
       <div className={ classes.wrapper }>
         <Typography variant="body1">Ваші контактні дані.</Typography>
-        <form>
+        <form onSubmit={ handleFormSubmit }>
           <GridContainer className={ classes.groupWrapper }>
             <GridItem xs={ 12 } md={ 4 }>
-              <div className={ classes.inputWrapper }>
-                <label className={ classes.label } htmlFor="lastName">Прізвище</label>
-                <Field className={ classes.input } type="text" component="input" name='lastName' autocomplete="family-name" />
-              </div>
+              <Field className={ classes.input } label="Прізвище" type="text" component={ renderField } classes={ classes } name='lastName' autoComplete="family-name" />
             </GridItem>
             <GridItem xs={ 12 } md={ 4 }>
-              <div className={ classes.inputWrapper }>
-                <label className={ classes.label } htmlFor="firstName">Ім'я</label>
-                <Field className={ classes.input } type="text" component="input" name='firstName' autocomplete="given-name" />
-              </div>
+              <Field validate={ [ required ] } classes={ classes } label="Ім'я" className={ classes.input } type="text" component={ renderField } required name='firstName' autoComplete="given-name" />
             </GridItem>
             <GridItem xs={ 12 } md={ 4 }>
-              <div className={ classes.inputWrapper }>
-                <label className={ classes.label } htmlFor="phone">Мобільний телефон</label>
-                <Field className={ classes.input } type="text" component="input" name='phone' />
-              </div>
+              <Field className={ classes.input } classes={ classes } validate={ [ required ] } label="Tелефон" type="tel" component={ renderField } required phone name='phone' />
             </GridItem>
           </GridContainer>
           <Typography variant="body1">Замовлення:</Typography>
@@ -77,34 +105,22 @@ function Checkout({ rate }) {
           <Typography variant="body1">Доставка:</Typography>
           <GridContainer className={ classes.groupWrapper }>
             <GridItem xs={ 12 } md={ 6 }>
-              <div className={ classes.inputWrapper }>
-                <label className={ classes.label } htmlFor="city">Місто</label>
-                <Field className={ classes.input } type="text" component="input" name='city' />
-              </div>
+              <Field className={ classes.input } classes={ classes } component={ renderField } type="text" label="Місто" name='city' />
             </GridItem>
             <GridItem xs={ 12 } md={ 6 }>
-              <div className={ classes.inputWrapper }>
-                <label className={ classes.label } htmlFor="street">Вулиця</label>
-                <Field className={ classes.input } type="text" component="input" name='street' />
-              </div>
+              <Field className={ classes.input } classes={ classes } component={ renderField } label="Вулиця" type="text" name='street' />
             </GridItem>
             <GridItem xs={ 12 } md={ 6 }>
-              <div className={ classes.inputWrapper }>
-                <label className={ classes.label } htmlFor="house">Будинок</label>
-                <Field className={ classes.input } type="text" component="input" name='house' />
-              </div>
+              <Field className={ classes.input } classes={ classes } component={ renderField } label="Будинок" type="text" name='house' />
             </GridItem>
             <GridItem xs={ 12 } md={ 6 }>
-              <div className={ classes.inputWrapper }>
-                <label className={ classes.label } htmlFor="apartment">Квартира</label>
-                <Field className={ classes.input } type="text" component="input" name='apartment' />
-              </div>
+              <Field className={ classes.input } classes={ classes } component={ renderField } label="Квартира" type="text" name='apartment' />
             </GridItem>
           </GridContainer>
+          <div className={ classes.checkout }>
+            <Button type="submit" color="accentColor">Замовлення підтверджую</Button>
+          </div>
         </form>
-        <div className={ classes.checkout }>
-          <Button onClick={ handleFormSubmit } color="accentColor">Замовлення підтверджую</Button>
-        </div>
       </div>
     </>
   );
@@ -112,6 +128,7 @@ function Checkout({ rate }) {
 
 const CheckoutForm = reduxForm({
   form: 'checkout',
+  validate
 })(Checkout)
 
 export default CheckoutForm;

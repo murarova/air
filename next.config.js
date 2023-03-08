@@ -11,7 +11,7 @@ const path = require("path");
 // });
 
 const nextConfig = {
-    reactStrictMode: true,
+    reactStrictMode: false,
     webpack: (config) => {
         config.resolve.modules.push(path.resolve("./"));
         return config;

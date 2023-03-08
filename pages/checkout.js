@@ -1,13 +1,14 @@
+import { getOrderCounter, getRate } from "../services/services";
+
 import Checkout from '../components/Checkout/Checkout';
 import Head from "next/head";
 import classNames from "classnames";
-import { getRate } from "../services/services";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/pages.js";
 
 const useStyles = makeStyles(styles);
 
-export default function CheckoutPage({ rate }) {
+export default function CheckoutPage({ rate, orderCounter }) {
   const classes = useStyles();
   return (
     <>
@@ -18,7 +19,7 @@ export default function CheckoutPage({ rate }) {
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
-            <Checkout rate={rate} />
+            <Checkout rate={rate} orderCounter={orderCounter} />
           </div>
         </div>
       </div>
@@ -29,5 +30,6 @@ export default function CheckoutPage({ rate }) {
 
 export async function getStaticProps() {
   const rate = await getRate();
-  return { props: { rate }, revalidate: 60}
+  const orderCounter = await getOrderCounter();
+  return { props: { rate, orderCounter }}
 }

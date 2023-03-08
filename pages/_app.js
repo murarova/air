@@ -2,6 +2,7 @@ import "styles/_misc.scss";
 import 'react-notifications/lib/notifications.css';
 
 import { rrfProps, store } from "config/firebase-config.js";
+import { useEffect, useState } from "react";
 
 import { AuthProvider } from "../context/auth";
 import { CartProvider } from "../context/shopping-cart";
@@ -15,35 +16,34 @@ import PageChange from "components/PageChange/PageChange.js";
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute'
 import { Provider } from 'react-redux'
 import React from "react";
-import ReactDOM from "react-dom";
 import {
   ReactReduxFirebaseProvider,
 } from 'react-redux-firebase'
-import Router from "next/router";
+import Script from 'next/script'
 import { useRouter } from 'next/router'
 import viberImg from "assets/viber.svg";
-
-Router.events.on("routeChangeStart", () => {
-  document.body.classList.add("body-page-transition");
-  ReactDOM.render(
-    <PageChange />,
-    document.getElementById("page-transition")
-  );
-});
-Router.events.on("routeChangeComplete", () => {
-  ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
-  document.body.classList.remove("body-page-transition");
-});
-Router.events.on("routeChangeError", () => {
-  ReactDOM.unmountComponentAtNode(document.getElementById("page-transition"));
-  document.body.classList.remove("body-page-transition");
-});
 
 const dashboardRoutes = [];
 const authRequired = [ '/admin' ]
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter()
+  const [ loading, setLoading ] = useState(false);
+
+  useEffect(() => {
+    const handleStart = () => setLoading(true);
+    const handleComplete = () => setLoading(false)
+
+    router.events.on('routeChangeStart', handleStart)
+    router.events.on('routeChangeComplete', handleComplete)
+    router.events.on('routeChangeError', handleComplete)
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart)
+      router.events.off('routeChangeComplete', handleComplete)
+      router.events.off('routeChangeError', handleComplete)
+    }
+  })
   return (
     <React.Fragment>
       <Head>
@@ -66,11 +66,11 @@ export default function MyApp({ Component, pageProps }) {
         <meta property="og:image" content="https://air-master.com.ua/img/air-conditioner.png" />
         <meta property="og:site_name" content="AirMaster" />
 
-        <script
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-WVCJL4V865"
           strategy="afterInteractive"
         />
-        <script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="afterInteractive">
           { `
               window.dataLayer = window.dataLayer || [];
               function gtag(){ dataLayer.push(arguments)}
@@ -78,7 +78,7 @@ export default function MyApp({ Component, pageProps }) {
 
               gtag('config', 'G-WVCJL4V865')
           `}
-        </script>
+        </Script>
       </Head>
       <Provider store={ store }>
         <ReactReduxFirebaseProvider { ...rrfProps }>
@@ -110,6 +110,7 @@ export default function MyApp({ Component, pageProps }) {
           </AuthProvider>
         </ReactReduxFirebaseProvider>
       </Provider>
+      { loading && <PageChange /> }
     </React.Fragment>
   );
 }

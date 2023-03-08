@@ -1,13 +1,11 @@
+import Button from "components/CustomButtons/Button.js";
+// core components
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
 import React from "react";
 import Router from "next/router";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
-// core components
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
-
 import styles from "styles/components/sectionStyles.js";
 
 const useStyles = makeStyles(styles);
@@ -15,7 +13,6 @@ const useStyles = makeStyles(styles);
 export default function Section({ id, position, children, title, image, link }) {
   const classes = useStyles({ image, position });
   const handleBtnClick = () => Router.push(link);
-
   return (
     <div id={ id } className={ classes.section } style={ { color: "black" } }>
       <div className={ classes.mobileImage } />

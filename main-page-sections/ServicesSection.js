@@ -33,75 +33,75 @@ export default function ServicesSection() {
         <GridContainer spacing={ 4 }>
           <GridItem xs={ 12 } sm={ 4 } md={ 4 } lg={ 4 }>
             <Card className={ classes.card }>
-              <Link href="/products">
-                <a className={ classes.serviceLink }>
-                  <InfoArea
-                    title="Продажа кондиционеров"
-                    description=""
-                    icon={ CallToActionIcon }
-                    iconColor="info"
-                    vertical
-                  />
-                </a>
+              <Link href="/products" className={ classes.serviceLink }>
+
+                <InfoArea
+                  title="Продажа кондиционеров"
+                  description=""
+                  icon={ CallToActionIcon }
+                  iconColor="info"
+                  vertical
+                />
+
               </Link>
             </Card>
           </GridItem>
           <GridItem xs={ 6 } sm={ 4 } md={ 4 } lg={ 4 }>
             <Card className={ classes.card }>
-              <Link href="/mounting">
-                <a className={ classes.serviceLink }>
-                  <InfoArea
-                    title="Монтаж кондиционеров"
-                    description=""
-                    icon={ AcUnitIcon }
-                    vertical
-                  />
-                </a>
+              <Link href="/mounting" className={ classes.serviceLink }>
+
+                <InfoArea
+                  title="Монтаж кондиционеров"
+                  description=""
+                  icon={ AcUnitIcon }
+                  vertical
+                />
+
               </Link>
             </Card>
           </GridItem>
           <GridItem xs={ 6 } sm={ 4 } md={ 4 } lg={ 4 }>
             <Card className={ classes.card }>
-              <Link href="/maintenance">
-                <a className={ classes.serviceLink }>
-                  <InfoArea
-                    title="Техническое обслуживание"
-                    description=""
-                    icon={ BuildIcon }
-                    iconColor="info"
-                    vertical
-                  />
-                </a>
+              <Link href="/maintenance" className={ classes.serviceLink }>
+
+                <InfoArea
+                  title="Техническое обслуживание"
+                  description=""
+                  icon={ BuildIcon }
+                  iconColor="info"
+                  vertical
+                />
+
               </Link>
             </Card>
           </GridItem>
           <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 6 }>
             <Card className={ classes.card }>
-              <Link href="/dismantling">
-                <a className={ classes.serviceLink }>
-                  <InfoArea
-                    title="Демонтаж кондиционеров"
-                    description=""
-                    icon={ PermDataSettingIcon }
-                    iconColor="info"
-                    vertical
-                  />
-                </a>
+              <Link href="/dismantling" className={ classes.serviceLink }>
+
+                <InfoArea
+                  title="Демонтаж кондиционеров"
+                  description=""
+                  icon={ PermDataSettingIcon }
+                  iconColor="info"
+                  vertical
+                />
+
               </Link>
             </Card>
           </GridItem>
           <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 6 }>
             <Card className={ classes.card }>
-              <Link href="/trail">
-                <a className={ classes.serviceLink }>
-                  <InfoArea
-                    title="Закладка трасс на этапе ремонта"
-                    description=""
-                    icon={ GavelIcon }
-                    iconColor="info"
-                    vertical
-                  />
-                </a>
+              <Link href="/trail" className={ classes.serviceLink }>
+
+                <InfoArea
+                  title="Закладка трасс на этапе ремонта"
+                  description=""
+                  icon={ GavelIcon }
+                  iconColor="info"
+                  vertical
+                />
+
               </Link>
             </Card>
           </GridItem>

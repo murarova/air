@@ -39,6 +39,30 @@ export async function getRate() {
   }
 }
 
+export async function getOrderCounter() {
+  const snapshot = await get(child(db, "orderCounter"));
+  if (snapshot.exists()) {
+    return snapshot.val()
+  } else {
+    return null
+  }
+}
+
+export async function getOrders() {
+  const snapshot = await get(child(db, "orders"));
+  if (snapshot.exists()) {
+    let orders = [];
+    snapshot.forEach(function (childSnapshot) {
+      const key = childSnapshot.key;
+      const childData = childSnapshot.val();
+      orders.push({ ...childData, id: key })
+    });
+    return orders
+  } else {
+    return []
+  }
+}
+
 export async function getProductsPaths() {
   const snapshot = await get(child(db, 'products'));
   if (snapshot.exists()) {
@@ -58,10 +82,12 @@ export async function getProductsPaths() {
 
 export async function deleteProduct(id) {
   await remove(child(db, `products/${ id }`));
+  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/admin`)
 }
 
 export async function updateProduct(id, newProduct) {
   await update(child(db, `products/${ id }`), newProduct);
+  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/admin`)
 }
 
 export async function uploadFiles(file) {
@@ -69,15 +95,22 @@ export async function uploadFiles(file) {
 }
 
 export async function addRate(rate) {
-  return await set(child(db, "rate"), rate);
+  await set(child(db, "rate"), rate);
+  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/admin`)
+}
+
+export async function setOrderCounter(orderCounter) {
+  await set(child(db, "orderCounter"), orderCounter);
 }
 
 export async function addProduct(product) {
-  return await push(child(db, "products"), product);
+  await push(child(db, "products"), product);
+  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/products`)
 }
 
 export async function addOrder(order) {
-  return await push(child(db, "orders"), order);
+  await push(child(db, "orders"), order);
+  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/admin`)
 }
 
 export async function sendEmail(email) {

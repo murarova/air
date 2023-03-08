@@ -1,5 +1,4 @@
 import Button from "components/CustomButtons/Button.js";
-import { CartItem } from "../CartItem/CartItem";
 import ShopingCartTable from "../ShopingCartTable/ShopingCartTable";
 import Typography from '@material-ui/core/Typography';
 import { convertPriceToUAH } from "../../utils/utils";
@@ -28,12 +27,11 @@ export default function Cart({ rate }) {
             addToCart={ addToCart }
             removeFromCart={ removeFromCart } />
           <div className={ classes.cartFooter }>
-            <Typography className={classes.total} variant="h5">Разом: { convertPriceToUAH(totalSum, rate) || 0 } грн.</Typography>
-            <Button onClick={ handleCheckoutClick } color="accentColor">Оформити</Button>
+            <p className={classes.total}>Разом: { convertPriceToUAH(totalSum, rate) || 0 } грн.</p>
+            <Button className={classes.checkoutButton} onClick={ handleCheckoutClick } color="accentColor">Оформити</Button>
           </div>
         </>
       }
-
     </>
   );
 };

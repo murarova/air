@@ -44,7 +44,7 @@ export default function Products({ products, rate }) {
         { data.map((items, i) =>
           <GridContainer key={ i } spacing={ 4 }>
             { items.map((product) =>
-              <GridItem key={ product.id } xs={ Number(12 / numberOfParts()) }>
+              <GridItem key={ product.id } xs={ Number(12 / numberOfParts()) || "auto" }>
                 <Product product={ product } rate={rate} id={product.id} />
               </GridItem>) }
           </GridContainer>

@@ -46,5 +46,5 @@ export default function ProductsPage({ products, rate }) {
 export async function getStaticProps() {
   const products = await getProducts();
   const rate = await getRate();
-  return { props: { products, rate }, revalidate: 60}
+  return { props: { products, rate }}
 }

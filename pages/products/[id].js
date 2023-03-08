@@ -74,7 +74,7 @@ export default function ProductPage({ product, rate }) {
 export async function getStaticProps({ params }) {
   const product = await getProduct(params.id);
   const rate = await getRate();
-  return { props: { product, rate }, revalidate: 60}
+  return { props: { product, rate }}
 }
 
 export async function getStaticPaths() {

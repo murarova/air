@@ -170,6 +170,12 @@ const landingPageStyle = {
       width: "50%",
     }
   },
+  adminContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: "2rem"
+  },
   rateContainer: {
     display: "flex",
     alignItems: "center",
@@ -212,12 +218,8 @@ const landingPageStyle = {
   },
   adminWrapper: {
     display: "flex",
-    alignItems: "center",
     justifyContent: "space-between",
-
-    "@media screen and (max-width: 768px)": {
-      flexDirection: "column",
-    },
+    flexDirection: "column",
   },
   saveNewProductBtn: {
     "@media screen and (max-width: 768px)": {

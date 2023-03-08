@@ -3,11 +3,18 @@ const cartStyle = {
     display: "flex",
     justifyContent: "space-between",
     padding: "40px 0 20px",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    alignItems: "center"
   },
   total : {
     whiteSpace: "nowrap",
-    marginBottom: "2rem"
+    marginBottom: "2rem",
+    fontSize: "1rem",
+    color: "#3c4858",
+    fontWeight: "500"
+  },
+  checkoutButton : {
+    marginBottom: "2rem",
   },
   tableWrapper: {
     padding: "1rem 0",
@@ -16,11 +23,16 @@ const cartStyle = {
     display: "flex",
     alignItems: "center"
   },
+  image: {
+    display: "table-cell",
+    "@media (max-width: 576px)": {
+      display: "none",
+    },
+  },
   imageContainer: {
     display: "flex",
     alignItems: "center", 
-    height: "100px",
-    width: "200px",
+    width: "100px",
 
     "@media (max-width: 576px)": {
       display: "none",
