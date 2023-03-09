@@ -22,6 +22,7 @@ export default function HeaderLinks({ handleDrawerToggle }) {
 
   async function handleLogout() {
     logout();
+    handleDrawerToggle();
     router.push("/");
   }
 

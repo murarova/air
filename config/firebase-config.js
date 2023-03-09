@@ -7,6 +7,7 @@ import { combineReducers } from 'redux'
 import { configureStore } from '@reduxjs/toolkit'
 import firebase from 'firebase/compat/app';
 import { reducer as formReducer } from 'redux-form'
+import { getAuth } from 'firebase/auth'
 
 const rrfConfig = {
   userProfile: 'users',
@@ -40,6 +41,9 @@ export const store = configureStore({
 firebase.initializeApp(firebaseConfig)
 firebase.database()
 firebase.storage(); 
+
+export const auth = getAuth()
+
 
 export const rrfProps = {
   firebase,

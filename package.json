@@ -9,8 +9,7 @@
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && rm -rf .next/ && npm install && npm run dev",
-    "deploy": "next build && next export",
-    "preview-email": "email dev"
+    "deploy": "next build && next export"
   },
   "keywords": [
     "next",
