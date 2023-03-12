@@ -61,7 +61,7 @@ function ShopingCartTable({ cartItems, rate, removeFromCart, addToCart }) {
               </StyledTableCell>
               <StyledTableCell  component="td" scope="row">{item.articleNumber}</StyledTableCell>
               <StyledTableCell component="td" scope="row">
-                <Typography className={ classes.product } variant="body2">Кондиционер { item.brand } { item.title }</Typography>
+                <Typography className={ classes.product } variant="body2">Кондиціонер { item.brand } { item.title }</Typography>
               </StyledTableCell>
               <StyledTableCell component="td" scope="row">
                 { convertPriceToUAH(item.price, rate) }

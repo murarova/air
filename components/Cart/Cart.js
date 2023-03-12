@@ -19,9 +19,9 @@ export default function Cart({ rate }) {
   }
   return (
     <>
-      { cartItems.length === 0 ? <Typography variant="h5">Корзина пустая.</Typography> :
+      { cartItems.length === 0 ? <Typography variant="h5">Кошик пустая.</Typography> :
         <>
-          <Typography variant="h5">Корзина</Typography>
+          <Typography variant="h5">Кошик</Typography>
           <ShopingCartTable cartItems={ cartItems }
             rate={ rate }
             addToCart={ addToCart }

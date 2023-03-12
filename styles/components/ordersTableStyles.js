@@ -1,5 +1,6 @@
 export default {
   order: {
+    position: "relative",
     padding: "1.5rem 1rem",
     marginBottom: "1.5rem",
     boxShadow:
@@ -7,5 +8,10 @@ export default {
   },
   marginBottom: {
     marginBottom: "1.5rem",
+  },
+  deleteBtn: {
+    position: "absolute",
+    right: "5px",
+    top: "5px",
   }
 }

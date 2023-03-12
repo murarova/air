@@ -22,11 +22,11 @@ const mountingRows_sm = [
 ];
 
 const mountingRowsWithoutTrails_lg = [
-  createData('Кондиционер', "7-9", "20-25 м2", "1 500"),
-  createData('Кондиционер', "12", "35 м2", "1 700"),
-  createData('Кондиционер', "18", "50 м2", "2 000"),
-  createData('Кондиционер (сплит, кассетного, напольнопотолочного типа)', "24", "от 70 м2", "от 2 500"),
-  createData('Кондиционер (сплит, кассетного, напольнопотолочного типа)', "36", "от 100 м2", "от 3 500"),
+  createData('Кондиціонер', "7-9", "20-25 м2", "1 500"),
+  createData('Кондиціонер', "12", "35 м2", "1 700"),
+  createData('Кондиціонер', "18", "50 м2", "2 000"),
+  createData('Кондиціонер (сплит, кассетного, напольнопотолочного типа)', "24", "от 70 м2", "от 2 500"),
+  createData('Кондиціонер (сплит, кассетного, напольнопотолочного типа)', "36", "от 100 м2", "от 3 500"),
 ];
 
 const mountingRowsWithoutTrails_sm = [
@@ -37,10 +37,10 @@ const mountingRowsWithoutTrails_sm = [
   createData("36", "от 100 м2", "от 3 500"),
 ];
 
-const mountingHeader_lg = [ 'Вид работ', 'Продуктивность кондиционера, BTU', 'Условная площадь помещения', 'Стоимость, грн' ]
+const mountingHeader_lg = [ 'Вид работ', 'Продуктивність кондиціонера, BTU', 'Умовна площа приміщення', 'Вартість, грн' ]
 
 
-const mountingHeader_sm = [ 'Продуктивность кондиционера, BTU', 'Условная площадь помещения', 'Стоимость, грн' ]
+const mountingHeader_sm = [ 'Продуктивність кондиціонера, BTU', 'Умовна площа приміщення', 'Вартість, грн' ]
 
 export const mountingRows = {
   SM: mountingRows_sm,
@@ -65,7 +65,7 @@ export const maintenanceRows = [
   createData('Заправка фреоном R - 22', null, "100 гр/ 250"),
 ];
 
-export const maintenanceHeader = [ 'Вид работ', 'Условная площадь помещения', 'Стоимость, грн' ];
+export const maintenanceHeader = [ 'Вид работ', 'Умовна площа приміщення', 'Вартість, грн' ];
 
 
 export const trailRows = [
@@ -74,7 +74,7 @@ export const trailRows = [
   createData('Монтаж фреоновой магистрали', "9 и 16 мм", "от 70 м2", "2 500")
 ];
 
-export const trailHeader = [ 'Вид работ', 'Диаметр труб', 'Условная площадь помещения', 'Стоимость, грн' ]
+export const trailHeader = [ 'Вид работ', 'Диаметр труб', 'Умовна площа приміщення', 'Вартість, грн' ]
 
 
 
@@ -95,18 +95,18 @@ export const trailRowsAdditionalMaterial = [
   createData('Короб-канал 60х60', null,  null,  null, "250"),
 ];
 
-export const trailHeaderAdditionalWorks = [ 'Вид работ', 'Стоимость, грн' ]
+export const trailHeaderAdditionalWorks = [ 'Вид работ', 'Вартість, грн' ]
 
-export const trailHeaderAdditionalMaterial = [ 'Материалы', 'Продуктивность кондиционера, BTU', 'Условная площадь помещения', 'Диаметр трубы', 'Стоимость, грн' ]
+export const trailHeaderAdditionalMaterial = [ 'Материалы', 'Продуктивність кондиціонера, BTU', 'Умовна площа приміщення', 'Диаметр трубы', 'Вартість, грн' ]
 
 
 export const dismantlingRows = [
-  createData('Демонтаж бытовых кондиционеров 7-12 tbtu', "700"),
-  createData('Демонтаж настенных кондиционеров 18-36 tbtu', "900"),
-  createData('Демонтаж напольно-потолочных кондиционеров 18-24 btu', "1 000"),
-  createData('Демонтаж кассетных, канальных, кондиционеров 18-24 btu', "1 000"),
-  createData('Демонтаж полупромышленной серии кондиционеров 30-60 btu', "1 400")
+  createData('Демонтаж бытовых кондиціонерів 7-12 tbtu', "700"),
+  createData('Демонтаж настенных кондиціонерів 18-36 tbtu', "900"),
+  createData('Демонтаж напольно-потолочных кондиціонерів 18-24 btu', "1 000"),
+  createData('Демонтаж кассетных, канальных, кондиціонерів 18-24 btu', "1 000"),
+  createData('Демонтаж полупромышленной серии кондиціонерів 30-60 btu', "1 400")
 ];
 
-export const dismantlingHeader = [ 'Услуга', 'Стоимость, грн' ]
+export const dismantlingHeader = [ 'Услуга', 'Вартість, грн' ]
 

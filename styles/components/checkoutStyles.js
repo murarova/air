@@ -85,5 +85,8 @@ export default {
   },
   checkout: {
     alignSelf: "end"
+  },
+  checkoutRow: {
+    height: "4rem"
   }
 }

@@ -1,5 +1,6 @@
 import { getProduct, getProductsPaths, getRate } from '../../services/services';
 
+import Button from "components/CustomButtons/Button.js";
 import Carousel from 'react-material-ui-carousel'
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -10,19 +11,29 @@ import SpecificationTable from "components/SpecificationTable/SpecificationTable
 import Typography from '@material-ui/core/Typography';
 import classNames from "classnames";
 import { convertPriceToUAH } from "utils/utils.js";
+import createNotification from "components/Notify/Notify"
 import isEmpty from "lodash/isEmpty";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/pages.js";
+import { useCart } from "context/shopping-cart";
 
 const useStyles = makeStyles(styles);
 
 export default function ProductPage({ product, rate }) {
   const classes = useStyles();
+  const { addToCart } = useCart();
+
+
+  function handleAddToCart() {
+    addToCart(product)
+    createNotification("success", "Товар додано до кошика")
+  }
+  
   return (
     <>
       <Head>
-        <title>Продажа кондиционеров в Киеве | Air Master</title>
-        <meta name="description" content="Продажа кондиционеров в Киеве ✅ Гарантия ❗  Лучшие цены 💰" />
+        <title>Продаж кондиціонерів в Киеве | Air Master</title>
+        <meta name="description" content="Продаж кондиціонерів в Киеве ✅ Гарантия ❗  Лучшие цены 💰" />
       </Head>
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>
@@ -40,12 +51,12 @@ export default function ProductPage({ product, rate }) {
                   </Carousel>
                 }
               </GridItem>
-              <GridItem xs={ 12 } md={ 7 }>
+              <GridItem className={classes.sectionWrapper} xs={ 12 } md={ 7 }>
                 <Typography variant="overline" display="block" gutterBottom>
                   { product.articleNumber }
                 </Typography>
                 <Typography variant="h6" gutterBottom>
-                  Кондиционер { product.brand } { product.title }
+                  Кондиціонер { product.brand } { product.title }
                 </Typography>
                 <Typography
                   variant="body1"
@@ -54,9 +65,14 @@ export default function ProductPage({ product, rate }) {
                   component="p">
                   { product.description }
                 </Typography>
-                <Typography style={ { color: "#ef7215" } } variant="h6">
-                  Цена: { convertPriceToUAH(product.price, Number(rate)) } грн
-                </Typography>
+                <div className={ classes.actions }>
+                  <Typography style={ { color: "#ef7215" } } variant="h6">
+                    Ціна: { convertPriceToUAH(product.price, Number(rate)) } грн
+                  </Typography>
+                  <Button color="accentColor" onClick={ handleAddToCart }>
+                    Купити
+                  </Button>
+                </div>
               </GridItem>
             </GridContainer>
             <GridContainer justifyContent="center" style={ { paddingTop: 20 } }>
@@ -74,7 +90,7 @@ export default function ProductPage({ product, rate }) {
 export async function getStaticProps({ params }) {
   const product = await getProduct(params.id);
   const rate = await getRate();
-  return { props: { product, rate }}
+  return { props: { product, rate } }
 }
 
 export async function getStaticPaths() {

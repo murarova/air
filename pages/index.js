@@ -27,31 +27,41 @@ export default function MainPage({ products, rate }) {
   return (
     <>
       <Head>
-        <title>Установка кондиционеров в Киеве | Техническое обслуживание кондиционеров в Киеве | Air Master</title>
-        <meta name="description" content="Установка кондиционеров в Киеве ❄️ Техническое обслуживание кондиционеров ⭐ Закладка трасс на этапе ремонта ✅ Гарантия ❗  Лучшие цены 💰" />
+        <title>Установка кондиціонерів в Киеве | Технічне обслуговування кондиціонерів в Киеве | Air Master</title>
+        <meta name="description" content="Установка кондиціонерів в Киеве ❄️ Технічне обслуговування кондиціонерів ⭐ Закладка трас на етапі ремонту ✅ Гарантия ❗  Лучшие цены 💰" />
       </Head>
       <div className={ classes.wrapper }>
         <Parallax filter responsive image="/img/bg.jpeg">
           <div className={ classes.container }>
             <GridContainer>
               <GridItem xs={ 12 } sm={ 12 } md={ 12 } lg={ 9 }>
-                <h1 className={ classes.title }>Установка и обслуживание кондиционеров.</h1>
+                <h1 className={ classes.title }>Встановлення та обслуговування кондиціонерів.</h1>
                 <div className={ classes.advertisingBlock }>
                   <ol className={ classes.list }>
-                    <li className={ classes.listItem }>Продажа кондиционеров - <strong className={ classes.accent }>от { convertPriceToUAH(minPrice, Number(rate)) } грн.</strong></li>
+                    <li className={ classes.listItem }>Продаж кондиціонерів - <strong className={ classes.accent }>от { convertPriceToUAH(minPrice, Number(rate)) } грн.</strong></li>
                     <li className={ classes.listItem }>Монтаж - <strong className={ classes.accent }>3 500 грн.</strong></li>
-                    <li className={ classes.listItem }>Техническое обслуживание - <strong className={ classes.accent }>1 000 грн.</strong></li>
-                    <li className={ classes.listItem }>Гарантия на монтаж - <strong className={ classes.accent }>1 год.</strong></li>
+                    <li className={ classes.listItem }>Технічне обслуговування - <strong className={ classes.accent }>1 000 грн.</strong></li>
+                    <li className={ classes.listItem }>Гарантія на монтаж - <strong className={ classes.accent }>1 рік.</strong></li>
                   </ol>
                 </div>
                 <br />
-                <Button
-                  color="accentColor"
-                  size="lg"
-                  href="./prices"
-                >
-                  Прайс-лист
-                </Button>
+                <div className={classes.btnWrapper}>
+                  <Button
+                    className={classes.btn}
+                    color="infoColor"
+                    size="md"
+                    href="./products"
+                  >
+                    Купити кондиціонер
+                  </Button>
+                  <Button
+                    color="accentColor"
+                    size="md"
+                    href="./prices"
+                  >
+                    Прайс-ліст на послуги
+                  </Button>
+                </div>
               </GridItem>
             </GridContainer>
           </div>

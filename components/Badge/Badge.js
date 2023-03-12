@@ -6,7 +6,11 @@ const StyledBadge = withStyles(() => ({
   badge: {
     right: -10,
     top: -5,
-    backgroundColor: accentColor
+    backgroundColor: accentColor,
+    "@media (max-width: 959px)": {
+      right: 5,
+      top: 5,
+    },
   },
 }))(Badge);
 

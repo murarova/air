@@ -14,14 +14,14 @@ export default function Dismantling() {
 
   return (
     <Section
-      title="Демонтаж кондиционеров."
+      title="Демонтаж кондиціонерів."
       image="/img/dismantling.jpeg"
       position="left"
       id="dismantling"
       link="/dismantling"
     >
       <div className={ classes.sectionText }>
-        <h3 className={ classes.mainTitle }>Демонтаж кондиционеров производиться с сохранением фреона.</h3>
+        <h3 className={ classes.mainTitle }>Демонтаж кондиціонерів производиться с сохранением фреона.</h3>
         <h4 className={ classes.sectionTitle }>В стоимость демонтажа входит: </h4>
         <ul className={ classes.list }>
           <li className={ classes.listItem }>Отключение коммуникаций</li>

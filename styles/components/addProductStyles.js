@@ -69,4 +69,9 @@ export default {
   title: {
     textAlign: "center"
   },
+  imagesContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  }
 }

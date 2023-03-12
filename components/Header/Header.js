@@ -1,4 +1,5 @@
 import AppBar from "@material-ui/core/AppBar";
+import Badge from "components//Badge/Badge";
 import Button from "@material-ui/core/Button";
 import Drawer from "@material-ui/core/Drawer";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -8,16 +9,19 @@ import Link from "next/link";
 import Menu from "@material-ui/icons/Menu";
 import PropTypes from "prop-types";
 import React from "react";
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import Toolbar from "@material-ui/core/Toolbar";
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/headerStyle.js";
+import { useCart } from "context/shopping-cart";
 
 const useStyles = makeStyles(styles);
 
 export default function Header(props) {
   const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [ mobileOpen, setMobileOpen ] = React.useState(false);
+  const { totalQty } = useCart();
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
       window.addEventListener("scroll", headerColorChange);
@@ -36,54 +40,60 @@ export default function Header(props) {
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > changeColorOnScroll.height) {
       document.body
-        .getElementsByTagName("header")[0]
-        .classList.remove(classes[color]);
+        .getElementsByTagName("header")[ 0 ]
+        .classList.remove(classes[ color ]);
       document.body
-        .getElementsByTagName("header")[0]
-        .classList.add(classes[changeColorOnScroll.color]);
+        .getElementsByTagName("header")[ 0 ]
+        .classList.add(classes[ changeColorOnScroll.color ]);
     } else {
       document.body
-        .getElementsByTagName("header")[0]
-        .classList.add(classes[color]);
+        .getElementsByTagName("header")[ 0 ]
+        .classList.add(classes[ color ]);
       document.body
-        .getElementsByTagName("header")[0]
-        .classList.remove(classes[changeColorOnScroll.color]);
+        .getElementsByTagName("header")[ 0 ]
+        .classList.remove(classes[ changeColorOnScroll.color ]);
     }
   };
-  const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
+  const { color, leftLinks, brand, fixed, absolute } = props;
   const appBarClasses = classNames({
-    [classes.appBar]: true,
-    [classes[color]]: color,
-    [classes.absolute]: absolute,
-    [classes.fixed]: fixed,
+    [ classes.appBar ]: true,
+    [ classes[ color ] ]: color,
+    [ classes.absolute ]: absolute,
+    [ classes.fixed ]: fixed,
   });
   const brandComponent = (
     <Link href="/" as="/" legacyBehavior>
-      <Button className={classes.title}>{brand}</Button>
+      <Button className={ classes.title }>{ brand }</Button>
     </Link>
   );
   return (
-    <AppBar className={appBarClasses}>
-      <Toolbar className={classes.container}>
-      
-        {leftLinks !== undefined ? brandComponent : null}
-        <div className={classes.flex}>
-          {leftLinks !== undefined ? (
+    <AppBar className={ appBarClasses }>
+      <Toolbar className={ classes.container }>
+        { leftLinks !== undefined ? brandComponent : null }
+        <div className={ classes.flex }>
+          { leftLinks !== undefined ? (
             <Hidden smDown implementation="css">
-              {leftLinks}
+              { leftLinks }
             </Hidden>
           ) : (
             brandComponent
-          )}
+          ) }
         </div>
         <Hidden smDown implementation="css">
-          <HeaderLinks />
+          <HeaderLinks handleDrawerToggle={ handleDrawerToggle } />
         </Hidden>
         <Hidden mdUp>
+          <Link href="/cart" className={ classes.navLink }>
+            <Badge overlap="rectangular" badgeContent={ totalQty } color="primary">
+              <IconButton>
+                <ShoppingCartOutlinedIcon />
+              </IconButton>
+            </Badge>
+          </Link>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerToggle}
+            onClick={ handleDrawerToggle }
           >
             <Menu />
           </IconButton>
@@ -91,16 +101,16 @@ export default function Header(props) {
       </Toolbar>
       <Hidden mdUp implementation="js">
         <Drawer
-        variant="temporary"
-          anchor={"right"}
-          open={mobileOpen}
-          classes={{
+          variant="temporary"
+          anchor={ "right" }
+          open={ mobileOpen }
+          classes={ {
             paper: classes.drawerPaper,
-          }}
-          onClose={handleDrawerToggle}
+          } }
+          onClose={ handleDrawerToggle }
         >
-          <div className={classes.appResponsive}>
-            <HeaderLinks handleDrawerToggle={handleDrawerToggle} />
+          <div className={ classes.appResponsive }>
+            <HeaderLinks handleDrawerToggle={ handleDrawerToggle } />
           </div>
         </Drawer>
       </Hidden>

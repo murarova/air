@@ -174,7 +174,11 @@ const landingPageStyle = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    marginBottom: "2rem"
+    marginBottom: "2rem",
+
+    "@media screen and (max-width: 959px)": {
+      flexDirection: "column"
+    }
   },
   rateContainer: {
     display: "flex",
@@ -222,8 +226,8 @@ const landingPageStyle = {
     flexDirection: "column",
   },
   saveNewProductBtn: {
-    "@media screen and (max-width: 768px)": {
-      marginTop: "50px",
+    "@media screen and (max-width: 959px)": {
+      marginTop: "20px",
     },
   },
   сheckoutSuccessWrapper: {
@@ -238,6 +242,18 @@ const landingPageStyle = {
   },
   сheckoutSuccessTitle: {
     marginBottom: "20px"
+  },
+  actions: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    position: "absolute",
+    bottom: "0",
+    left: "15px",
+    right: " 15px",
+  },
+  sectionWrapper: {
+    paddingBottom: "3rem"
   }
 };
 

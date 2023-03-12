@@ -22,27 +22,27 @@ export default function PricesPage() {
   return (
     <>
       <Head>
-        <title>Стоимость установки кондиционеров в Киеве | Air Master</title>
-        <meta name="description" content="Прайс-лист на работы по установке и техническому обслуживанию кондиционеров в Киеве и Киевской области" />
+        <title>Вартість установки кондиціонерів в Киеве | Air Master</title>
+        <meta name="description" content="Прайс-ліст на работы по установке и техническому обслуживанию кондиціонерів в Киеве и Киевской области" />
       </Head>
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
-            <h1 className={ classes.title }>Стоимость установки кондиционеров.</h1>
+            <h1 className={ classes.title }>Вартість установки кондиціонерів.</h1>
             <div className={ classes.tableContainer }>
-              <h4 className={ classes.sectionTitle }>Стандартный монтаж кондиционеров</h4>
+              <h4 className={ classes.sectionTitle }>Стандартный монтаж кондиціонерів</h4>
               <Table className={ classes.table } rows={ mountingRows[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
-              <h4 className={ classes.sectionTitle }>Навеска блоков (если фреономагистраль уже заложена на этапе ремонта)</h4>
+              <h4 className={ classes.sectionTitle }>Навіска блоків (якщо фреономагістраль вже закладена на етапі ремонту)</h4>
               <Table className={ classes.table } rows={ mountingRowsWithoutTrails[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
-              <h4 className={ classes.sectionTitle }>ТО кондиционеров</h4>
+              <h4 className={ classes.sectionTitle }>ТО кондиціонерів</h4>
               <Table className={ classes.table } rows={ maintenanceRows } header={ maintenanceHeader } />
               <h4 className={ classes.sectionTitle }>Закладка трасс, длиной до 3 м.п.</h4>
               <Table className={ classes.table } rows={ trailRows } header={ trailHeader } />
               <h4 className={ classes.sectionTitle }>Дополнительные работы, cтоимость за 1 м.п.</h4>
               <Table className={ classes.table } rows={ trailRowsAdditionalWorks } header={ trailHeaderAdditionalWorks } />
-              <h4 className={ classes.sectionTitle }>Стоимость материалов, не входящих в стандартный монтаж (фреономагистраль более 3 м, за 1 м.п.)</h4>
+              <h4 className={ classes.sectionTitle }>Вартість материалов, не входящих в стандартный монтаж (фреономагистраль более 3 м, за 1 м.п.)</h4>
               <Table className={ classes.table } rows={ trailRowsAdditionalMaterial } header={ trailHeaderAdditionalMaterial } />
-              <h4 className={ classes.sectionTitle }>Демонтаж кондиционеров</h4>
+              <h4 className={ classes.sectionTitle }>Демонтаж кондиціонерів</h4>
               <Table className={ classes.table } rows={ dismantlingRows } header={ dismantlingHeader } />
             </div>
           </div>

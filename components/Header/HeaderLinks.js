@@ -1,6 +1,7 @@
-import Badge from "../Badge/Badge";
+import Badge from "components//Badge/Badge";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Hidden from "@material-ui/core/Hidden";
 import IconButton from '@material-ui/core/IconButton';
 import Link from "next/link";
 import List from "@material-ui/core/List";
@@ -8,8 +9,8 @@ import ListItem from "@material-ui/core/ListItem";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/headerLinksStyle.js";
-import { useAuth } from "../../context/auth";
-import { useCart } from "../../context/shopping-cart";
+import { useAuth } from "context/auth";
+import { useCart } from "context/shopping-cart";
 import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(styles);
@@ -29,12 +30,12 @@ export default function HeaderLinks({ handleDrawerToggle }) {
   return (
     <div className={ classes.listContainer }>
       <List className={ classes.list }>
-        { user && <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
+        { user && <ListItem onClick={ handleDrawerToggle } className={ classes.listItem }>
           <Link href="/admin" className={ classes.navLink }>
-            Админ
+            Адмін
           </Link>
         </ListItem> }
-        <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
+        <ListItem onClick={ handleDrawerToggle } className={ classes.listItem }>
           <Link href="/products" className={ classes.navLink }>
             Каталог
           </Link>
@@ -43,51 +44,51 @@ export default function HeaderLinks({ handleDrawerToggle }) {
           <CustomDropdown
             noLiPadding
             navDropdown
-            buttonText="Услуги"
+            buttonText="Послуги"
             buttonProps={ {
               className: classes.navLink,
               color: "transparent",
             } }
-            onClick={handleDrawerToggle}
+            onClick={ handleDrawerToggle }
             dropdownList={ [
               <Link href="/products" className={ classes.dropdownLink }>
-                Продажа кондиционеров
+                Продаж кондиціонерів
               </Link>,
               <Link href="/mounting" className={ classes.dropdownLink }>
-                Монтаж кондиционеров
+                Монтаж кондиціонерів
               </Link>,
               <Link href="/maintenance" className={ classes.dropdownLink }>
-                ТО кондиционеров
+                ТО кондиціонерів
               </Link>,
               <Link href="/trail" className={ classes.dropdownLink }>
                 Закладка трасс
               </Link>,
               <Link href="/dismantling" className={ classes.dropdownLink }>
-                Демонтаж кондиционеров
+                Демонтаж кондиціонерів
               </Link>,
             ] }
           />
         </ListItem>
-        <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
+        <ListItem onClick={ handleDrawerToggle } className={ classes.listItem }>
           <Link href="/prices" className={ classes.navLink }>
-            Прайс-лист
+            Прайс-ліст
           </Link>
         </ListItem>
-        <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
+        <ListItem onClick={ handleDrawerToggle } className={ classes.listItem }>
           <Link href="/delivery" className={ classes.navLink }>
-            Доставка и оплата
+            Доставка і оплата
           </Link>
         </ListItem>
         <ListItem className={ classes.listItem }>
           <CustomDropdown
             noLiPadding
             navDropdown
-            buttonText="Контакты"
+            buttonText="Контакти"
             buttonProps={ {
               className: classes.navLink,
               color: "transparent",
             } }
-            onClick={handleDrawerToggle}
+            onClick={ handleDrawerToggle }
             dropdownList={ [
               <Link
                 href="mailto:murarovvitalij@gmail.com"
@@ -107,15 +108,15 @@ export default function HeaderLinks({ handleDrawerToggle }) {
             ] }
           />
         </ListItem>
-        <ListItem onClick={handleDrawerToggle} className={ classes.listItem }>
-          <Link href="/cart" className={ classes.navLink }>
-
-            <Badge overlap="rectangular" badgeContent={ totalQty } color="primary">
-              Корзина
-            </Badge>
-
-          </Link>
-        </ListItem>
+        <Hidden smDown>
+          <ListItem onClick={ handleDrawerToggle } className={ classes.listItem }>
+            <Link href="/cart" className={ classes.navLink }>
+              <Badge overlap="rectangular" badgeContent={ totalQty } color="primary">
+                Кошик
+              </Badge>
+            </Link>
+          </ListItem>
+        </Hidden>
       </List>
 
       { user && <IconButton

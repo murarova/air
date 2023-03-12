@@ -13,9 +13,10 @@ import IconButton from '@material-ui/core/IconButton';
 import React from 'react';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
-import { deleteProduct } from "../../services/services";
-import { useAuth } from "../../context/auth";
-import { useCart } from "../../context/shopping-cart";
+import createNotification from "components/Notify/Notify"
+import { deleteProduct } from "services/services";
+import { useAuth } from "context/auth";
+import { useCart } from "context/shopping-cart";
 import { useRouter } from 'next/router'
 import { useState } from "react";
 import { useStyles } from "styles/components/productStyle.js";
@@ -42,26 +43,29 @@ export default function Product({ product, rate }) {
     router.push(`/products/${ id }`)
   }
 
-  const refreshData = () => {
-    router.replace(router.asPath);
-  }
-
   async function handleDeleteProduct() {
     await deleteProduct(id)
-    refreshData();
+    setTimeout(() => {
+      router.replace(router.asPath);
+    }, 500);
+  }
+
+  function handleAddToCart() {
+    addToCart(product)
+    createNotification("success", "Товар додано до кошика")
   }
 
   return (
     <>
       <Card className={ classes.root }>
-      { user && <div className={ classes.btnWrapper }>
-            <IconButton onClick={ () => setIsEdit(true) }>
-              <EditIcon />
-            </IconButton>
-            <IconButton onClick={ handleDeleteProduct }>
-              <DeleteIcon />
-            </IconButton>
-          </div> }
+        { user && <div className={ classes.btnWrapper }>
+          <IconButton onClick={ () => setIsEdit(true) }>
+            <EditIcon />
+          </IconButton>
+          <IconButton onClick={ handleDeleteProduct }>
+            <DeleteIcon />
+          </IconButton>
+        </div> }
         <CardActionArea onClick={ handleCardClick }>
           { !images || !images[ 0 ]?.downloadURL
             ? <Skeleton animation="wave" variant="rect" className={ classes.media } />
@@ -72,7 +76,7 @@ export default function Product({ product, rate }) {
             /> }
           <CardContent className={ classes.content }>
             <Typography variant="h5" component="h2">
-              Кондиционер { brand } { title }
+              Кондиціонер { brand } { title }
             </Typography>
             <Typography variant="overline" display="block" gutterBottom>
               { articleNumber }
@@ -92,10 +96,10 @@ export default function Product({ product, rate }) {
         </CardActionArea>
         <CardActions className={ classes.actions }>
           <Typography>
-            Цена: { convertPriceToUAH(price, Number(rate)) } грн
+            Ціна: { convertPriceToUAH(price, Number(rate)) } грн.
           </Typography>
-          <Button className={ classes.buy } onClick={ () => addToCart(product) }>
-            Купить
+          <Button className={ classes.buy } onClick={ handleAddToCart }>
+            Купити
           </Button>
         </CardActions>
       </Card >

@@ -12,8 +12,8 @@ export default function CartPage({ rate }) {
   return (
     <>
       <Head>
-        <title>Корзина | Air Master</title>
-        <meta name="description" content="Продажа кондиционеров в Киеве ✅ Гарантия ❗  Лучшие цены 💰" />
+        <title>Кошик | Air Master</title>
+        <meta name="description" content="Продаж кондиціонерів в Киеве ✅ Гарантия ❗  Лучшие цены 💰" />
       </Head>
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>

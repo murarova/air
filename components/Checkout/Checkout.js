@@ -1,10 +1,11 @@
-import { Field, getFormSyncErrors, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form'
 import { addOrder, sendEmail, setOrderCounter } from '../../services/services';
 
 import Button from "components/CustomButtons/Button";
-import CheckoutTable from '../CheckoutTable/CheckoutTable';
+import CheckoutTable from 'components/CheckoutTable/CheckoutTable';
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
+import PhoneInput from 'react-phone-input-2'
 import Typography from '@material-ui/core/Typography';
 import { convertPriceToUAH } from "utils/utils";
 import { createNewOrderEmail } from 'emails/email';
@@ -25,7 +26,7 @@ const renderField = ({ input, required, phone, classes, label, className, type, 
     </label>
     <div className={ classes.inputWrapper }>
       { phone
-        ? <input { ...input } pattern="[\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" placeholder='+380505005050' className={ className } type={ type } />
+        ? <PhoneInput  { ...input } onlyCountries={['ua']} placeholder="+380 (50) 112 12 12" disableDropdown country={'ua'} />
         : <input className={ className } { ...input } type={ type } /> }
       { touched && ((error && <span className={ classes.error }>{ error }</span>) || (warning && <span>{ warning }</span>)) }
     </div>
@@ -39,6 +40,8 @@ const validate = values => {
   }
   if (!values.phone) {
     errors.phone = 'Це поле обов\'язкове'
+  } else if(values.phone.length < 12) {
+    errors.phone = 'Невірний формат'
   }
   return errors
 }
@@ -49,7 +52,7 @@ function Checkout({ rate, orderCounter, touch }) {
   const router = useRouter();
   const user = useSelector(state => state.form?.checkout?.values);
   const validationErrors = useSelector(state => state.form?.checkout?.syncErrors);
-
+  
   async function handleFormSubmit(e) {
     e.preventDefault();
     if (validationErrors) {
@@ -57,24 +60,25 @@ function Checkout({ rate, orderCounter, touch }) {
       createNotification("error", "Заповніть, будь ласка, обов'язкові поля");
       return
     }
-
+  
     const orderNumber = Number(orderCounter) + 1;
     const order = {
       order: cartItems,
       user,
       rate,
       status: "new",
-      orderNumber
+      orderNumber,
+      date: Date.now()
     }
     try {
       await addOrder(order);
       const email = createNewOrderEmail(order);
-      await sendEmail(email);
-      cleanCart();
-      setOrderCounter(orderNumber)
+      await sendEmail(email, orderNumber);
+      await setOrderCounter(orderNumber)
       router.push("/checkout-success");
+      cleanCart();
     } catch (error) {
-      createNotification(error)
+      console.log('error', error);
     }
   }
 
@@ -97,7 +101,7 @@ function Checkout({ rate, orderCounter, touch }) {
           </GridContainer>
           <Typography variant="body1">Замовлення:</Typography>
           <div className={ classes.orderWrapper }>
-            <CheckoutTable cartItems={ cartItems } rate={ rate } />
+            <CheckoutTable cartItems={cartItems} rate={ rate } />
           </div>
           <div className={ classes.total }>
             <Typography align="right">Разом: { convertPriceToUAH(totalSum, rate) || 0 } грн.</Typography>

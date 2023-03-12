@@ -11,8 +11,8 @@ export default function DeliveryPage() {
   return (
     <>
       <Head>
-        <title>Доставка и оплата | Air Master</title>
-        <meta name="description" content="Информация о способах доставки оборудования и кондиционеров и способов оплаты установки кондиционеров в Киеве" />
+        <title>Доставка і оплата | Air Master</title>
+        <meta name="description" content="Информация о способах доставки оборудования и кондиціонерів и способов оплаты установки кондиціонерів в Киеве" />
       </Head>
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>

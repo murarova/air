@@ -197,6 +197,26 @@ const buttonStyle = {
       )}`,
     },
   },
+  infoColor: {
+    backgroundColor: infoColor,
+    boxShadow: `0 2px 2px 0 ${hexToRGBAlpha(
+      infoColor,
+      0.14
+    )}, 0 3px 1px -2px ${hexToRGBAlpha(
+      infoColor,
+      0.2
+    )}, 0 1px 5px 0 ${hexToRGBAlpha(infoColor, 0.12)}`,
+    "&:hover,&:focus": {
+      backgroundColor: infoColor,
+      boxShadow: `0 14px 26px -12px ${hexToRGBAlpha(
+        infoColor,
+        0.42
+      )}, 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px ${hexToRGBAlpha(
+        infoColor,
+        0.2
+      )}`,
+    },
+  },
   secondAccentColor: {
     backgroundColor: secondAccentColor,
     boxShadow: `0 2px 2px 0 ${hexToRGBAlpha(

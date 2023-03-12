@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
   root: {
+    position: "relative",
     maxWidth: 345,
     height: "100%",
     display: "flex",

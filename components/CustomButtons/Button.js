@@ -69,7 +69,8 @@ RegularButton.propTypes = {
     "github",
     "transparent",
     "teal",
-    "accentColor"
+    "accentColor",
+    "infoColor"
   ]),
   size: PropTypes.oneOf(["sm", "lg"]),
   simple: PropTypes.bool,

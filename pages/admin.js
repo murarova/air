@@ -1,14 +1,14 @@
 import { addProduct, addRate, getOrders, getRate } from "../services/services";
 
-import AddProductForm from "../components/AddProduct/AddProdact";
+import AddProductForm from "components/AddProduct/AddProdact";
 import Button from "components/CustomButtons/Button.js";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { INITIAL_PRODUCT } from "../constants/constants";
+import { INITIAL_PRODUCT } from "constants/constants";
 import OrdersTable from "components/OrdersTable/OrdersTable";
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import classNames from "classnames";
-import createNotification from "../components/Notify/Notify";
+import createNotification from "components/Notify/Notify";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/pages.js";
 import { useState } from "react";
@@ -23,8 +23,6 @@ const Admin = ({ currentRate, orders }) => {
   const [ isLoading, setIsLoading ] = useState(false);
   const [ isAddProductOpen, setIsAddProductOpen ] = useState(false);
   const [ images, setImages ] = useState([]);
-
-  console.log('orders', orders);
 
   const handleChange = (event) => {
     setRate(event.target.value);

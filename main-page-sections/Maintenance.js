@@ -13,7 +13,7 @@ export default function Maintenance() {
   const classes = useStyles();
   return (
     <Section
-      title="Техническое обслуживание."
+      title="Технічне обслуговування."
       image="/img/maintaince.jpeg"
       position="left"
       id="maintaince"

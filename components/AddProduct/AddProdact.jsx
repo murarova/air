@@ -25,6 +25,10 @@ function AddProduct({ handleSubmit, reset, setImages, images, onClose }) {
     </div>
   )
 
+  function handleDeleteImage(id) {
+    setImages(images.filter(({ key }) => key !== id))
+  }
+
   function handleFormSubmit(e) {
     e.preventDefault();
     handleSubmit();
@@ -83,7 +87,7 @@ function AddProduct({ handleSubmit, reset, setImages, images, onClose }) {
             <Field className={ classes.input } type="text" component="input" name='brand' />
             <label className={ classes.label } htmlFor="description">Описание</label>
             <Field className={ classes.input } type="text" component="textarea" name='description' />
-            <label className={ classes.label } htmlFor="price">Цена</label>
+            <label className={ classes.label } htmlFor="price">Ціна</label>
             <Field className={ classes.input } type="number" component="input" name='price' />
             <label className={ classes.label } htmlFor="title">Заголовок</label>
             <Field className={ classes.input } type="text" component="input" name='title' />
@@ -97,11 +101,14 @@ function AddProduct({ handleSubmit, reset, setImages, images, onClose }) {
               <FieldArray name="specification.outer" component={ renderProperties } />
             </div>
             <ImageUploader setImages={ setImages } />
-            <div>
-              { images?.map(({ fullPath, downloadURL }) => (
-                <p key={ downloadURL }>{ fullPath }</p>
-              )) }
-            </div>
+            { images?.map(({ fullPath, downloadURL, key }) => (
+              <div key={ downloadURL } className={ classes.imagesContainer }>
+                <p>{ fullPath }</p>
+                <IconButton onClick={ () => handleDeleteImage(key) }>
+                  <DeleteIcon />
+                </IconButton>
+              </div>
+            )) }
           </form>
         </div>
       </div>

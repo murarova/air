@@ -26,7 +26,7 @@ export default function ServicesSection() {
     <div className={ classes.section }>
       <GridContainer justifyContent="center">
         <GridItem xs={ 12 } sm={ 6 } md={ 8 }>
-          <h2 className={ classes.title }>Наши услуги.</h2>
+          <h2 className={ classes.title }>Наші послуги.</h2>
         </GridItem>
       </GridContainer>
       <div className={ classes.sectionContent }>
@@ -36,7 +36,7 @@ export default function ServicesSection() {
               <Link href="/products" className={ classes.serviceLink }>
 
                 <InfoArea
-                  title="Продажа кондиционеров"
+                  title="Продаж кондиціонерів"
                   description=""
                   icon={ CallToActionIcon }
                   iconColor="info"
@@ -51,7 +51,7 @@ export default function ServicesSection() {
               <Link href="/mounting" className={ classes.serviceLink }>
 
                 <InfoArea
-                  title="Монтаж кондиционеров"
+                  title="Монтаж кондиціонерів"
                   description=""
                   icon={ AcUnitIcon }
                   vertical
@@ -65,7 +65,7 @@ export default function ServicesSection() {
               <Link href="/maintenance" className={ classes.serviceLink }>
 
                 <InfoArea
-                  title="Техническое обслуживание"
+                  title="Технічне обслуговування"
                   description=""
                   icon={ BuildIcon }
                   iconColor="info"
@@ -80,7 +80,7 @@ export default function ServicesSection() {
               <Link href="/dismantling" className={ classes.serviceLink }>
 
                 <InfoArea
-                  title="Демонтаж кондиционеров"
+                  title="Демонтаж кондиціонерів"
                   description=""
                   icon={ PermDataSettingIcon }
                   iconColor="info"
@@ -95,7 +95,7 @@ export default function ServicesSection() {
               <Link href="/trail" className={ classes.serviceLink }>
 
                 <InfoArea
-                  title="Закладка трасс на этапе ремонта"
+                  title="Закладка трас на етапі ремонту"
                   description=""
                   icon={ GavelIcon }
                   iconColor="info"

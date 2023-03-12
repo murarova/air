@@ -82,12 +82,13 @@ export async function getProductsPaths() {
 
 export async function deleteProduct(id) {
   await remove(child(db, `products/${ id }`));
-  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/admin`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/products`)
 }
 
 export async function updateProduct(id, newProduct) {
   await update(child(db, `products/${ id }`), newProduct);
-  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/admin`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/products`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/products/${id}`)
 }
 
 export async function uploadFiles(file) {
@@ -96,7 +97,7 @@ export async function uploadFiles(file) {
 
 export async function addRate(rate) {
   await set(child(db, "rate"), rate);
-  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/admin`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/admin`)
 }
 
 export async function setOrderCounter(orderCounter) {
@@ -105,20 +106,25 @@ export async function setOrderCounter(orderCounter) {
 
 export async function addProduct(product) {
   await push(child(db, "products"), product);
-  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/products`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/products`)
 }
 
 export async function addOrder(order) {
   await push(child(db, "orders"), order);
-  axios(`/api/revalidate?secret=${process.env.NEXT_PUBLIC_SECRET_TOKEN}&path=/admin`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/admin`)
 }
 
-export async function sendEmail(email) {
+export async function deleteOrder(id) {
+  await remove(child(db, `orders/${ id }`));
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/admin`)
+}
+
+export async function sendEmail(email, orderNumber) {
   const response = await axios({
     method: 'post',
     url: '/api/send-email',
     data: {
-      subject: "Нове замовлення",
+      subject: `Нове замовлення № ${ orderNumber }`,
       message: email,
     },
   });

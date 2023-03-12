@@ -13,7 +13,7 @@ export default function TrailPage() {
     <div className={ classes.wrapper }>
       <div className={ classNames(classes.main, classes.mainRaised) }>
         <div className={ classes.container }>
-          <h1>Закладка трасс для кондиционеров.</h1>
+          <h1>Закладка трасс для кондиціонерів.</h1>
           <div className={ classes.sectionText }>
             <h4 className={ classes.trailTitle }>Закладка фреономагистрали осуществляется двумя способами.</h4>
             <h4 className={ classes.trailTitle }>К первому варианту относиться закладка на этапе ремонта. </h4>
@@ -23,17 +23,17 @@ export default function TrailPage() {
             <p>Навеска блоков и подключение происходит по окончанию ремонта.</p>
             <p>Ны выходе вы получаете эстетичный вид кондиционера, без видимых коммуникаций, пластиковых коробов и т.д.</p>
             <h4 className={ classes.trailTitle }>Второй вариант, это монтаж фреономагистрали по готовому ремонту.</h4>
-            <p>Фреономагистраль монтируется  в пластиковом коробе. В этом варианте монтаж фреономагистрали и монтаж кондиционеров выполняется за один приезд бригады.</p>
+            <p>Фреономагистраль монтируется  в пластиковом коробе. В этом варианте монтаж фреономагистрали и монтаж кондиціонерів выполняется за один приезд бригады.</p>
             <p>В стандартную закладку  входит: 3 метра фреоновой магистрали, 3 метра дренажной трубки, бурение 1-го отверстия.</p>
-            <p>Стоимость последующего метра фреономагистрали и других материалов с учетом работы указана в таблице.</p>
+            <p>Вартість последующего метра фреономагистрали и других материалов с учетом работы указана в таблице.</p>
             <p>Используем только качественные, сертифицированные материалы.</p>
           </div>
           <div className={ classes.tableContainer }>
-            <h4 className={ classes.sectionTitle }>Прайс-лист</h4>
+            <h4 className={ classes.sectionTitle }>Прайс-ліст</h4>
             <Table className={ classes.table } rows={ trailRows } header={ trailHeader } />
             <h4 className={ classes.sectionTitle }>Дополнительные работы</h4>
             <Table className={ classes.table } rows={ trailRowsAdditionalWorks } header={ trailHeaderAdditionalWorks } />
-            <h4 className={ classes.sectionTitle }>Стоимость материалов, не входящих в стандартный монтаж (фреономагистраль более 3 м)</h4>
+            <h4 className={ classes.sectionTitle }>Вартість материалов, не входящих в стандартный монтаж (фреономагистраль более 3 м)</h4>
             <Table className={ classes.table } rows={ trailRowsAdditionalMaterial } header={ trailHeaderAdditionalMaterial } />
           </div>
         </div>

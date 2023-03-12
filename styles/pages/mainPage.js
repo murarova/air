@@ -87,6 +87,9 @@ const landingPageStyle = {
       margin: "-20px 10px 0px"
     },
   },
+  btn: {
+    marginRight: "1rem"
+  }
 };
 
 export default landingPageStyle;

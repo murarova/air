@@ -35,7 +35,7 @@ export default function Products({ products, rate }) {
     <div className={ classes.section }>
       <GridContainer justifyContent="center">
         <GridItem xs={ 12 }>
-          <h2 className={ classes.title }>Купить кондиционер</h2>
+          <h2 className={ classes.title }>Купити кондиціонер</h2>
         </GridItem>
       </GridContainer>
       <Carousel swipe

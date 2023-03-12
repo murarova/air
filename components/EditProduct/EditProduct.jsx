@@ -10,7 +10,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import createNotification from "components/Notify/Notify";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/addProductStyles.js";
-import { updateProduct } from '../../services/services';
+import { updateProduct } from 'services/services';
 import { useRouter } from 'next/router'
 import { useState } from "react";
 
@@ -33,13 +33,15 @@ function EditProductComponent({ onClose, initialValues }) {
     await updateProduct(initialValues?.id, newProduct)
     createNotification("success", "Товар изменен")
     setImages([])
-    refreshData()
+    setTimeout(() => {
+      refreshData()
+    }, 500);
   }
 
   return <EditProductForm onSubmit={ handleFormSubmit }
     setImages={ setImages }
     initialValues={ initialValues }
-    images={images}
+    images={ images }
     onClose={ onClose } />
 }
 
@@ -61,6 +63,10 @@ function EditForm({ handleSubmit, onClose, images, setImages, reset }) {
       </div>
     </div>
   )
+
+  function handleDeleteImage(id) {
+    setImages(images.filter(({ key }) => key !== id))
+  }
 
   const renderProperties = ({ fields, meta: { error, submitFailed } }) => {
     return (
@@ -116,7 +122,7 @@ function EditForm({ handleSubmit, onClose, images, setImages, reset }) {
             <Field className={ classes.input } type="text" component="input" name='brand' />
             <label className={ classes.label } htmlFor="description">Описание</label>
             <Field className={ classes.input } type="text" component="textarea" name='description' rows="4" />
-            <label className={ classes.label } htmlFor="price">Цена</label>
+            <label className={ classes.label } htmlFor="price">Ціна</label>
             <Field className={ classes.input } type="number" component="input" name='price' />
             <label className={ classes.label } htmlFor="title">Заголовок</label>
             <Field className={ classes.input } type="text" component="input" name='title' />
@@ -130,11 +136,14 @@ function EditForm({ handleSubmit, onClose, images, setImages, reset }) {
               <FieldArray name="specification.outer" component={ renderProperties } />
             </div>
             <ImageUploader setImages={ setImages } />
-            <div>
-              { images?.map(({ fullPath, downloadURL }) => (
-                <p key={ downloadURL }>{ fullPath }</p>
-              )) }
-            </div>
+            { images?.map(({ fullPath, downloadURL, key }) => (
+              <div key={ downloadURL } className={ classes.imagesContainer }>
+                <p>{ fullPath }</p>
+                <IconButton onClick={ () => handleDeleteImage(key) }>
+                  <DeleteIcon />
+                </IconButton>
+              </div>
+            )) }
           </form>
         </div>
       </div>

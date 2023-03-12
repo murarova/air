@@ -48,7 +48,7 @@ function CheckoutTable({ cartItems, rate }) {
         </TableHead>
         <TableBody>
           { cartItems.map(({ id, brand, title, images, price, amount, articleNumber }) => (
-            <TableRow key={ id }>
+            <TableRow key={ id } className={classes.checkoutRow}>
               <StyledTableCell className={ classes.image } component="td" scope="row">
                 { isEmpty(images)
                   ? <Skeleton animation="wave" variant="rect" className={ classes.imageContainer } />
@@ -61,7 +61,7 @@ function CheckoutTable({ cartItems, rate }) {
                 { articleNumber }
               </StyledTableCell>
               <StyledTableCell component="td" scope="row">
-                Кондиционер { brand } { title }
+                Кондиціонер { brand } { title }
               </StyledTableCell>
               <StyledTableCell component="td" scope="row">
                 { convertPriceToUAH(price, rate) }

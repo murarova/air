@@ -29,7 +29,7 @@ export default function Section({ id, position, children, title, image, link }) 
               <div className={ classes.sectionText }>
                 { children }
                 <div className={ classes.btnWrapper }>
-                  <Button onClick={ handleBtnClick } color="accentColor">Стоимость</Button>
+                  <Button onClick={ handleBtnClick } color="accentColor">Вартість</Button>
                 </div>
               </div>
             </GridItem>
