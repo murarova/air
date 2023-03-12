@@ -45,9 +45,7 @@ export default function Product({ product, rate }) {
 
   async function handleDeleteProduct() {
     await deleteProduct(id)
-    setTimeout(() => {
-      router.replace(router.asPath);
-    }, 500);
+    router.push(router.asPath, undefined, { unstable_skipClientCache: true })
   }
 
   function handleAddToCart() {

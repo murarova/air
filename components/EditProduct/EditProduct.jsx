@@ -20,10 +20,6 @@ function EditProductComponent({ onClose, initialValues }) {
   const [ images, setImages ] = useState(initialValues?.images || []);
   const router = useRouter();
 
-  const refreshData = () => {
-    router.replace(router.asPath);
-  }
-
   async function handleFormSubmit(values) {
     const newProduct = {
       ...values,
@@ -33,9 +29,7 @@ function EditProductComponent({ onClose, initialValues }) {
     await updateProduct(initialValues?.id, newProduct)
     createNotification("success", "Товар изменен")
     setImages([])
-    setTimeout(() => {
-      refreshData()
-    }, 500);
+    router.push(router.asPath, undefined, { unstable_skipClientCache: true })
   }
 
   return <EditProductForm onSubmit={ handleFormSubmit }

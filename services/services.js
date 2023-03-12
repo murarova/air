@@ -98,6 +98,7 @@ export async function uploadFiles(file) {
 export async function addRate(rate) {
   await set(child(db, "rate"), rate);
   await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/admin`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/products`)
 }
 
 export async function setOrderCounter(orderCounter) {
