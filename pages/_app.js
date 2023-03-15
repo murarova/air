@@ -54,17 +54,17 @@ export default function MyApp({ Component, pageProps }) {
         />
         <meta charSet="utf-8" />
         <meta name="google-site-verification" content="FSGY0Gti00z1yOACCJdIHrNEHX9UQ1b0kEh6tJvVWV8" />
-        <title>Установка кондиціонерів в Киеве | Технічне обслуговування кондиціонерів в Киеве | Air Master</title>
+        <title>Установка кондиціонерів у Києві | Air Master</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
         <link rel="manifest" href="img/site.webmanifest" />
 
-        <meta property="og:title" content="Установка кондиціонерів в Киеве ❄️ Технічне обслуговування кондиціонерів" />
+        <meta property="og:title" content="Установка кондиціонерів у Києві" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://air-master.com.ua/prices" />
-        <meta property="og:image" content="https://air-master.com.ua/img/air-conditioner.png" />
+        <meta property="og:url" content="https://air-master.top/products" />
+        <meta property="og:image" content="https://air-master.top/img/air-conditioner.png" />
         <meta property="og:site_name" content="AirMaster" />
 
         <Script

@@ -61,7 +61,7 @@ export default function HeaderLinks({ handleDrawerToggle }) {
                 ТО кондиціонерів
               </Link>,
               <Link href="/trail" className={ classes.dropdownLink }>
-                Закладка трасс
+                Закладка трас
               </Link>,
               <Link href="/dismantling" className={ classes.dropdownLink }>
                 Демонтаж кондиціонерів

@@ -1,11 +1,11 @@
-import React from "react";
+import { maintenanceHeader, maintenanceRows } from "assets/tables-data.js";
+
 import Head from "next/head";
+import React from "react";
+import Table from "components/Table/Table.js";
 import classNames from "classnames";
 import { makeStyles } from "@material-ui/core/styles";
-import Table from "components/Table/Table.js";
-import { maintenanceRows, maintenanceHeader } from "assets/tables-data.js";
 import styles from "styles/pages/pages.js";
-
 
 const useStyles = makeStyles(styles);
 
@@ -16,27 +16,27 @@ export default function MaintenancePage() {
     <>
       <Head>
         <title>ТО кондиціонерів | Air Master</title>
-        <meta name="description" content="Технічне обслуговування кондиціонерів в Киеве. Перечень работ: Проверка работоспособности кондиционера в разных режимах. Замер температуры воздуха на выходе внутреннего блока. Осмотр кондиционера на наличие утечек. Замер давления в системе. Разборка корпуса внутреннего блока. Чистка корпуса, пластиковых элементов кондиционера. Чистка беличьего колеса. Чистка дренажной ванночки. Антибактериальная обработка испарителя специальной химией. Чистка испарителя с помощью парогенератора. Сборка кондиционера. Проверка работоспособности." />
+        <meta name="description" content="Технічне обслуговування кондиціонерів в Києві. Перечень работ: Перевірка працездатності кондиціонера у різних режимах. Вимірювання температури повітря на виході внутрішнього блоку. Огляд кондиціонера на наявність витоків. Вимірювання тиску в системі. Розборка корпуса внутрішнього блоку. Чищення корпусу, пластикових елементів кондиціонера. Чищення біличого колеса. Чищення дренажної ванни. Антибактеріальна обробка випарника спеціальною хімією. Чищення випарника за допомогою парогенератора. Складання кондиціонера. Перевірка працездатності." />
       </Head>
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
             <h1>Технічне обслуговування кондиціонерів.</h1>
             <div className={ classes.sectionText }>
-              <h4>Технічне обслуговування кондиціонерів, включает следующий перечень работ: </h4>
+              <h4>Технічне обслуговування кондиціонерів включає наступний перелік робіт: </h4>
               <ol className={ classes.list }>
-                <li className={ classes.listItem }>Проверка работоспособности кондиционера в разных режимах.</li>
-                <li className={ classes.listItem }>Замер температуры воздуха на выходе внутреннего блока.</li>
-                <li className={ classes.listItem }>Осмотр кондиционера  на наличие утечек.</li>
-                <li className={ classes.listItem }>Замер давления в системе.</li>
-                <li className={ classes.listItem }>Разборка корпуса внутреннего блока.</li>
-                <li className={ classes.listItem }>Чистка корпуса, пластиковых элементов кондиционера.</li>
-                <li className={ classes.listItem }>Чистка беличьего колеса.</li>
-                <li className={ classes.listItem }>Чистка дренажной ванночки.</li>
-                <li className={ classes.listItem }>Антибактериальная обработка испарителя специальной химией.</li>
-                <li className={ classes.listItem }>Чистка испарителя с помощью парогенератора.</li>
-                <li className={ classes.listItem }>Сборка кондиционера.</li>
-                <li className={ classes.listItem }>Проверка работоспособности.</li>
+                <li className={ classes.listItem }>Перевірка працездатності кондиціонера у різних режимах.</li>
+                <li className={ classes.listItem }>Вимірювання температури повітря на виході внутрішнього блоку.</li>
+                <li className={ classes.listItem }>Огляд кондиціонера на наявність витоків..</li>
+                <li className={ classes.listItem }>Вимірювання тиску в системі.</li>
+                <li className={ classes.listItem }>Розборка корпусу внутрішнього блоку.</li>
+                <li className={ classes.listItem }>Чищення корпусу, пластикових елементів кондиціонера.</li>
+                <li className={ classes.listItem }>Чищення біличого колеса.</li>
+                <li className={ classes.listItem }>Чищення дренажної ванни.</li>
+                <li className={ classes.listItem }>Антибактеріальна обробка випарника спеціальною хімією.</li>
+                <li className={ classes.listItem }>Чищення випарника за допомогою парогенератора.</li>
+                <li className={ classes.listItem }>Складання кондиціонера.</li>
+                <li className={ classes.listItem }>Перевірка працездатності.</li>
               </ol>
             </div>
             <div className={ classes.tableContainer }>

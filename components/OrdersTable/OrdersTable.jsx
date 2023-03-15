@@ -41,7 +41,7 @@ function OrdersTable({ orders }) {
         <Typography variant="h6">Замовлення №: { orderNumber }</Typography>
         <Typography>Дата: { moment(date).format("D.MM.YYYY, HH:mm") }</Typography>
         <Typography>Замовник: { user.firstName } { user.lastName }</Typography>
-        <Typography>Адреса: місто: { user.city }, вул: { user.street }, буд: { user.house },  кв: { user.apartment} </Typography>
+        <Typography>Адреса: м. { user.city }, вул. { user.street }, буд. { user.house },  кв. { user.apartment} </Typography>
         <Typography>Телефон: { user.phone }</Typography>
         <Typography>Статус: { status === "new" ? "Новий" : status }</Typography>
         <Typography className={ classes.marginBottom }>Курс: { rate }</Typography>

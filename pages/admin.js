@@ -49,7 +49,7 @@ const Admin = ({ currentRate, orders }) => {
         images
       }
       await addProduct(newProduct);
-      createNotification("success", "Товар успешно добавлен")
+      createNotification("success", "Товар успішно доданий")
       setIsAddProductOpen(false)
       setImages([])
     } catch (error) {
@@ -73,11 +73,11 @@ const Admin = ({ currentRate, orders }) => {
                 color="accentColor"
                 onClick={ handleSave }
                 className={ classes.saveBtn }>
-                сохранить
+                зберегти
               </Button>
               { error && <p className={ classes.inputError }>{ error }</p> }
             </div>
-            <Button className={ classes.saveNewProductBtn } onClick={ () => setIsAddProductOpen(true) } color="accentColor">добавить продукт</Button>
+            <Button className={ classes.saveNewProductBtn } onClick={ () => setIsAddProductOpen(true) } color="accentColor">додати продукт</Button>
             </div>
             <OrdersTable orders={orders} />
           </div>

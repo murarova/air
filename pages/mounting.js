@@ -28,13 +28,13 @@ export default function MountingPage() {
   return (
     <>
       <Head>
-        <title>Монтаж кондиціонерів в Киеве | Air Master</title>
-        <meta name="description" content="Монтаж кондиціонерів в Киеве. Лучшее соотношение Ціна - качество. Мы используем только профессиональное, современное оборудование и качественные сертифицированные материалы.Даємо гарантію на виконані монтажні роботи." />
+        <title>Монтаж кондиціонерів у Києві | Air Master</title>
+        <meta name="description" content="Монтаж кондиціонерів в Києві. Монтаж кондиціонерів за один день. Найкраще співвідношення Ціна - якість. Ми використовуємо лише професійне, сучасне обладнання та якісні сертифіковані матеріали. Даємо гарантію на виконані монтажні роботи." />
       </Head>
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
-            <h1>Монтаж кондиціонерів в Киеве.</h1>
+            <h1>Монтаж кондиціонерів в Києві.</h1>
             <div className={ classes.sectionText }>
               <h4 className={ classes.sectionTitle }>Стандартний монтаж кондиціонерів включає такі види робіт: </h4>
               <ul className={ classes.list }>
@@ -42,7 +42,7 @@ export default function MountingPage() {
                 <li className={ classes.listItem }>Буріння одного отвору під фреономагістраль.</li>
                 <li className={ classes.listItem }>Монтаж зовнішнього та внутрішнього блоку кондиціонера.</li>
                 <li className={ classes.listItem }>Вакуумація та перевірка системи на герметичність.</li>
-                <li className={ classes.listItem }>Запуск и пусконаладочные работы.</li>
+                <li className={ classes.listItem }>Запуск та пусконалагоджувальні роботи.</li>
               </ul>
               <h4 className={ classes.sectionTitle }>Стандартний монтаж кондиціонерів включає такі матеріали: </h4>
               <ul className={ classes.list }>

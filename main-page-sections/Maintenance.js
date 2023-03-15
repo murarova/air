@@ -1,10 +1,8 @@
 import React from "react";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-
 // core components
 import Section from "components/Section/Section.js";
-
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/main-page-sections/sectionStyles.js";
 
 const useStyles = makeStyles(styles);
@@ -19,18 +17,18 @@ export default function Maintenance() {
       id="maintaince"
       link="/maintenance"
     >
-      <p>Для долговечного и эффективного использования кондиционера нужно помнить про сервисное обслуживание кондиционера.</p>
-      <p>Его необходимо выполнять:</p>
+      <p>Для довговічного та ефективного використання кондиціонера слід пам'ятати про сервісне обслуговування кондиціонера.</p>
+      <p>Його необхідно виконувати:</p>
       <ol className={ classes.list }>
-        <li className={ classes.listItem }>Для квартир 2 раза в год (перед зимой и в начале лета)</li>
-        <li className={ classes.listItem }>Для офисов магазинов 4 раза в год</li>
-        <li className={ classes.listItem }>Для тех помещений, серверных, коммутационных и т. д. ежемесячно</li>
+        <li className={ classes.listItem }>Для квартир 2 рази на рік (перед зимою та на початку літа)</li>
+        <li className={ classes.listItem }>Для офісів магазинів 4 рази на рік</li>
+        <li className={ classes.listItem }>Для тих приміщень, серверних, комутаційних і т.д.</li>
       </ol>
       <strong>
-        Регулярная чистка и техническое обслуживание кондиционера значительно продлевает срок службы кондиционера, позволяет предотвратить дорогостоящие поломки и предотвращает размножение вредоносных бактерий и грибков.
+        Регулярне чищення та технічне обслуговування кондиціонера значно продовжує термін служби кондиціонера, дозволяє запобігти дорогим поломкам і запобігає розмноженню шкідливих бактерій та грибків.
       </strong>
 
-      <p className={ classes.final }>Мы предлагаем весь перечень профилактических работ независимо от модели, типа и производителя оборудования. </p>
+      <p className={ classes.final }>Ми пропонуємо весь перелік профілактичних робіт незалежно від моделі, типу та виробника обладнання. </p>
     </Section >
   );
 }

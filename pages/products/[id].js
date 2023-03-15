@@ -32,8 +32,8 @@ export default function ProductPage({ product, rate }) {
   return (
     <>
       <Head>
-        <title>Продаж кондиціонерів в Киеве | Air Master</title>
-        <meta name="description" content="Продаж кондиціонерів в Киеве ✅ Гарантия ❗  Лучшие цены 💰" />
+        <title>Купити кондиціонер { product.brand } | Air Master</title>
+        <meta name="description" content={`Купити кондиціонер ${ product.brand } ✅ Гарантія ❗  Найкращі ціни 💰`} />
       </Head>
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>

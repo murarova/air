@@ -14,7 +14,7 @@ export default function CheckoutPage({ rate, orderCounter }) {
     <>
       <Head>
         <title>Оформлення замовлення | Air Master</title>
-        <meta name="description" content="Оформлення замовлення на кондиционер в Києві" />
+        <meta name="description" content="Оформлення замовлення на кондіціонер у Києві" />
       </Head>
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>

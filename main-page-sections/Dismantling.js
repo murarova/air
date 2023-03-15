@@ -1,12 +1,10 @@
 import React from "react";
-
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-
 // core components
 import Section from "components/Section/Section.js";
-
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/main-page-sections/sectionStyles.js";
+
 const useStyles = makeStyles(styles);
 
 export default function Dismantling() {
@@ -21,14 +19,14 @@ export default function Dismantling() {
       link="/dismantling"
     >
       <div className={ classes.sectionText }>
-        <h3 className={ classes.mainTitle }>Демонтаж кондиціонерів производиться с сохранением фреона.</h3>
-        <h4 className={ classes.sectionTitle }>В стоимость демонтажа входит: </h4>
+        <h3 className={ classes.mainTitle }>Демонтаж кондиціонерів провадиться із збереженням фреону.</h3>
+        <h4 className={ classes.sectionTitle }>У вартість демонтажу входить: </h4>
         <ul className={ classes.list }>
-          <li className={ classes.listItem }>Отключение коммуникаций</li>
-          <li className={ classes.listItem }>Демонтаж внутреннего и наружного блока</li>
-          <li className={ classes.listItem }>Демонтаж кронштейнов и монтажной пластины</li>
+          <li className={ classes.listItem }>Відключення комунікацій</li>
+          <li className={ classes.listItem }>Демонтаж внутрішнього та зовнішнього блоку</li>
+          <li className={ classes.listItem }>Демонтаж кронштейнів та монтажної пластини</li>
         </ul>
-        <p>В стоимость не входит услуги промальпинизма и автовышки.</p>
+        <p>У вартість не входить послуги промальпінізму та автовишки.</p>
       </div>
 
     </Section >

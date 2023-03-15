@@ -1,11 +1,10 @@
 import React from "react";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-
 // core components
 import Section from "components/Section/Section.js";
-
+// @material-ui/core components
+import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/main-page-sections/sectionStyles.js";
+
 const useStyles = makeStyles(styles);
 
 export default function Mounting() {
@@ -27,7 +26,7 @@ export default function Mounting() {
           <li className={ classes.listItem }>Буріння одного отвору під фреономагістраль.</li>
           <li className={ classes.listItem }>Монтаж зовнішнього та внутрішнього блоку кондиціонера.</li>
           <li className={ classes.listItem }>Вакуумація та перевірка системи на герметичність.</li>
-          <li className={ classes.listItem }>Запуск и пусконаладочные работы.</li>
+          <li className={ classes.listItem }>Запуск та пусконалагоджувальні роботи.</li>
         </ul>
         <h4 className={ classes.sectionTitle }>Матеріали: </h4>
         <ul className={ classes.list }>

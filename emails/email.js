@@ -66,7 +66,7 @@ export function createNewOrderEmail({ order, user = {}, rate, date, orderNumber 
       <p>Дата: { moment(date).format("D.MM.YYYY, HH:mm") }</p>
       <p>ПІБ: { user.lastName } { user.firstName }</p>
       <p>Телефон: { user.phone }</p>
-      <p>Адреса: { user.city } { user.street }</p>
+      <p>Адреса: м. { user.city }, вул. { user.street }, буд. { user.house },  кв. { user.apartment} </p>
       <p>Курс: { rate }</p>
       { renderTable() }
     </div>
