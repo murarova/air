@@ -92,6 +92,7 @@ export async function updateProduct(id, newProduct) {
 }
 
 export async function uploadFiles(file) {
+  console.log('file', file);
   return await uploadBytes(storageRef, file);
 }
 
@@ -99,6 +100,9 @@ export async function addRate(rate) {
   await set(child(db, "rate"), rate);
   await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/admin`)
   await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/products`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/cart`)
+  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/checkout`)
 }
 
 export async function setOrderCounter(orderCounter) {
@@ -106,8 +110,11 @@ export async function setOrderCounter(orderCounter) {
 }
 
 export async function addProduct(product) {
-  await push(child(db, "products"), product);
-  await axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/products`)
+  const { key } = await push(child(db, "products"), product);
+  await Promise.all([
+    axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/products`),
+    axios(`/api/revalidate?secret=${ process.env.NEXT_PUBLIC_SECRET_TOKEN }&path=/products/${key}`),
+  ]);
 }
 
 export async function addOrder(order) {

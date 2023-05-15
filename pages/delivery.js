@@ -26,7 +26,7 @@ export default function DeliveryPage() {
               <p><span className={ classes.paymentPropName }>Одержувач:</span><span>ФОП Мураров В.В.</span></p>
               <p><span className={ classes.paymentPropName }>ЄДРПОУ/РНОКПП:</span><span>3122010972</span></p>
               <p><span className={ classes.paymentPropName }>IBAN:</span><span>UA043003460000026005097719901</span></p>
-              <p><span className={ classes.paymentPropName }>Банк:</span><span>АТ "Альфа - Банк"</span></p>
+              <p><span className={ classes.paymentPropName }>Банк:</span><span>АТ "СЕНС БАНК"</span></p>
             </div>
 
             <h2>Доставка</h2>

@@ -41,11 +41,25 @@ export default {
     marginBottom: "1rem",
     padding: "0.5rem",
   },
+  inputWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    marginBottom: "1rem",
+    flex: 1,
+  },
+  error: {
+    color: "red",
+    fontSize: ".75rem"
+  },
+  inputLabel: {
+    color: "inherit"
+  },
   label: {
     color: "inherit",
   },
   specificationContainer: {
     position: "relative",
+    paddingTop: "50px"
   },
   addBtn: {
     position: "absolute",
@@ -73,5 +87,10 @@ export default {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-  }
+  },
+  asterisk: {
+    position: "absolute",
+    fontSize: ".7rem",
+    color: "red"
+  },
 }

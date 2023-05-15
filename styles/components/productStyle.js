@@ -19,6 +19,15 @@ export const useStyles = makeStyles({
     height: 200,
     backgroundSize: "contain"
   },
+  brandCard: {
+    padding: "3px",
+    display: "flex",
+    flexDirection: "column",
+  },
+  brandMedia: {
+    height: 100,
+    backgroundSize: "contain"
+  },
   actions: {
     padding: 8,
     justifyContent: "space-between"

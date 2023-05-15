@@ -10,9 +10,6 @@ export const INITIAL_PRODUCT = {
   "description": "",
   "images": [],
   "price": "",
-  "specification": {
-    "inner": [],
-    "outer": [],
-  },
+  "specification": [],
   "title": ""
 }

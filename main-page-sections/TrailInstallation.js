@@ -29,7 +29,7 @@ export default function TrailInstallation() {
 
       <h4 className={ classes.trailSubTitle }>Монтаж фреономагістралі у готовому ремонті.</h4>
       <ol className={ classes.list }>
-        <li className={ classes.listItem }>Фреономагістраль монтируется  в пластиковом коробе.</li>
+        <li className={ classes.listItem }>Фреономагістраль монтується у пластиковому коробі.</li>
         <li className={ classes.listItem }>У цьому варіанті монтаж фреономагістралі та монтаж кондиціонерів виконується за один приїзд бригади.</li>
         <li className={ classes.listItem }>Комунікації приховані в коробці.</li>
       </ol>

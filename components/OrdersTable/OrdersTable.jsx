@@ -1,6 +1,7 @@
 import CheckoutTable from "../CheckoutTable/CheckoutTable";
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
+import PageChange from "components/PageChange/PageChange";
 import Typography from '@material-ui/core/Typography';
 import { convertPriceToUAH } from "utils/utils";
 import { deleteOrder } from "../../services/services";
@@ -8,18 +9,20 @@ import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment"
 import styles from "styles/components/ordersTableStyles";
 import { useRouter } from 'next/router'
+import { useState } from "react";
 
 const useStyles = makeStyles(styles);
 
 function OrdersTable({ orders }) {
   const classes = useStyles();
+  const [ isLoading, setIsLoading ] = useState(false);
   const router = useRouter();
 
   async function handleDeleteOrder(id) {
+    setIsLoading(true)
     await deleteOrder(id)
-    setTimeout(() => {
-      router.replace(router.asPath);
-    }, 500);
+    router.push(router.asPath, undefined, { unstable_skipClientCache: true })
+    setIsLoading(false)
   }
 
   function getTotalSum(cartItems) {
@@ -51,6 +54,7 @@ function OrdersTable({ orders }) {
         </div>
       </div>
       ) }
+      { isLoading && <PageChange /> }
     </>
   );
 };

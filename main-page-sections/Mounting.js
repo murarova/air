@@ -19,7 +19,7 @@ export default function Mounting() {
       color="rgba(0, 123, 255, .3)"
     >
       <div className={ classes.sectionText }>
-        <h3  className={ classes.mainTitle }>Cтандартный монтаж кондиціонерів включает  в себя: </h3>
+        <h3  className={ classes.mainTitle }>Cтандартний монтаж кондиціонерів включає в себе: </h3>
         <h4 className={ classes.sectionTitle }>Роботи: </h4>
         <ul className={ classes.list }>
           <li className={ classes.listItem }>Рекомендації щодо оптимального розташування кондиціонера.</li>
@@ -30,10 +30,10 @@ export default function Mounting() {
         </ul>
         <h4 className={ classes.sectionTitle }>Матеріали: </h4>
         <ul className={ classes.list }>
-          <li className={ classes.listItem }>Фреономагістраль до 3 м (вартість кожного додаткового метра вказаний у таблиці).</li>
+          <li className={ classes.listItem }>Фреономагістраль до 3 м (вартість кожного додаткового метра вказани у таблиці).</li>
           <li className={ classes.listItem }>Дренажна труба до 3м.</li>
           <li className={ classes.listItem }>Комплект кронштейнів К1 (порошкове фарбування).</li>
-          <li className={ classes.listItem }>Метизы (анкеры, дюбели, гайки, шайбы).</li>
+          <li className={ classes.listItem }>Металовироби (анкери, дюбелі, гайки, шайби).</li>
         </ul>
         <span>Використовуємо лише професійне, сучасне обладнання та якісні сертифіковані матеріали.</span><br />
 

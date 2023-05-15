@@ -12,22 +12,58 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/components/addProductStyles.js";
 import { updateProduct } from 'services/services';
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux';
 import { useState } from "react";
 
 const useStyles = makeStyles(styles);
+const required = value => value ? undefined : 'Це поле обов\'язкове';
+const validate = values => {
+  const errors = {}
+  if (!values.price) {
+    errors.price = 'Це поле обов\'язкове'
+  }
+  return errors
+}
 
-function EditProductComponent({ onClose, initialValues }) {
+const renderTextarea = ({ input, required, label, type, classes, meta: { touched, error, warning } }) => (
+  <div>
+    <label className={ classes.inputLabel }>{ label }
+      { required && <span className={ classes.asterisk }>&#65121;</span> }
+    </label>
+    <div className={ classes.inputWrapper }>
+      <textarea { ...input } className={ classes.input } type={ type } />
+      { touched && ((error && <span className={ classes.error }>{ error }</span>) || (warning && <span>{ warning }</span>)) }
+    </div>
+  </div>
+)
+
+const renderInput = ({ input, required, label, type, classes, meta: { touched, error, warning } }) => (
+  <div>
+    <label className={ classes.inputLabel }>{ label }
+      { required && <span className={ classes.asterisk }>&#65121;</span> }
+    </label>
+    <div className={ classes.inputWrapper }>
+      <input { ...input } className={ classes.input } type={ type } />
+      { touched && ((error && <span className={ classes.error }>{ error }</span>) || (warning && <span>{ warning }</span>)) }
+    </div>
+  </div>
+)
+
+
+function EditProductComponent({ onClose, initialValues, setIsLoading }) {
   const [ images, setImages ] = useState(initialValues?.images || []);
   const router = useRouter();
 
   async function handleFormSubmit(values) {
+    // setIsLoading(true)
     const newProduct = {
       ...values,
       images
     }
 
     await updateProduct(initialValues?.id, newProduct)
-    createNotification("success", "Товар изменен")
+    // setIsLoading(false)
+    createNotification("success", "Товар змінено")
     setImages([])
     router.push(router.asPath, undefined, { unstable_skipClientCache: true })
   }
@@ -39,24 +75,22 @@ function EditProductComponent({ onClose, initialValues }) {
     onClose={ onClose } />
 }
 
-function EditForm({ handleSubmit, onClose, images, setImages, reset }) {
+function EditForm({ handleSubmit, onClose, images, setImages, reset, initialValues, touch }) {
   const classes = useStyles();
+  const validationErrors = useSelector(state => state.form?.editProduct?.syncErrors);
 
   const handleFormSubmit = async () => {
-    await handleSubmit();
-    reset();
-    onClose();
+    if (validationErrors) {
+      touch(...Object.keys(validationErrors));
+      createNotification("error", "Заповніть, будь ласка, обов'язкові поля");
+      return
+    } else {
+      await handleSubmit();
+      reset();
+      onClose()
+    }
   }
 
-  const renderField = ({ input, label, type, meta: { touched, error } }) => (
-    <div>
-      <label className={ classes.label }>{ label }</label>
-      <div>
-        <input { ...input } className={ classes.input } type={ type } />
-        { touched && error && <span>{ error }</span> }
-      </div>
-    </div>
-  )
 
   function handleDeleteImage(id) {
     setImages(images.filter(({ key }) => key !== id))
@@ -81,13 +115,15 @@ function EditForm({ handleSubmit, onClose, images, setImages, reset }) {
             <Field
               name={ `${ propertie }.label` }
               type="text"
-              component={ renderField }
+              classes={classes}
+              component={ renderTextarea }
               label="Свойство"
             />
             <Field
               name={ `${ propertie }.value` }
               type="text"
-              component={ renderField }
+              classes={classes}
+              component={ renderTextarea }
               label="Значение"
             />
           </div>
@@ -97,7 +133,7 @@ function EditForm({ handleSubmit, onClose, images, setImages, reset }) {
   }
 
 
-  return (
+  return (<>
     <Modal open onClose={ onClose }>
       <div className={ classes.container }>
         <div className={ classes.btnWrapper }>
@@ -116,18 +152,12 @@ function EditForm({ handleSubmit, onClose, images, setImages, reset }) {
             <Field className={ classes.input } type="text" component="input" name='brand' />
             <label className={ classes.label } htmlFor="description">Описание</label>
             <Field className={ classes.input } type="text" component="textarea" name='description' rows="4" />
-            <label className={ classes.label } htmlFor="price">Ціна</label>
-            <Field className={ classes.input } type="number" component="input" name='price' />
+            <Field validate={ [ required ] } classes={ classes } label="Ціна" className={ classes.input } type="text" component={ renderInput } required name='price' />
             <label className={ classes.label } htmlFor="title">Заголовок</label>
             <Field className={ classes.input } type="text" component="input" name='title' />
             <p className={ classes.title }>Характеристики.</p>
             <div className={ classes.specificationContainer }>
-              <p className={ classes.specificationGroup }>Внутренний блок</p>
-              <FieldArray name="specification.inner" component={ renderProperties } />
-            </div>
-            <div className={ classes.specificationContainer }>
-              <p className={ classes.specificationGroup }>Наружный блок</p>
-              <FieldArray name="specification.outer" component={ renderProperties } />
+              <FieldArray name={ initialValues?.specification?.inner ? "specification.inner" : "specification" } component={ renderProperties } classes={ classes } />
             </div>
             <ImageUploader setImages={ setImages } />
             { images?.map(({ fullPath, downloadURL, key }) => (
@@ -142,11 +172,13 @@ function EditForm({ handleSubmit, onClose, images, setImages, reset }) {
         </div>
       </div>
     </Modal>
+  </>
   );
 }
 
 const EditProductForm = reduxForm({
-  form: 'editProduct'
+  form: 'editProduct',
+  validate
 })(EditForm)
 
 

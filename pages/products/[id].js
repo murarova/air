@@ -5,6 +5,7 @@ import Carousel from 'react-material-ui-carousel'
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Head from "next/head";
+import InfoBanner from 'components/InfoBanner/InfoBanner';
 import React from "react";
 import Skeleton from '@material-ui/lab/Skeleton';
 import SpecificationTable from "components/SpecificationTable/SpecificationTable.js";
@@ -28,12 +29,12 @@ export default function ProductPage({ product, rate }) {
     addToCart(product)
     createNotification("success", "Товар додано до кошика")
   }
-  
+
   return (
     <>
       <Head>
         <title>Купити кондиціонер { product.brand } | Air Master</title>
-        <meta name="description" content={`Купити кондиціонер ${ product.brand } ✅ Гарантія ❗  Найкращі ціни 💰`} />
+        <meta name="description" content={ `Купити кондиціонер ${ product.brand } ✅ Гарантія ❗  Найкращі ціни 💰` } />
       </Head>
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>
@@ -51,7 +52,7 @@ export default function ProductPage({ product, rate }) {
                   </Carousel>
                 }
               </GridItem>
-              <GridItem className={classes.sectionWrapper} xs={ 12 } md={ 7 }>
+              <GridItem className={ classes.sectionWrapper } xs={ 12 } md={ 7 }>
                 <Typography variant="overline" display="block" gutterBottom>
                   { product.articleNumber }
                 </Typography>
@@ -65,6 +66,9 @@ export default function ProductPage({ product, rate }) {
                   component="p">
                   { product.description }
                 </Typography>
+                <div className={ classes.bannerContainer }>
+                  <InfoBanner />
+                </div>
                 <div className={ classes.actions }>
                   <Typography style={ { color: "#ef7215" } } variant="h6">
                     Ціна: { convertPriceToUAH(product.price, Number(rate)) } грн
@@ -95,5 +99,5 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const paths = await getProductsPaths()
-  return { paths, fallback: false }
+  return { paths, fallback: "blocking" }
 }

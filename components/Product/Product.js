@@ -10,6 +10,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import EditProduct from "../EditProduct/EditProduct";
 import IconButton from '@material-ui/core/IconButton';
+import PageChange from "components/PageChange/PageChange";
 import React from 'react';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
@@ -26,6 +27,7 @@ export default function Product({ product, rate }) {
   const router = useRouter();
   const { user } = useAuth()
   const { addToCart } = useCart();
+  const [ isLoading, setIsLoading ] = useState(false);
 
   const {
     title,
@@ -101,7 +103,7 @@ export default function Product({ product, rate }) {
           </Button>
         </CardActions>
       </Card >
-      { isEdit && <EditProduct onClose={ () => setIsEdit(false) } initialValues={ { ...product, id } } /> }
+      { isEdit && <EditProduct onClose={ () => setIsEdit(false) } initialValues={ { ...product, id } } setIsLoading={setIsLoading} /> }
     </>
   );
 }

@@ -1,7 +1,5 @@
 import { accentColor, container, infoColor, title } from "styles/default-styles.js";
 
-import { relative } from "path";
-
 const landingPageStyle = {
   wrapper: {
     position: "relative",
@@ -23,6 +21,10 @@ const landingPageStyle = {
     minHeight: "32px",
     color: "#55555",
     textDecoration: "none",
+  },
+  catalogTitle: {
+    ...title,
+    margin: 0
   },
   subtitle: {
     fontSize: "1.313rem",
@@ -254,6 +256,54 @@ const landingPageStyle = {
   },
   sectionWrapper: {
     paddingBottom: "3rem"
+  },
+  filter: {
+    marginBottom: "2rem"
+  },
+  filterValues: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    display: "flex",
+    alignItems: "center"
+  },
+  filterValue: {
+    display: "flex",
+    alignItems: "center",
+    padding: "5px 10px",
+    margin: "0 30px 0 10px",
+    border: "1px solid",
+    borderColor: accentColor,
+    borderRadius: "10px",
+  },
+  filterName: {
+    display: "block",
+    marginRight: "5px",
+    fontWeight: "bold"
+  },
+  deleteFilter: {
+    zIndex: "1",
+    display: "flex",
+    opacity: "0.5",
+    cursor: "pointer",
+    padding: "2px",
+
+    "&:hover": {
+      opacity: "0.7"
+    }
+  },
+  deleteIcon: {
+    fontSize: "1rem",
+  },
+  filterTitle: {
+    fontSize: "1.2rem",
+  },
+  brandFilter: {
+    position: "relative",
+    margin: "1rem 0"
+  },
+  bannerContainer: {
+    margin: "20px 0"
   }
 };
 

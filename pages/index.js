@@ -27,20 +27,20 @@ export default function MainPage({ products, rate }) {
   return (
     <>
       <Head>
-        <title>Продажа кондиціонерів у Києві | Технічне обслуговування кондиціонерів в Києві | Air Master</title>
-        <meta name="description" content="Продажа кондиціонерів у Києві ❄️ Технічне обслуговування кондиціонерів ⭐ Закладка трас для кондиціонерів ✅" />
+        <title>Продаж кондиціонерів у Києві | Технічне обслуговування кондиціонерів в Києві | Air Master</title>
+        <meta name="description" content="Продаж кондиціонерів у Києві ❄️ Технічне обслуговування кондиціонерів ⭐ Закладка трас для кондиціонерів ✅" />
       </Head>
       <div className={ classes.wrapper }>
         <Parallax filter responsive image="/img/bg.jpeg">
           <div className={ classes.container }>
             <GridContainer>
               <GridItem xs={ 12 } sm={ 12 } md={ 12 } lg={ 9 }>
-                <h1 className={ classes.title }>Встановлення та обслуговування кондиціонерів.</h1>
+                <h1 className={ classes.title }>Продаж та обслуговування кондиціонерів.</h1>
                 <div className={ classes.advertisingBlock }>
                   <ol className={ classes.list }>
-                    <li className={ classes.listItem }>Продаж кондиціонерів - <strong className={ classes.accent }>от { convertPriceToUAH(minPrice, Number(rate)) } грн.</strong></li>
+                    <li className={ classes.listItem }>Продаж кондиціонерів - <strong className={ classes.accent }>від { convertPriceToUAH(minPrice, Number(rate)) } грн.</strong></li>
                     <li className={ classes.listItem }>Монтаж - <strong className={ classes.accent }>3 500 грн.</strong></li>
-                    <li className={ classes.listItem }>Технічне обслуговування - <strong className={ classes.accent }>1 000 грн.</strong></li>
+                    <li className={ classes.listItem }>Технічне обслуговування - <strong className={ classes.accent }>700 грн.</strong></li>
                     <li className={ classes.listItem }>Гарантія на монтаж - <strong className={ classes.accent }>1 рік.</strong></li>
                   </ol>
                 </div>

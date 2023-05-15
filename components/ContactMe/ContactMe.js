@@ -11,7 +11,7 @@ export default function ContactMe({ viberImg }) {
 
   return (
     <div className={ classes.wrapper }>
-      <Link href="tel:380665388579" className={ classes.phone }>
+      <Link href="tel:380960501129" className={ classes.phone }>
         <i className="fa fa-phone" aria-hidden="true"></i>
       </Link>
       <Link title="Viber" href="viber://chat?number=+380665388579" legacyBehavior>

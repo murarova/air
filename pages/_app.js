@@ -1,6 +1,6 @@
 import 'react-phone-input-2/lib/style.css'
-import "styles/_misc.scss";
 import 'react-notifications/lib/notifications.css';
+import "styles/_misc.scss";
 
 import { rrfProps, store } from "config/firebase-config.js";
 import { useEffect, useState } from "react";
@@ -53,34 +53,33 @@ export default function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <meta charSet="utf-8" />
-        <meta name="google-site-verification" content="FSGY0Gti00z1yOACCJdIHrNEHX9UQ1b0kEh6tJvVWV8" />
-        <title>Установка кондиціонерів у Києві | Air Master</title>
+        <meta name="google-site-verification" content="1uCBWF5J3KwQiE768o7d_hCBNeiHr1lhrTUxcsDOrUo" />
+        <title>Продаж кондиціонерів у Києві | Air Master</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
         <link rel="manifest" href="img/site.webmanifest" />
 
-        <meta property="og:title" content="Установка кондиціонерів у Києві" />
+        <meta property="og:title" content="Продаж кондиціонерів у Києві" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://air-master.top/products" />
         <meta property="og:image" content="https://air-master.top/img/air-conditioner.png" />
         <meta property="og:site_name" content="AirMaster" />
-
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-WVCJL4V865"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          { `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){ dataLayer.push(arguments)}
-              gtag('js', new Date());
-
-              gtag('config', 'G-WVCJL4V865')
-          `}
-        </Script>
       </Head>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-WKYVT27R46"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        { `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-WKYVT27R46');
+        `}
+      </Script>
       <Provider store={ store }>
         <ReactReduxFirebaseProvider { ...rrfProps }>
           <AuthProvider>

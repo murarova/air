@@ -1,4 +1,4 @@
-import { title, infoColor } from "styles/default-styles.js";
+import { infoColor, title } from "styles/default-styles.js";
 
 const serviceStyle = {
   section: {
@@ -91,6 +91,10 @@ const serviceStyle = {
     fontWeight: "700",
     color: "#3C4858"
   },
+  brandList: {
+    paddingTop: "3.5rem",
+    marginBottom: "2rem"
+  }
 
 };
 

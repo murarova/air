@@ -19,7 +19,7 @@ export default function Dismantling() {
       link="/dismantling"
     >
       <div className={ classes.sectionText }>
-        <h3 className={ classes.mainTitle }>Демонтаж кондиціонерів провадиться із збереженням фреону.</h3>
+        <h3 className={ classes.mainTitle }>Демонтаж кондиціонерів виконується із збереженням фреону.</h3>
         <h4 className={ classes.sectionTitle }>У вартість демонтажу входить: </h4>
         <ul className={ classes.list }>
           <li className={ classes.listItem }>Відключення комунікацій</li>

@@ -75,6 +75,9 @@ const warningColor = "#ff9800";
 const dangerColor = "#f44336";
 const successColor = "#4caf50";
 const infoColor = "#138086";
+const infoColor25 = "rgba(19, 128, 134, 0.25)";
+const infoColor75 = "rgba(19, 128, 134, 0.75)";
+const infoColor50 = "rgba(19, 128, 134, 0.50)";
 const roseColor = "#e91e63";
 const grayColor = "#999999";
 const accentColor = "#ef7215";
@@ -225,6 +228,9 @@ export {
   dangerColor,
   successColor,
   infoColor,
+  infoColor25,
+  infoColor50,
+  infoColor75,
   roseColor,
   grayColor,
   accentColor,

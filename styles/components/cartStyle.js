@@ -6,14 +6,14 @@ const cartStyle = {
     flexWrap: "wrap",
     alignItems: "center"
   },
-  total : {
+  total: {
     whiteSpace: "nowrap",
     marginBottom: "2rem",
     fontSize: "1rem",
     color: "#3c4858",
     fontWeight: "500"
   },
-  checkoutButton : {
+  checkoutButton: {
     marginBottom: "2rem",
   },
   tableWrapper: {
@@ -31,7 +31,7 @@ const cartStyle = {
   },
   imageContainer: {
     display: "flex",
-    alignItems: "center", 
+    alignItems: "center",
     width: "100px",
 
     "@media (max-width: 576px)": {
@@ -50,6 +50,24 @@ const cartStyle = {
   },
   amount: {
     margin: 0
+  },
+  iconWrapper: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    bottom: "0",
+    right: "0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    opacity: "0.1",
+    flexDirection: "column"
+  },
+  cartIcon: {
+    fontSize: "25rem",
+    "@media (max-width: 576px)": {
+      fontSize: "20rem"
+    },
   }
 };
 

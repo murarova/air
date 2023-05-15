@@ -5,6 +5,7 @@ import Button from "components/CustomButtons/Button.js";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { INITIAL_PRODUCT } from "constants/constants";
 import OrdersTable from "components/OrdersTable/OrdersTable";
+import PageChange from "components/PageChange/PageChange";
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import classNames from "classnames";
@@ -36,14 +37,13 @@ const Admin = ({ currentRate, orders }) => {
     setIsLoading(true)
     setError(null)
     await addRate(rate)
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 500)
-    createNotification("success", "Курс успешно изменен")
+    setIsLoading(false)
+    createNotification("success", "Курс успішно змінено")
   }
 
   async function handleSubmit(values) {
     try {
+      setIsLoading(true)
       const newProduct = {
         ...values,
         images
@@ -52,8 +52,10 @@ const Admin = ({ currentRate, orders }) => {
       createNotification("success", "Товар успішно доданий")
       setIsAddProductOpen(false)
       setImages([])
+      setIsLoading(false)
     } catch (error) {
       createNotification("error", error)
+      setIsLoading(false)
     }
   }
 
@@ -67,7 +69,6 @@ const Admin = ({ currentRate, orders }) => {
               <p className={ classes.rateName }>Курс USD/UAH: </p>
               <div className={ classes.progressWrapper }>
                 <TextField name="rate" value={ rate } onChange={ handleChange } size="small" type="number" variant="outlined" />
-                { isLoading && <CircularProgress className={ classes.progress } /> }
               </div>
               <Button
                 color="accentColor"
@@ -89,6 +90,7 @@ const Admin = ({ currentRate, orders }) => {
               initialValues={ INITIAL_PRODUCT } /> }
         </div>
       </div>
+      { isLoading && <PageChange /> }
     </div>
   )
 }

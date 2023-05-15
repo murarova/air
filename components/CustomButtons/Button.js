@@ -1,16 +1,15 @@
-import React from "react";
+import Button from "@material-ui/core/Button";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+import React from "react";
+import buttonStyle from "styles/components/buttonStyle.js";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-
 // @material-ui/core components
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import Button from "@material-ui/core/Button";
 
 // core components
 
-import buttonStyle from "styles/components/buttonStyle.js";
 
 const makeComponentStyles = makeStyles(() => ({
   ...buttonStyle,
@@ -72,7 +71,7 @@ RegularButton.propTypes = {
     "accentColor",
     "infoColor"
   ]),
-  size: PropTypes.oneOf(["sm", "lg"]),
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
   simple: PropTypes.bool,
   round: PropTypes.bool,
   fullWidth: PropTypes.bool,

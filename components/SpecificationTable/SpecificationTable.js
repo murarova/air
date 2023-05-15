@@ -25,18 +25,19 @@ const StyledTableCell = withStyles(() => ({
 }))(TableCell);
 
 export default function SpecificationTable({ data }) {
-  function createTableContent(data) {
-    let rows = [];
-    forEach(data, function (value, key) {
-      rows.push(
-        <Fragment key={ key }>
+  function mapDataToTable(data) {
+    return data.inner ? data.inner : data
+  }
+  return (
+    <TableContainer>
+      <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <StyledTableCell colSpan={ 2 } key={ key } align="left">{ key === "inner" ? "Внутренний блок" : "Внешний блок" }</StyledTableCell>
+              <StyledTableCell colSpan={ 2 } align="left">Характеристики</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            { value.map(({ label, value }) => (
+            { mapDataToTable(data).map(({ label, value }) => (
               <TableRow key={ label }>
                 <StyledTableCell align="left">{ label }</StyledTableCell>
                 <StyledTableCell align="left">{ value }</StyledTableCell>
@@ -44,16 +45,6 @@ export default function SpecificationTable({ data }) {
             )
             ) }
           </TableBody>
-        </Fragment>
-      )
-    });
-    return rows
-  }
-
-  return (
-    <TableContainer>
-      <Table aria-label="simple table">
-        { createTableContent(data) }
       </Table>
     </TableContainer>
   );

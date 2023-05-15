@@ -22,7 +22,7 @@ const cardStyle = {
   },
   cardCarousel: {
     overflow: "hidden",
-  },
+  }
 };
 
 export default cardStyle;
