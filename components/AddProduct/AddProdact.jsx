@@ -3,9 +3,13 @@ import { Field, FieldArray, reduxForm } from 'redux-form'
 import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/Close';
 import DeleteIcon from '@material-ui/icons/Delete';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import IconButton from '@material-ui/core/IconButton';
 import ImageUploader from 'components/ImageUploader/ImageUploader';
 import Modal from '@material-ui/core/Modal'
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 import SaveIcon from '@material-ui/icons/Save';
 import createNotification from "components/Notify/Notify";
 import { makeStyles } from "@material-ui/core/styles";
@@ -47,6 +51,13 @@ const renderInput = ({ input, required, label, type, classes, meta: { touched, e
   </div>
 )
 
+const renderRadioGroup = ({ input, ...rest }) => (
+  <FormControl style={ { display: "flex" } }>
+    <RadioGroup { ...input } { ...rest } style={ { flexDirection: "row" } } 
+      onChange={ (event, value) => input.onChange(value) } />
+  </FormControl >
+)
+
 function AddProduct({ handleSubmit, reset, setImages, images, onClose, touch }) {
   const classes = useStyles();
   const validationErrors = useSelector(state => state.form?.addProduct?.syncErrors);
@@ -86,14 +97,14 @@ function AddProduct({ handleSubmit, reset, setImages, images, onClose, touch }) 
           <Field
             name={ `${ propertie }.label` }
             type="text"
-            classes={classes}
+            classes={ classes }
             component={ renderTextarea }
             label="Свойство"
           />
           <Field
             name={ `${ propertie }.value` }
             type="text"
-            classes={classes}
+            classes={ classes }
             component={ renderTextarea }
             label="Значение"
           />
@@ -115,6 +126,10 @@ function AddProduct({ handleSubmit, reset, setImages, images, onClose, touch }) 
         </div>
         <div className={ classes.wrapper }>
           <form onSubmit={ handleFormSubmit }>
+            <Field name="stock" component={ renderRadioGroup }>
+              <FormControlLabel className={ classes.label } value="1" control={ <Radio color="primary" /> } label="В наявності" />
+              <FormControlLabel className={ classes.label } value="0" control={ <Radio color="primary" /> } label="Немає в наявності" />
+            </Field>
             <label className={ classes.label } htmlFor="articleNumber">Артикл</label>
             <Field className={ classes.input } type="text" component="input" name='articleNumber' />
             <label className={ classes.label } htmlFor="brand">Бренд</label>

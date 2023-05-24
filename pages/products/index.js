@@ -1,34 +1,48 @@
 import { getProducts, getRate } from "../../services/services";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import BrandsList from "components/BrandsList/BrandsList";
-import Button from "components/CustomButtons/Button";
 import CloseIcon from '@material-ui/icons/Close';
 import Filter from "components/Filter/Filter";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Head from "next/head";
 import InfoBanner from "components/InfoBanner/InfoBanner";
+import PageChange from "components/PageChange/PageChange";
 import Product from "components/Product/Product";
 import {
   accentColor
 } from "styles/default-styles.js";
 import classNames from "classnames";
+import createNotification from "components/Notify/Notify";
+import { deleteProduct } from "services/services";
 import isEmpty from "lodash/isEmpty";
 import { makeStyles } from "@material-ui/core/styles";
+import queryString from 'query-string';
 import styles from "styles/pages/pages.js";
+import { updateProduct } from 'services/services';
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(styles);
 
 export default function ProductsPage({ products, rate }) {
   const classes = useStyles();
-  const [ filter, setFilter ] = useState({
-    price: null,
-    brand: null
-  })
+  const router = useRouter();
+  const query = router.query;
+  const parsed = queryString.parse(query.filter);
+
+  const [ isLoading, setIsLoading ] = useState(false);
+  const [ filter, setFilter ] = useState(parsed)
+
+  useEffect(() => {
+    const search = queryString.stringify(filter);
+    router.push({
+      query: { filter: search },
+    })
+  }, [ filter ])
 
   function handlePriceFilter(price) {
-    setFilter({ ...filter, price })
+    setFilter({ ...filter, price });
   }
 
   function handleBrandFilter(brand) {
@@ -48,6 +62,22 @@ export default function ProductsPage({ products, rate }) {
     return filteredProducts
   }
 
+  async function handleEditProduct(id, newProduct) {
+    setIsLoading(true)
+    await updateProduct(id, newProduct)
+    setIsLoading(false)
+    createNotification("success", "Товар змінено")
+    router.push(router.asPath, undefined, { unstable_skipClientCache: true })
+  }
+
+
+  async function handleDeleteProduct(id) {
+    setIsLoading(true)
+    await deleteProduct(id)
+    setIsLoading(false)
+    router.push(router.asPath, undefined, { unstable_skipClientCache: true })
+  }
+
   function handleBrandFilterDelete() {
     setFilter({
       ...filter,
@@ -55,7 +85,7 @@ export default function ProductsPage({ products, rate }) {
     })
   }
 
-  const filteredProducts = useMemo(() => getFilteredProducts(), [ filter ]);
+  const filteredProducts = useMemo(() => getFilteredProducts(), [ filter, products ]);
 
   return (
     <>
@@ -71,12 +101,12 @@ export default function ProductsPage({ products, rate }) {
                 <h2 className={ classes.catalogTitle }>Каталог</h2>
               </GridItem>
               <GridItem xs={ 12 } sm={ 6 } className={ classes.filter }>
-                <Filter handleFilter={ ({ value }) => handlePriceFilter(value) } />
+                <Filter value={filter.price} handleFilter={ ({ value }) => handlePriceFilter(value) } />
               </GridItem>
             </GridContainer>
             <GridContainer justifyContent="flex-end">
               <GridItem xs={ 12 } sm={ 6 }>
-                <InfoBanner titleColor={accentColor} />
+                <InfoBanner titleColor={ accentColor } />
               </GridItem>
             </GridContainer>
             <GridContainer className={ classes.brandFilter }>
@@ -88,7 +118,7 @@ export default function ProductsPage({ products, rate }) {
                     <span className={ classes.deleteFilter } onClick={ handleBrandFilterDelete }><CloseIcon className={ classes.deleteIcon } /></span>
                   </div>
                 </GridItem> }
-              <GridItem xs={ 12 }>
+              <GridItem>
                 <BrandsList onBrandClick={ handleBrandFilter } />
               </GridItem>
             </GridContainer>
@@ -100,13 +130,14 @@ export default function ProductsPage({ products, rate }) {
                 : <GridContainer spacing={ 4 }>
                   { filteredProducts.map((product) =>
                     <GridItem key={ product.id } xs={ 12 } sm={ 6 } md={ 6 } lg={ 4 }>
-                      <Product product={ product } rate={ rate } />
+                      <Product product={ product } rate={ rate } handleEditProduct={ handleEditProduct } handleDeleteProduct={ handleDeleteProduct } />
                     </GridItem>) }
                 </GridContainer> }
             </div>
           </div>
         </div>
       </div>
+      { isLoading && <PageChange /> }
     </>
   );
 }

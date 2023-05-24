@@ -1,4 +1,4 @@
-import { container, title, infoColor, accentColor } from "styles/default-styles.js";
+import { accentColor, container, infoColor, title } from "styles/default-styles.js";
 
 const landingPageStyle = {
   wrapper: {
@@ -59,8 +59,12 @@ const landingPageStyle = {
       color: "#FFFFFF",
       margin: "0",
       backgroundColor: "rgba(0, 0, 0, 0.2)",
-
     }
+  },
+  infoTitle: {
+    paddingLeft: "50px",
+    color: infoColor,
+    fontSize: "0.9rem",
   },
   subtitle: {
     margin: "0",
@@ -89,7 +93,10 @@ const landingPageStyle = {
   },
   btn: {
     marginRight: "1rem"
-  }
+  },
+  btnWrapper: {
+    marginTop: "1rem"
+  },
 };
 
 export default landingPageStyle;

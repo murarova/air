@@ -1,5 +1,6 @@
 import { getProduct, getProductsPaths, getRate } from '../../services/services';
 
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Button from "components/CustomButtons/Button.js";
 import Carousel from 'react-material-ui-carousel'
 import GridContainer from "components/Grid/GridContainer.js";
@@ -17,13 +18,14 @@ import isEmpty from "lodash/isEmpty";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/pages.js";
 import { useCart } from "context/shopping-cart";
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles(styles);
 
 export default function ProductPage({ product, rate }) {
   const classes = useStyles();
+  const router = useRouter()
   const { addToCart } = useCart();
-
 
   function handleAddToCart() {
     addToCart(product)
@@ -39,6 +41,11 @@ export default function ProductPage({ product, rate }) {
       <div className={ classes.wrapper }>
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
+            <GridContainer justifyContent="flex-start">
+              <GridItem>
+                <Button startIcon={<ArrowBackIcon />} style={{ height: "30px" }} color="infoColor" onClick={() => router.back()}>Назад</Button>
+              </GridItem>
+            </GridContainer>
             <GridContainer justifyContent="center">
               <GridItem xs={ 12 } md={ 5 }>
                 { isEmpty(product?.images)

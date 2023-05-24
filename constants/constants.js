@@ -11,5 +11,6 @@ export const INITIAL_PRODUCT = {
   "images": [],
   "price": "",
   "specification": [],
-  "title": ""
+  "title": "",
+  "stock": "1"
 }

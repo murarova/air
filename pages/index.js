@@ -5,6 +5,7 @@ import Dismantling from "main-page-sections/Dismantling.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Head from "next/head";
+import InfoBanner from "components/InfoBanner/InfoBanner.jsx";
 import Maintenance from "main-page-sections/Maintenance.js";
 import Mounting from "main-page-sections/Mounting.js";
 import Parallax from "components/Parallax/Parallax.js";
@@ -23,7 +24,7 @@ export default function MainPage({ products, rate }) {
   const classes = useStyles();
   const prices = products.map(({ price }) => Number(price)) ?? [];
   const minPrice = Math.min(...prices);
-  
+
   return (
     <>
       <Head>
@@ -39,15 +40,20 @@ export default function MainPage({ products, rate }) {
                 <div className={ classes.advertisingBlock }>
                   <ol className={ classes.list }>
                     <li className={ classes.listItem }>Продаж кондиціонерів - <strong className={ classes.accent }>від { convertPriceToUAH(minPrice, Number(rate)) } грн.</strong></li>
-                    <li className={ classes.listItem }>Монтаж - <strong className={ classes.accent }>3 500 грн.</strong></li>
                     <li className={ classes.listItem }>Технічне обслуговування - <strong className={ classes.accent }>700 грн.</strong></li>
-                    <li className={ classes.listItem }>Гарантія на монтаж - <strong className={ classes.accent }>1 рік.</strong></li>
+                  </ol>
+                  <h6 className={ classes.infoTitle }>При покупці кондиціонера:</h6>
+                  <ol className={ classes.list }>
+                    <li className={ classes.listItem }><strong className={ classes.accent }>Безкоштовна</strong> доставка доставка по м.Київ</li>
+                    <li className={ classes.listItem }>Стандартний монтаж - <strong className={ classes.accent }>1500 грн.</strong></li>
+                    <li className={ classes.listItem }>Навішування блоків на готову магістраль - <strong className={ classes.accent }>безкоштовно</strong></li>
                   </ol>
                 </div>
-                <br />
-                <div className={classes.btnWrapper}>
+              </GridItem>
+              <GridItem>
+                <div className={ classes.btnWrapper }>
                   <Button
-                    className={classes.btn}
+                    className={ classes.btn }
                     color="infoColor"
                     size="md"
                     href="./products"
@@ -69,7 +75,7 @@ export default function MainPage({ products, rate }) {
         <div className={ classNames(classes.main, classes.mainRaised) }>
           <div className={ classes.container }>
             <ServicesSection />
-            <Products products={products} rate={rate} />
+            <Products products={ products } rate={ rate } />
             <Mounting />
             <Maintenance />
             <TrailInstallation />
@@ -84,6 +90,6 @@ export default function MainPage({ products, rate }) {
 export async function getStaticProps() {
   const products = await getProducts();
   const rate = await getRate();
-  return { props: { products, rate }}
+  return { props: { products, rate } }
 }
 

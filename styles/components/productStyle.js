@@ -1,3 +1,8 @@
+import {
+  accentColor,
+  infoColor,
+} from "styles/default-styles.js";
+
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
@@ -16,7 +21,7 @@ export const useStyles = makeStyles({
     padding: 8
   },
   media: {
-    height: 200,
+    height: "200px",
     backgroundSize: "contain"
   },
   brandCard: {
@@ -25,7 +30,7 @@ export const useStyles = makeStyles({
     flexDirection: "column",
   },
   brandMedia: {
-    height: 100,
+    height: "100px",
     backgroundSize: "contain"
   },
   actions: {
@@ -42,5 +47,15 @@ export const useStyles = makeStyles({
     right: "10px",
     pointerEvents: "all",
     zIndex: 1
+  },
+  inStock: {
+    display: "block",
+    marginTop: "10px",
+    color: accentColor
+  },
+  outStock: {
+    display: "block",
+    marginTop: "10px",
+    color: infoColor
   }
 });

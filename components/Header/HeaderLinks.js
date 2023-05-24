@@ -99,10 +99,10 @@ export default function HeaderLinks({ handleDrawerToggle }) {
                 <span className={ classes.email } >murarovvitalij@gmail.com</span>
 
               </Link>,
-              <Link href="tel:380665388579" className={ classes.socialLink }>
+              <Link href="tel:380960501129" className={ classes.socialLink }>
 
                 <i className={ classes.socialIcons + " fab fa fa-phone-square" } aria-hidden="true" />
-                <span className={ classes.phone } >+380665388579</span>
+                <span className={ classes.phone } >+380960501129</span>
 
               </Link>,
             ] }

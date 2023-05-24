@@ -13,9 +13,9 @@ export default function BrandsList({ onBrandClick }) {
 
   return (
     <div className={ classes.brandList }>
-      <GridContainer spacing={2} justifyConten="space-evenly">
+      <GridContainer spacing={2} justifyContent="space-evenly">
         { brandsList.map((brand) =>
-          <GridItem key={ brand.title } sm={ 4 } md={2}>
+          <GridItem key={ brand.title } xs={ 6 } sm={ 4 } md={2}>
             <BrandCard brand={ brand } onBrandClick={ onBrandClick } />
           </GridItem>) }
       </GridContainer>

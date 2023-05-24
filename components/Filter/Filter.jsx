@@ -18,7 +18,8 @@ const DropdownIndicator = props => {
   );
 };
 
-export default function Filter({ handleFilter }) {
+export default function Filter({ handleFilter, value }) {
+  const defaultValue =  options.filter(option => option.value === value)
   return <Select components={ { DropdownIndicator } }
     styles={ {
       menu: (baseStyles) => ({
@@ -41,6 +42,7 @@ export default function Filter({ handleFilter }) {
         primary75: infoColor75
       },
     })}
+    defaultValue={defaultValue}
     onChange={handleFilter}
     placeholder="Відсортувати"
     options={ options } />
