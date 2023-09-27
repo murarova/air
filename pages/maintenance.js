@@ -33,10 +33,10 @@ export default function MaintenancePage() {
                 <li className={ classes.listItem }>Чищення корпусу, пластикових елементів кондиціонера.</li>
                 <li className={ classes.listItem }>Чищення біличого колеса.</li>
                 <li className={ classes.listItem }>Чищення фільтрів внутрішнього блоку.</li>
-                <li className={ classes.listItem }>Чищення наружного блоку парогенератором.</li>
+                <li className={ classes.listItem }>Миття зовнішнього блоку керхером.</li>
                 <li className={ classes.listItem }>Чищення дренажної ванни.</li>
                 <li className={ classes.listItem }>Антибактеріальна обробка випарника спеціальною хімією.</li>
-                <li className={ classes.listItem }>Чищення випарника за допомогою парогенератора.</li>
+                <li className={ classes.listItem }>Миття внутрішнього блоку керхером.</li>
                 <li className={ classes.listItem }>Складання кондиціонера.</li>
                 <li className={ classes.listItem }>Перевірка працездатності.</li>
               </ol>

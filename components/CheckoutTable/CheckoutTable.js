@@ -39,7 +39,7 @@ function CheckoutTable({ cartItems, rate }) {
         <TableHead>
           <TableRow>
             <StyledTableCell className={ classes.image } align="left">Фото</StyledTableCell>
-            <StyledTableCell align="left">Артикул</StyledTableCell>
+            <StyledTableCell className={ classes.hideOnMobile } align="left">Артикул</StyledTableCell>
             <StyledTableCell align="left">Найменування</StyledTableCell>
             <StyledTableCell align="left">Ціна</StyledTableCell>
             <StyledTableCell align="left">Кількість</StyledTableCell>
@@ -57,7 +57,7 @@ function CheckoutTable({ cartItems, rate }) {
                   </div>
                 }
               </StyledTableCell>
-              <StyledTableCell component="td" scope="row">
+              <StyledTableCell className={ classes.hideOnMobile } component="td" scope="row">
                 { articleNumber }
               </StyledTableCell>
               <StyledTableCell component="td" scope="row">

@@ -27,6 +27,11 @@ export default {
   inputLabel: {
     color: "inherit"
   },
+  hideOnMobile: {
+    "@media (max-width: 576px)": {
+      display: "none",
+    },
+  },
   asterisk: {
     position: "absolute",
     fontSize: ".7rem",

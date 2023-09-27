@@ -1,4 +1,4 @@
-import { dismantlingHeader, dismantlingRows, maintenanceHeader, maintenanceRows, mountingHeader, mountingRows, mountingRowsWithoutTrails, trailHeader, trailHeaderAdditionalMaterial, trailHeaderAdditionalWorks, trailRows, trailRowsAdditionalMaterial, trailRowsAdditionalWorks } from "assets/tables-data.js";
+import { dismantlingHeader, dismantlingRows, maintenanceHeader, maintenanceRows, mountingHeader, mountingRows, mountingRowsWithoutTrails, repairHeader, repairRows, trailHeader, trailHeaderAdditionalMaterial, trailHeaderAdditionalWorks, trailRows, trailRowsAdditionalMaterial, trailRowsAdditionalWorks } from "assets/tables-data.js";
 
 import Head from "next/head";
 import React from "react";
@@ -31,10 +31,12 @@ export default function PricesPage() {
             <div className={ classes.tableContainer }>
               <h4 className={ classes.sectionTitle }>Стандартний монтаж кондиціонерів</h4>
               <Table className={ classes.table } rows={ mountingRows[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
-              <h4 className={ classes.sectionTitle }>Навіска блоків (якщо фреономагістраль вже закладена на етапі ремонту)</h4>
+              <h4 className={ classes.sectionTitle }>Монтаж блоків (якщо фреономагістраль вже закладена на етапі ремонту)</h4>
               <Table className={ classes.table } rows={ mountingRowsWithoutTrails[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
               <h4 className={ classes.sectionTitle }>ТО кондиціонерів</h4>
               <Table className={ classes.table } rows={ maintenanceRows } header={ maintenanceHeader } />
+              <h4 className={ classes.sectionTitle }>Ремонт кондиціонерів</h4>
+              <Table className={ classes.table } rows={ repairRows } header={ repairHeader } />
               <h4 className={ classes.sectionTitle }>Закладка трас завдовжки до 3 м.п.</h4>
               <Table className={ classes.table } rows={ trailRows } header={ trailHeader } />
               <h4 className={ classes.sectionTitle }>Додаткові роботи, вартість за 1 м.п.</h4>

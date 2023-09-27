@@ -14,7 +14,7 @@ export default function Dismantling() {
     <Section
       title="Демонтаж кондиціонерів."
       image="/img/dismantling.jpeg"
-      position="left"
+      position="right"
       id="dismantling"
       link="/dismantling"
     >

@@ -57,5 +57,9 @@ export const useStyles = makeStyles({
     display: "block",
     marginTop: "10px",
     color: infoColor
+  },
+  noPrice: {
+    color: infoColor,
+    fontWeight: 400
   }
 });

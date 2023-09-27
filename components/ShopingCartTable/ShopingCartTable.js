@@ -39,7 +39,7 @@ function ShopingCartTable({ cartItems, rate, removeFromCart, addToCart }) {
         <TableHead>
           <TableRow>
             <StyledTableCell className={ classes.image } align="left">Фото</StyledTableCell>
-            <StyledTableCell align="left">Артикул</StyledTableCell>
+            <StyledTableCell className={ classes.hideOnMobile } align="left">Артикул</StyledTableCell>
             <StyledTableCell align="left">Товар</StyledTableCell>
             <StyledTableCell align="left">Ціна</StyledTableCell>
             <StyledTableCell align="left">Кількість</StyledTableCell>
@@ -59,7 +59,7 @@ function ShopingCartTable({ cartItems, rate, removeFromCart, addToCart }) {
                   }
                 </div>
               </StyledTableCell>
-              <StyledTableCell  component="td" scope="row">{item.articleNumber}</StyledTableCell>
+              <StyledTableCell className={ classes.hideOnMobile } component="td" scope="row">{item.articleNumber}</StyledTableCell>
               <StyledTableCell component="td" scope="row">
                 <Typography className={ classes.product } variant="body2">Кондиціонер { item.brand } { item.title }</Typography>
               </StyledTableCell>

@@ -21,6 +21,7 @@ import {
   ReactReduxFirebaseProvider,
 } from 'react-redux-firebase'
 import Script from 'next/script'
+import telegramImg from "assets/telegram.svg";
 import { useRouter } from 'next/router'
 import viberImg from "assets/viber.svg";
 
@@ -103,7 +104,7 @@ export default function MyApp({ Component, pageProps }) {
                   : <Component { ...pageProps } />
                 }
                 <Footer />
-                <ContactMe viberImg={ viberImg } />
+                <ContactMe viberImg={ viberImg } telegramImg={telegramImg} />
                 <NotificationContainer />
               </div>
             </CartProvider>

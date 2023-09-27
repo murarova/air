@@ -91,9 +91,12 @@ export default function Product({ product, rate, handleEditProduct, handleDelete
           </CardContent>
         </CardActionArea>
         <CardActions className={ classes.actions }>
-          <Typography>
-            Ціна: { convertPriceToUAH(price, Number(rate)) } грн.
-          </Typography>
+          { Number(price) ?
+            <Typography>
+              Ціна: { convertPriceToUAH(Number(price), Number(rate)) } грн.
+            </Typography>
+            : <span className={ classes.noPrice }>Вартість уточнюйте</span>
+          }
           <Button className={ classes.buy } onClick={ handleAddToCart }>
             Купити
           </Button>

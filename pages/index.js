@@ -17,6 +17,7 @@ import classNames from "classnames";
 import { convertPriceToUAH } from "utils/utils.js";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/mainPage.js";
+import Repair from "main-page-sections/Repair";
 
 const useStyles = makeStyles(styles);
 
@@ -40,13 +41,13 @@ export default function MainPage({ products, rate }) {
                 <div className={ classes.advertisingBlock }>
                   <ol className={ classes.list }>
                     <li className={ classes.listItem }>Продаж кондиціонерів - <strong className={ classes.accent }>від { convertPriceToUAH(minPrice, Number(rate)) } грн.</strong></li>
-                    <li className={ classes.listItem }>Технічне обслуговування - <strong className={ classes.accent }>700 грн.</strong></li>
+                    <li className={ classes.listItem }>Технічне обслуговування - <strong className={ classes.accent }>800 грн.</strong></li>
                   </ol>
                   <h6 className={ classes.infoTitle }>При покупці кондиціонера:</h6>
                   <ol className={ classes.list }>
                     <li className={ classes.listItem }><strong className={ classes.accent }>Безкоштовна</strong> доставка доставка по м.Київ</li>
-                    <li className={ classes.listItem }>Стандартний монтаж - <strong className={ classes.accent }>1500 грн.</strong></li>
-                    <li className={ classes.listItem }>Навішування блоків на готову магістраль - <strong className={ classes.accent }>безкоштовно</strong></li>
+                    <li className={ classes.listItem }>Стандартний монтаж - <strong className={ classes.accent }>500 грн.</strong></li>
+                    <li className={ classes.listItem }>Монтаж блоків на готову магістраль - <strong className={ classes.accent }>безкоштовно</strong></li>
                   </ol>
                 </div>
               </GridItem>
@@ -78,6 +79,7 @@ export default function MainPage({ products, rate }) {
             <Products products={ products } rate={ rate } />
             <Mounting />
             <Maintenance />
+            <Repair />
             <TrailInstallation />
             <Dismantling />
           </div>

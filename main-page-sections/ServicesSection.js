@@ -34,7 +34,6 @@ export default function ServicesSection() {
           <GridItem xs={ 12 } sm={ 4 } md={ 4 } lg={ 4 }>
             <Card className={ classes.card }>
               <Link href="/products" className={ classes.serviceLink }>
-
                 <InfoArea
                   title="Продаж кондиціонерів"
                   description=""

@@ -63,6 +63,19 @@ const landingPageStyle = {
       color: infoColor
     }
   },
+  repairListItem: {
+    listStyle: "none",
+    paddingLeft: "50px",
+    position: "relative",
+    "&:before": {
+      content: '"\\276F"',
+      position: "absolute",
+      left: "1em",
+      color: infoColor
+    },
+    paddingTop: "10px",
+    paddingBottom: "10px"
+  },
   trailTitle: {
     fontWeight: "bold"
   },
@@ -304,7 +317,10 @@ const landingPageStyle = {
   },
   bannerContainer: {
     margin: "20px 0"
-  }
+  },
+  repairContainer: {
+    margin: "20px 0"
+  },
 };
 
 export default landingPageStyle;

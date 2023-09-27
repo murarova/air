@@ -29,6 +29,11 @@ const cartStyle = {
       display: "none",
     },
   },
+  hideOnMobile: {
+    "@media (max-width: 576px)": {
+      display: "none",
+    },
+  },
   imageContainer: {
     display: "flex",
     alignItems: "center",

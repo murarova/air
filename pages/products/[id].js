@@ -43,7 +43,7 @@ export default function ProductPage({ product, rate }) {
           <div className={ classes.container }>
             <GridContainer justifyContent="flex-start">
               <GridItem>
-                <Button startIcon={<ArrowBackIcon />} style={{ height: "30px" }} color="infoColor" onClick={() => router.back()}>Назад</Button>
+                <Button startIcon={ <ArrowBackIcon /> } style={ { height: "30px" } } color="infoColor" onClick={ () => router.back() }>Назад</Button>
               </GridItem>
             </GridContainer>
             <GridContainer justifyContent="center">
@@ -77,9 +77,16 @@ export default function ProductPage({ product, rate }) {
                   <InfoBanner />
                 </div>
                 <div className={ classes.actions }>
-                  <Typography style={ { color: "#ef7215" } } variant="h6">
-                    Ціна: { convertPriceToUAH(product.price, Number(rate)) } грн
-                  </Typography>
+                  { Number(product.price) ?
+                    <Typography style={ { color: "#ef7215" } } variant="h6">
+                      Ціна: { convertPriceToUAH(product.price, Number(rate)) } грн
+                    </Typography>
+                    :
+                    <Typography style={ { color: "#138086", fontWeight: 400 } }>
+                      Вартість уточнюйте
+                    </Typography>
+                  }
+
                   <Button color="accentColor" onClick={ handleAddToCart }>
                     Купити
                   </Button>

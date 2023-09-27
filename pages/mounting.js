@@ -12,11 +12,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "styles/pages/pages.js";
 import { useWindowSize } from "hooks/use-window-size.js";
 
-// @material-ui/icons
-
-
-
-
 const useStyles = makeStyles(styles);
 
 export default function MountingPage() {
@@ -57,7 +52,7 @@ export default function MountingPage() {
             <div className={ classes.tableContainer }>
               <h4 className={ classes.sectionTitle }>Монтаж кондиціонерів.</h4>
               <Table className={ classes.table } rows={ mountingRows[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
-              <h4 className={ classes.sectionTitle }>Навіска блоків (якщо фреономагістраль вже закладена на етапі ремонту)</h4>
+              <h4 className={ classes.sectionTitle }>Монтаж блоків (якщо фреономагістраль вже закладена на етапі ремонту)</h4>
               <Table className={ classes.table } rows={ mountingRowsWithoutTrails[ windowWidth ] } header={ mountingHeader[ windowWidth ] } />
             </div>
           </div>
