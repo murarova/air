@@ -9,6 +9,7 @@ import CallToActionIcon from '@material-ui/icons/CallToAction';
 import BuildIcon from '@material-ui/icons/Build';
 import PermDataSettingIcon from '@material-ui/icons/PermDataSetting';
 import GavelIcon from '@material-ui/icons/Gavel';
+import BeenhereIcon from '@material-ui/icons/Beenhere';
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -31,7 +32,7 @@ export default function ServicesSection() {
       </GridContainer>
       <div className={ classes.sectionContent }>
         <GridContainer spacing={ 4 }>
-          <GridItem xs={ 12 } sm={ 4 } md={ 4 } lg={ 4 }>
+          <GridItem xs={ 6 } sm={ 4 } md={ 4 } lg={ 4 }>
             <Card className={ classes.card }>
               <Link href="/products" className={ classes.serviceLink }>
                 <InfoArea
@@ -74,7 +75,22 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 6 }>
+          <GridItem xs={ 6 } sm={ 4 } md={ 4 } lg={ 4 }>
+            <Card className={ classes.card }>
+              <Link href="/repair" className={ classes.serviceLink }>
+
+                <InfoArea
+                  title="Ремонт кондиціонерів"
+                  description=""
+                  icon={ BeenhereIcon }
+                  iconColor="info"
+                  vertical
+                />
+
+              </Link>
+            </Card>
+          </GridItem>
+          <GridItem xs={ 6 } sm={ 4 } md={ 4 } lg={ 4 }>
             <Card className={ classes.card }>
               <Link href="/dismantling" className={ classes.serviceLink }>
 
@@ -89,7 +105,7 @@ export default function ServicesSection() {
               </Link>
             </Card>
           </GridItem>
-          <GridItem xs={ 6 } sm={ 6 } md={ 6 } lg={ 6 }>
+          <GridItem xs={ 6 } sm={ 4 } md={ 4 } lg={ 4 }>
             <Card className={ classes.card }>
               <Link href="/trail" className={ classes.serviceLink }>
 
